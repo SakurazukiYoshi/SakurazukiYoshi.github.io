@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言记录了个人在深度项目组中踩过的坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目踩的坑">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/项目踩的坑/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言记录了个人在深度项目组中踩过的坑">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-05T08:26:45.854Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目踩的坑">
+<meta name="twitter:description" content="前言记录了个人在深度项目组中踩过的坑">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/02/项目踩的坑/"/>
+
+
+
+
+
+  <title>项目踩的坑 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/项目踩的坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">项目踩的坑</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T09:05:33+08:00">
+                2017-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记录了个人在深度项目组中踩过的坑</p>
+<a id="more"></a><!--more-->
+<h1 id="这是小程序中遇到的新坑和一些经验"><a href="#这是小程序中遇到的新坑和一些经验" class="headerlink" title="这是小程序中遇到的新坑和一些经验"></a>这是小程序中遇到的新坑和一些经验</h1><h2 id="区分页面是从其他页面返回，还是从后台来的"><a href="#区分页面是从其他页面返回，还是从后台来的" class="headerlink" title="区分页面是从其他页面返回，还是从后台来的"></a>区分页面是从其他页面返回，还是从后台来的</h2><p> <code>onShow</code>这个东西有用但是还有有些缺点。无论是从其他页面返回还是把程序丢到后台都会触发。</p>
+<p>  区分是定义全局变量上面利用<code>onHide</code>让变量变成true，再从判断变量来区分是从后台来的还是从其他页面来的，其他页面的onUnload改变变量为false</p>
+<pre><code>onHide(){
+    app.globalData.bookBackground=true;
+},
+
+onShow(ops){
+    if(hide){
+        app.globalData.bookBackground=false;
+        return false;
+    }
+},
+
+
+onUnload(e){
+    app.globalData.bookBackground=false;
+}
+</code></pre><h2 id="setData的使用优化"><a href="#setData的使用优化" class="headerlink" title="setData的使用优化"></a>setData的使用优化</h2><ul>
+<li>这个玩儿用多了会对页面产生影响，所以对于显示没有太大变化的变量。不推荐使用。</li>
+</ul>
+<p>比如：判断用户是否为第一次开启软件的状态码就没必要写在this.data里</p>
+<ul>
+<li><p>对于页面加载进入加载的请求，最好还是从利用<code>Promise.all</code>一次性搞定比较好。一个一个来的还是不是很好的选择。</p>
+<pre><code>let getBanners=http.getBanners();
+let getFloors=http.getFloors();
+let getTabs=http.getTabs();
+let apiArr=[getBanners,getFloors,getTabs];
+//合并请求
+const all = await Promise.all(apiArr).catch(ex=&gt; {console.log(ex)});
+</code></pre></li>
+</ul>
+<h2 id="api的问题"><a href="#api的问题" class="headerlink" title="api的问题"></a>api的问题</h2><ul>
+<li>从写代码的角度来看利用<code>async/await</code>是最好的，从个人使用角度来看还是这个用着最顺手</li>
+</ul>
+<pre><code>[https://juejin.im/post/5c14b253e51d452f8e603896](https://juejin.im/post/5c14b253e51d452f8e603896)
+</code></pre><p> 虽然小程序不支持，可以引入facebook的开源库regenerator 下载’packages/regenerator-runtime’这个路径下的runtime.js，放到自己小程序项目下的utils或者lib文件夹下。</p>
+<p>需要使用的地方引入即可</p>
+<p><a href="https://github.com/facebook/regenerator" target="_blank" rel="noopener">https://github.com/facebook/regenerator</a></p>
+<p>同步使用：</p>
+<pre><code>console.log(&quot;开始请求&quot;);
+const orderSetData = await Api.systemSetting.GetGroupSettings();//Api对象里放的是请求接口的方法Promise(await后只能跟Promise)
+console.log(&quot;请求第一个接口&quot;);
+const forumSetData = await Api.systemSetting.GetGroupPackages({packageType: 1});//{packageType: 1}是传入的参数
+console.log(&quot;请求第二个接口&quot;);
+return {orderSetData: orderSetData,forumSetData: forumSetData}
+</code></pre><p>合并使用：</p>
+<pre><code>const all = await Promise.all([
+    Api.systemSetting.GetGroupSettings(),
+    Api.systemSetting.GetGroupPackages({packageType: 1})
+]).catch(ex=&gt; {console.log(ex)});
+console.log(all);
+</code></pre><ul>
+<li><p>api的整理需要提出来的部分</p>
+<pre><code>1.ajax的封装
+2.config 常量的文件存放，比如url什么的
+3.接口的封装   不同页面可能会调用相同的接口
+/**
+* @desc 备注是做什么的接口
+*/    
+4.参数处理的公共方法
+5.对于statusCode的处理方法
+</code></pre></li>
+</ul>
+<h2 id="page的拦截器"><a href="#page的拦截器" class="headerlink" title="page的拦截器"></a>page的拦截器</h2><p>   后期可能会进行数据埋点，进行数据加工。所以一开始对page进行拦截，后期方便可以进行公共的处理。同时不用影响页面的逻辑</p>
+<h2 id="滚动加载和下拉刷新加载的冲突，拖动和滑动退出的冲突"><a href="#滚动加载和下拉刷新加载的冲突，拖动和滑动退出的冲突" class="headerlink" title="滚动加载和下拉刷新加载的冲突，拖动和滑动退出的冲突"></a>滚动加载和下拉刷新加载的冲突，拖动和滑动退出的冲突</h2><h1 id="盛游后台，自己开发的后台的坑"><a href="#盛游后台，自己开发的后台的坑" class="headerlink" title="盛游后台，自己开发的后台的坑"></a>盛游后台，自己开发的后台的坑</h1><h2 id="多选框组如何区分单个和组，同时全选如何控制，现在全选会引起死循环"><a href="#多选框组如何区分单个和组，同时全选如何控制，现在全选会引起死循环" class="headerlink" title="多选框组如何区分单个和组，同时全选如何控制，现在全选会引起死循环"></a>多选框组如何区分单个和组，同时全选如何控制，现在全选会引起死循环</h2><p>在切换的时候尽量避免使用watch来代替，事件。否则会在赋予初始值的时候，分不清楚是数据绑定还是，事件触发然后进入无限的死循环。</p>
+<h1 id="vue-部分"><a href="#vue-部分" class="headerlink" title="vue 部分"></a>vue 部分</h1><h2 id="render的用法"><a href="#render的用法" class="headerlink" title="render的用法"></a>render的用法</h2><pre><code>  render(h) {
+    if(typeof this.$parent.total === &apos;number&apos;){
+        return h(
+            &apos;span&apos;,
+            {
+                &apos;class&apos;:&apos;el-pagination__total&apos;
+            },
+            [
+                &apos;共&apos;,
+                h(&apos;span&apos;, {
+                    &apos;class&apos;:&apos;el-total-count&apos;
+                },this.$parent.total),
+                &apos;条&apos;,
+            ]
+        );
+    }else{
+        return &apos;&apos;;
+  }
+
+
+
+h（标签名，属性对象，文本内容/【子元素，子元素】）
+</code></pre><h2 id="兼容性的问题"><a href="#兼容性的问题" class="headerlink" title="兼容性的问题"></a>兼容性的问题</h2><p>无论是iview还是element在按需加载以后都存在着兼容性的问题。ie11都不兼容很尴尬。</p>
+<p>经过研究，这里存在连个坑需要注意：</p>
+<p>1.vue-cli的server从以前的express换成了webpack-dev-server<br>dev模式下兼容性低 只有build后可以兼容到ie9。<br>所以说dev模式下的IE模式基本都都GG。</p>
+<p>2.view按需加载以后，webpack打包的时候并没有把对应的包加载进去导致了按需引入的部分用的ES6语法没有转换，这个时候自然IE就GG了。</p>
+<p>这里需要的是在</p>
+<p>1.</p>
+<pre><code>vue.config.js中把没有转的包加入转换
+
+transpileDependencies: [&quot;element-ui&quot;],       // 需要编译的依赖包名
+</code></pre><ol start="2">
+<li><p>babel.config.js中开启useBuiltIns，</p>
+<pre><code>presets: [
+    [&apos;@vue/app&apos;, {
+        useBuiltIns: &apos;entry&apos;
+    }]
+],
+</code></pre></li>
+<li><p>main.js中引入</p>
+</li>
+</ol>
+<pre><code>import &apos;@babel/polyfill&apos;
+</code></pre><p>即可</p>
+<p>这里需要弄清楚的原理：</p>
+<p>1.browserslist中的ES6转换仅仅只对于但该特性仅对源码(src/)有效，对依赖包无效。</p>
+<p>2.如果确切知道有兼容性问题的依赖包名，可以配置项目根目录下的vue.config.js（默认不存在），将依赖包名添加到transpileDependencies键中</p>
+<pre><code>module.exports = {
+    transpileDependencies: [&quot;vue-plugin-load-script&quot;]       // 需要编译的依赖包名
+}
+</code></pre><p>3.如果确切的知道需要转译的语言特性，可以配置根目录下的babel.config.js，为presets的值添加所需要的 polyfill，例如：</p>
+<pre><code>module.exports = {
+  presets: [
+    [&apos;@vue/app&apos;, {
+      polyfills: [
+        &apos;es6.symbol&apos;
+      ]
+    }]
+  ]
+}
+</code></pre><p>4.然而更多的情况是，我们并不确切的知道项目中引发兼容问题的具体原因，这时还可以配置为根据兼容目标导入所有 polyfill，需要设置babel.config.js为：</p>
+<pre><code>module.exports = {
+  presets: [
+    [&apos;@vue/app&apos;, {
+        useBuiltIns: &apos;entry&apos;
+    }]
+  ]
+}
+</code></pre><p>5.同时在入口文件（main.js）第一行添加</p>
+<pre><code>import &apos;@babel/polyfill&apos;
+</code></pre><h2 id="根据环境打包的问题"><a href="#根据环境打包的问题" class="headerlink" title="根据环境打包的问题"></a>根据环境打包的问题</h2><p>因为和后台不是放在同一个文件里面，所以请求的地址不能使用相对路径。绝对路径这边测试环境和正式环境这边的配置又不一样。万一不小心正式环境上面丢上了测试环境的代码。这样就很悲伤了。</p>
+<p>所以最好的办法就是区分正式环境和测试环境的打包：</p>
+<p>1.package.json</p>
+<pre><code>&quot;test&quot;: &quot;vue-cli-service build --mode testing   --dest testing  --target app --dashboard&quot;
+</code></pre><p>2.根目录创建文件：<code>.env.testing</code> 内容</p>
+<pre><code>NODE_ENV=production
+VUE_APP_TYPE=&apos;test&apos;
+</code></pre><p>3.在api的baseurl这里：</p>
+<pre><code>if(env.VUE_APP_TYPE===&apos;test&apos;){
+    url = &apos;http://148.70.40.246:8080&apos;;
+//正式环境
+}else if(process.env.NODE_ENV === &apos;production&apos;){
+    url = &apos;https://admin-api.snyou.com.cn&apos;;
+//本地
+}else {
+    url = &apos;/server&apos;;
+}
+</code></pre><p>根据这里的环境配置请求接口的url</p>
+<p>详细的参数配置就可取去vue-cli3.0的api配置查看配置的内容</p>
+<h2 id="打包出来文件太大的处理"><a href="#打包出来文件太大的处理" class="headerlink" title="打包出来文件太大的处理"></a>打包出来文件太大的处理</h2><p>1.最开始的时候，iview和element的按需加载没有成功，看似是按需加载结果却把整个包就引入进来了。</p>
+<p>2.使用了部分特别大的js，比如说echart和loash，moment这三个东西更是大块头。echart这块应该用cdn的模式加载，loash直接干掉。moment直接用dayjs代替。</p>
+<h2 id="vue-router的使用"><a href="#vue-router的使用" class="headerlink" title="vue router的使用"></a>vue router的使用</h2><p>在组件内部存在三个钩子函数，可用于函数的判断是否返回和加载进入前的事件处理</p>
+<pre><code>beforeRouteLeave (to, from , next) {
+  const answer = window.confirm(&apos;Do you really want to leave? you have unsaved changes!&apos;)
+  if (answer) {
+    next()
+  } else {
+    next(false)
+  }
+}
+</code></pre><h2 id="公共的tablejs问题"><a href="#公共的tablejs问题" class="headerlink" title="公共的tablejs问题"></a>公共的tablejs问题</h2><p>1.因为后台有时候可能会偷懒，同时有些修改页面可能是弹窗。所以可能会又没有详情接口。所以平常走的流程可能就会没有用</p>
+<p>2.分页部分，有些删除后想要保留当前的页面所以不能一起全部都返回第一页,需要通过当前总个数-1/10是否为整数来判断，同时对于非page的对象应该好还原为1，这里就要判断操作的对象是否为page对象。所以这里的filterObj需要区分变化的参数是page还是非page。现在是通过把其转化为string对象来判断的</p>
+<p>3.部分页面的操作部分在子页面中，比如tabs的部分。应该将自己的数据通过<code>provide</code>和<code>inject</code>来操作这样就不用区分是子页面还是父页面了</p>
+<pre><code>inject: {
+  foo: { default: &apos;foo&apos; }
+}
+</code></pre><p>可以避免没有inject的部分。对于tabs的内容应该写一个新的方法来处理。</p>
+<p>4.对于tabs的筛选条件，应该用一个数组来存放所有的fitter对象。否者不切回来的同时对于fitter的条件太难还原</p>
+<p>5.若是想返回的时候还原过去的data，应该在<code>data（）{}</code>中处理，</p>
+<p>6.新增的取消处理应该是<br>1.还原form的验证<br>2.清空form的数据<br>3.关闭弹窗的visivle</p>
+<h2 id="循环中断"><a href="#循环中断" class="headerlink" title="循环中断"></a>循环中断</h2><p>foreach，map，for in 都无效；<br>for of，for，都可以推荐使用every   </p>
+<pre><code>forEach()，用于遍历数组，无返回值
+map()，用于遍历数组，返回处理之后的新数组
+every()，用于判断数组中的每一项元素是否都满足条件，返回一个布尔值
+some()，用于判断数组中的是否存在满足条件的元素，返回一个布尔值
+filter()，用于筛选数组中满足条件的元素，返回一个筛选后的新数组
+</code></pre><h2 id="element和iview中的组件单独提出时，commonjs语法报错的问题"><a href="#element和iview中的组件单独提出时，commonjs语法报错的问题" class="headerlink" title="element和iview中的组件单独提出时，commonjs语法报错的问题"></a>element和iview中的组件单独提出时，commonjs语法报错的问题</h2><p>新的 vue-cli 默认禁止了 commonjs 语法</p>
+<p>可以添加 babel 插件解决</p>
+<pre><code>yarn add @babel/plugin-transform-modules-commonjs -D
+</code></pre><h2 id="优化写法"><a href="#优化写法" class="headerlink" title="优化写法"></a>优化写法</h2><pre><code>if(model === &apos;renault&apos; || model === &apos;peugeot&apos;) { 
+    console.log(&apos;model valid&apos;);
+}
+
+
+const models = [&apos;peugeot&apos;, &apos;renault&apos;];
+if(models.includes(model)) { 
+    console.log(&apos;model valid&apos;);
+}
+
+
+
+
+
+const getCarsByState = (state) =&gt; {
+  switch (state) {
+    case &apos;usa&apos;:
+      return [&apos;Ford&apos;, &apos;Dodge&apos;];
+    case &apos;france&apos;:
+      return [&apos;Renault&apos;, &apos;Peugeot&apos;];
+    case &apos;italy&apos;:
+      return [&apos;Fiat&apos;];
+    default:
+      return [];
+  }
+}
+
+
+const flag = new Map([
+    [
+        &apos;daterange&apos;, () =&gt; {
+            this.options = assignDeep(true, {}, deepCopy(pickerOptions), this.pickerOptions);
+        }
+    ],
+    [
+        &apos;date&apos;, () =&gt; {
+            let pickerOption = deepCopy(pickerOptions);
+            delete pickerOption.shortcuts;
+            this.options = assignDeep(true, {}, pickerOption, this.pickerOptions);
+            console.log(this.options);
+        }
+    ],
+]);
+flag.get(this.type)();
+</code></pre><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><pre><code>rd  node_modules /s/q
+</code></pre><h2 id="swtich大于小于"><a href="#swtich大于小于" class="headerlink" title="swtich大于小于"></a>swtich大于小于</h2><pre><code>switch (true) {
+  case (0 &lt;= val &amp;&amp;  val &lt; 1000): /* do something */ break;
+  case (1000 &lt;= val &amp;&amp;  val &lt; 2000): /* do something */ break;
+  ...
+  case (29000 &lt;= val &amp;&amp;  val &lt; 30000): /* do something */ break;
+}
+</code></pre><h2 id="动态正则"><a href="#动态正则" class="headerlink" title="动态正则"></a>动态正则</h2><pre><code>var arr=a.match(/b\(\&apos;0x[A-Za-z0-9]+\&apos;\)/g);
+//console.log(arr);
+arr.forEach(item=&gt;{
+    let b=item.slice(3,-2);
+    let str=parseInt(b, 16);
+    let reg=RegExp(&quot;b\\(\\&apos;&quot;+b+&quot;\\&apos;\\)&quot;,&apos;g&apos;);
+    //a.replace(reg,str);//去掉空格
+})
+</code></pre><p>如果你的模式中有一个反斜杠来转义一个特殊的正则表达式字符，（比如(），你必须在字符串中使用两个反斜杠（因为\是一个字符串中的转义字符）：new RegExp(‘\(‘)将与之相同/(/。</p>
+<h2 id="js解码"><a href="#js解码" class="headerlink" title="js解码"></a>js解码</h2><p>取到数组，将函数字符串话，然后利用下面的方法替换</p>
+<pre><code>let ell=[];
+var a=function () {}.toString()
+var arr=a.match(/b\(\&apos;0x[A-Za-z0-9]+\&apos;\)/g);
+arr.forEach(item=&gt;{
+    let b=item.slice(3,-2);
+    let str=parseInt(b, 16);
+    let reg=RegExp(&quot;b\\(\\&apos;&quot;+b+&quot;\\&apos;\\)&quot;,&apos;g&apos;);
+    a=a.replace(reg,`&quot;${ell[str]}&quot;`);//去掉空格
+});
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/02/vue基础/" rel="next" title="vue基础">
+                <i class="fa fa-chevron-left"></i> vue基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/02/thinkphp的一些标签/" rel="prev" title="thinkphp的一些标签">
+                thinkphp的一些标签 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#这是小程序中遇到的新坑和一些经验"><span class="nav-number">2.</span> <span class="nav-text">这是小程序中遇到的新坑和一些经验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#区分页面是从其他页面返回，还是从后台来的"><span class="nav-number">2.1.</span> <span class="nav-text">区分页面是从其他页面返回，还是从后台来的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setData的使用优化"><span class="nav-number">2.2.</span> <span class="nav-text">setData的使用优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api的问题"><span class="nav-number">2.3.</span> <span class="nav-text">api的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#page的拦截器"><span class="nav-number">2.4.</span> <span class="nav-text">page的拦截器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滚动加载和下拉刷新加载的冲突，拖动和滑动退出的冲突"><span class="nav-number">2.5.</span> <span class="nav-text">滚动加载和下拉刷新加载的冲突，拖动和滑动退出的冲突</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#盛游后台，自己开发的后台的坑"><span class="nav-number">3.</span> <span class="nav-text">盛游后台，自己开发的后台的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多选框组如何区分单个和组，同时全选如何控制，现在全选会引起死循环"><span class="nav-number">3.1.</span> <span class="nav-text">多选框组如何区分单个和组，同时全选如何控制，现在全选会引起死循环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-部分"><span class="nav-number">4.</span> <span class="nav-text">vue 部分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#render的用法"><span class="nav-number">4.1.</span> <span class="nav-text">render的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容性的问题"><span class="nav-number">4.2.</span> <span class="nav-text">兼容性的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据环境打包的问题"><span class="nav-number">4.3.</span> <span class="nav-text">根据环境打包的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包出来文件太大的处理"><span class="nav-number">4.4.</span> <span class="nav-text">打包出来文件太大的处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-router的使用"><span class="nav-number">4.5.</span> <span class="nav-text">vue router的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公共的tablejs问题"><span class="nav-number">4.6.</span> <span class="nav-text">公共的tablejs问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环中断"><span class="nav-number">4.7.</span> <span class="nav-text">循环中断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#element和iview中的组件单独提出时，commonjs语法报错的问题"><span class="nav-number">4.8.</span> <span class="nav-text">element和iview中的组件单独提出时，commonjs语法报错的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化写法"><span class="nav-number">4.9.</span> <span class="nav-text">优化写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">4.10.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swtich大于小于"><span class="nav-number">4.11.</span> <span class="nav-text">swtich大于小于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态正则"><span class="nav-number">4.12.</span> <span class="nav-text">动态正则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js解码"><span class="nav-number">4.13.</span> <span class="nav-text">js解码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

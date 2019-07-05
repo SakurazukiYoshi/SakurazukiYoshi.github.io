@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言  先前面试的时候，技术经理问我知道什么是代码的模块化？然后列举了一些的框架，遗憾的是我一个都没有听说过，顿时气氛非常尴尬。不过听说在公司里对这种技术的使用比较多，因此特意回家好好学习一番。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码的模块化">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/代码的模块化/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言  先前面试的时候，技术经理问我知道什么是代码的模块化？然后列举了一些的框架，遗憾的是我一个都没有听说过，顿时气氛非常尴尬。不过听说在公司里对这种技术的使用比较多，因此特意回家好好学习一番。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://i.imgur.com/lpfKuRY.png">
+<meta property="og:updated_time" content="2019-07-05T07:31:10.237Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代码的模块化">
+<meta name="twitter:description" content="前言  先前面试的时候，技术经理问我知道什么是代码的模块化？然后列举了一些的框架，遗憾的是我一个都没有听说过，顿时气氛非常尴尬。不过听说在公司里对这种技术的使用比较多，因此特意回家好好学习一番。">
+<meta name="twitter:image" content="http://i.imgur.com/lpfKuRY.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/21/代码的模块化/"/>
+
+
+
+
+
+  <title>代码的模块化 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/代码的模块化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">代码的模块化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T09:22:49+08:00">
+                2017-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  先前面试的时候，技术经理问我知道什么是代码的模块化？然后列举了一些的框架，遗憾的是我一个都没有听说过，顿时气氛非常尴尬。不过听说在公司里对这种技术的使用比较多，因此特意回家好好学习一番。</p>
+<a id="more"></a><!--more-->
+<h1 id="为什么要代码模块化"><a href="#为什么要代码模块化" class="headerlink" title="为什么要代码模块化"></a>为什么要代码模块化</h1><h2 id="函数封装"><a href="#函数封装" class="headerlink" title="函数封装"></a>函数封装</h2><p> 印象中最常见的还是用函数封装一定的逻辑然后打包，需要的时候直接调用。<br>然而这种方式有很明显的缺点：污染了全局变量，无法保证和其他的变量没有冲突。</p>
+<pre><code>funciton fn(){}     
+fn();
+</code></pre><h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>稍微高级一点的手法是面向对象的写法，把所有的功能都封装在一个对象之中。<br>这样避免了对全局变量的污染，依旧存在外部可以随意修改内部成员,肯能会导致安全问题。同时需要载入的js代码越来越多，加载文件越多，网页失去响应的时间就会越长；而且js的加载顺序还不能出错，如果顺序有误，肯能导致后面的js代码无法执行。</p>
+<pre><code>var my={
+  this.name=1;
+  say:function(){}
+}
+my.name=120;
+</code></pre><h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><p>这种做法外部无法修改变量和函数，这便是代码模块化的基础。</p>
+<pre><code>var my=(function(){
+    var name=&quot;tom&quot;;
+    var age=18;
+    function fn(){
+        console.log(1);
+    }
+    return {
+        fn:fn,
+        name:name,
+        age:age
+    }
+})();
+  console.log(my.name);
+  my.fn();
+</code></pre><h1 id="Javascript的AMD规范"><a href="#Javascript的AMD规范" class="headerlink" title="Javascript的AMD规范"></a>Javascript的AMD规范</h1><p>作为一个规范，只需定义其语法API，而不关心其实现。AMD规范简单到只有一个API，即define函数.模块必须采用define()来定义。</p>
+<pre><code>define([模块标识?], [所依赖的模块?], [JavaScript对象]);
+
+//?表示可以省略
+</code></pre><p>eg：</p>
+<pre><code>define([&quot;add&quot;]，[&apos;jquery&apos;], function ($) {
+    function myFunc(){
+        $(&quot;.a&quot;).val()+$(&quot;.b&quot;).val();
+    };
+    return myFunc;
+});
+
+
+define([&apos;jquery&apos;, &apos;underscore&apos;], function ($, _) {
+
+    function a(){}; // 私有方法，因为没有被返回
+    function b(){}; // 公共方法，因为被返回了
+    function c(){}; // 公共方法，因为被返回了
+    return {
+        b: b,
+        c: c
+    }
+});
+</code></pre><h1 id="Javascript的CMD规范"><a href="#Javascript的CMD规范" class="headerlink" title="Javascript的CMD规范"></a>Javascript的CMD规范</h1><p>一个模块就是一个文件，格式：</p>
+<pre><code>define( factory );
+</code></pre><p> factory  可以是一个函数，也可以为对象或者字符串，表示模块的接口就是该对象、字符串。</p>
+<pre><code>define( function(require, exports, module) { 
+    // 模块代码
+});
+
+define(function( require, exports ){
+    exports.foo = &apos;bar&apos;; // 向外提供的属性
+    exports.do = function(){}; // 向外提供的方法
+});
+
+define(function( require, exports ){
+    return{
+        foo : &apos;bar&apos;, // 向外提供的属性
+        do : function(){} // 向外提供的方法
+    }
+});
+
+define(function( require, exports, module ){
+    module.exports = {
+        foo : &apos;bar&apos;, // 向外提供的属性
+        do : function(){} // 向外提供的方法
+    }
+});
+</code></pre><p>这样是错误的</p>
+<pre><code>define(function( require, exports ){
+    exports = {
+        foo : &apos;bar&apos;, // 向外提供的属性
+        do : function(){} // 向外提供的方法
+    }
+});
+</code></pre><h1 id="cmd和amd的区别"><a href="#cmd和amd的区别" class="headerlink" title="cmd和amd的区别"></a>cmd和amd的区别</h1><p>依赖模块部分，cmd是用的时候才写，amd是一开始就得写好</p>
+<pre><code>// CMD
+define(function(require, exports, module) {
+    var a = require(&apos;./a&apos;)
+    a.doSomething()
+    var b = require(&apos;./b&apos;) // 依赖可以就近书写
+    b.doSomething()
+
+})
+
+// AMD 默认推荐的是
+define([&apos;./a&apos;, &apos;./b&apos;], function(a, b) { // 依赖必须一开始就写好
+    a.doSomething()
+    b.doSomething()
+})
+</code></pre><h1 id="require-js"><a href="#require-js" class="headerlink" title="require.js"></a>require.js</h1><h2 id="使用它的原因："><a href="#使用它的原因：" class="headerlink" title="使用它的原因："></a>使用它的原因：</h2><p>1.解决js文件的异步加载，避免网页失去响应</p>
+<p>2.管理模块之间的依耐性，方便代码的维护</p>
+<h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><pre><code>&lt;script src=&quot;js/require.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>为了防止网页失去响应，推荐一下的写法：</p>
+<pre><code>&lt;script src=&quot;js/require.js&quot; defer async=&quot;true&quot; &gt;&lt;/script&gt;
+</code></pre><p>async表示文件异步加载，避免网页失去响应。 defer是用于兼容性，万恶的IE不支持async，只支持defer。</p>
+<p>然后就是加载我们的js文件了</p>
+<pre><code>&lt;script src=&quot;js/require.js&quot; data-main=&quot;js/my&quot;&gt;&lt;/script&gt;
+</code></pre><p>data-main用于指定网页程序的主模块，指定的文件会被第一个加载。注意require.js默认后缀名是js，所有后面的.js可以不写。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>主模块：这个网页的入口代码，所有的代码从这里开始执行。</p>
+<pre><code>require([&apos;module1&apos;, &apos;module2&apos;], function (module1, module2){
+
+});
+
+require（参数1，参数2）；
+</code></pre><p>参数1：是数组，表示依赖的模块。</p>
+<p>参数2：是回调函数，前面模块加载成功后他会被调用。</p>
+<p>eg：主模块依赖jquery的话，my.js就可以这样写</p>
+<pre><code>require([&apos;jquery&apos;], function ($){
+
+});
+</code></pre><h2 id="模块的加载"><a href="#模块的加载" class="headerlink" title="模块的加载"></a>模块的加载</h2><p>主模块依赖的是jquery，在默认情况下，require.js认定jquery和my.js在同一个文件中，文件名为jquery.js 然后自动加载。<br>若要修改需设定<code>require.config()</code></p>
+<p>在my.js的头部指定各个文件的加载路径</p>
+<pre><code>　　require.config({
+baseUrl: &quot;js/lib&quot;,  //修改根目录
+　　　　paths: {
+　　　　　　&quot;jquery&quot;: &quot;js/jquery.min&quot;, //修改文件目录
+　　　　}
+　　});
+</code></pre><h2 id="自定义模块的加载"><a href="#自定义模块的加载" class="headerlink" title="自定义模块的加载"></a>自定义模块的加载</h2><p>格式：</p>
+<pre><code>//主模块
+
+require([&apos;js文件1&apos;，&apos;js文件2&apos;], function (&apos;js文件1&apos;,&apos;js文件2&apos;){
+    js文件1.方法1();
+    js文件2.方法2();
+});
+
+//js文件1
+define([&quot;依赖的js文件&quot;],function (依赖的js文件){
+    var 方法1 = function (){
+        return a;
+    };
+    return {
+        add: 方法1
+    };
+});
+</code></pre><p>若写了一个加法的文件<code>add.js</code></p>
+<pre><code>define(function (){
+    var sum = function (a,b){
+        return a+b;
+    };
+    return {
+        add: sum
+    };
+});
+</code></pre><p>则在主模块<code>my.js</code>中这样调用</p>
+<pre><code>require([&apos;add&apos;], function (add){
+    alert(add.add(1,1));
+});
+</code></pre><p>hello world：</p>
+<pre><code>//my.js
+require([&apos;helloWorld&apos;,&apos;a&apos;], function (helloWorld,a){
+    alert(helloWorld.add(3,4));
+    a.sayname();
+});
+
+//helloWorld.js
+define(function(){
+    var sum=function(){
+         console.log(&quot;hello world&quot;);
+    };
+    return {
+        hello:sum()
+    };
+});
+
+   //a.js
+define(function(){
+    var name=&quot;Tom&quot;;
+    var say=function(){
+        alert(&quot;my name is&quot;+&quot; &quot;+name);
+    };
+    return {
+        sayname:say
+    }
+});
+</code></pre><h1 id="加载非AMD规范模块"><a href="#加载非AMD规范模块" class="headerlink" title="加载非AMD规范模块"></a>加载非AMD规范模块</h1><p>有很多不符合AMD规范的库该如何加载？首先在<code>require.config()</code>定义他们的特性。例如underscore和backbone。</p>
+<pre><code>　　require.config({
+　　　　shim: {
+
+　　　　　　&apos;underscore&apos;:{
+　　　　　　　　exports: &apos;underscore&apos;
+　　　　　　},
+　　　　　　&apos;backbone&apos;: {
+　　　　　　　　deps: [&apos;underscore&apos;, &apos;jquery&apos;],
+　　　　　　　　exports: &apos;Backbone&apos;
+　　　　　　}
+　　　　}
+　　});
+
+
+shim：专门用来配置不兼容的模块。
+需要定义的属性：
+
+exports：值（输出的变量名），这个模块外部调用时的名称基本和原来一样就行。
+
+deps：数组，表明该模块的依赖性，这个模块依赖什么库。
+</code></pre><p>再例如jquery的form插件：</p>
+<pre><code>require.config({
+    shim: {
+        &quot;jquery.form&quot; : {
+            deps : [&quot;jquery&quot;],
+            exports:&quot;jqueryForm&quot;
+        }
+    }
+});
+</code></pre><h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><p>domready插件，让回调函数在页面DOM结构加载完成后再运行</p>
+<pre><code>　　require([&apos;domready!&apos;], function (doc){
+　　　　
+　　});
+</code></pre><h2 id="requirejs的路径解析问题"><a href="#requirejs的路径解析问题" class="headerlink" title="requirejs的路径解析问题"></a>requirejs的路径解析问题</h2><p>在html中加载以后，必须声明data-main文件这里就开始定义默认的路径</p>
+<pre><code>&lt;script src=&quot;js/require.js&quot; data-main=&quot;js/main.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>这个加载所做的事情是：<br>1.加载js/main.js<br>2.默认将baseUrl设置为data-main指定的文件所在的路径，这里是js/</p>
+<p>也可以在config中设置baseUrl的路径，如果没有设置默认为require.js所在的文件</p>
+<p>requirejs.config({<br>    baseUrl: ‘’     //默认是html文件所在的目录<br>    baseUrl: ‘/‘     //是相对路径从项目的根目录开始找<br>});</p>
+<p>总体来说：</p>
+<pre><code>requirejs.config({
+    baseUrl: &apos;js&apos;,
+    paths: {
+        fruits: &apos;common/fruits&apos;
+    }
+});
+require([&apos;common/fruits/apple&apos;, &apos;common/fruits/orange&apos;, &apos;common/fruits/grape&apos;, &apos;common/fruits/pears&apos;], function(Apple, Orange, Grape, Pears){
+    // do sth
+});
+
+
+
+baseUrl+paths-value+require[url]
+
+
+js/  +  common/fruits/  +  fruits/apple
+</code></pre><p>加载css文件需要使用require-css，中的css.js文件</p>
+<p>文件的目录设定：</p>
+<pre><code>map: {
+    &apos;*&apos;: {
+        &apos;css&apos;: &apos;require/css&apos;
+    }
+},
+</code></pre><h1 id="sea-js"><a href="#sea-js" class="headerlink" title="sea.js"></a>sea.js</h1><p>项目里用了pagurian框架，其中必须使用sea.js，特意学习一下</p>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>找最新的不然容易出错</p>
+<pre><code>&lt;script src=&quot;js/sea.js&quot;&gt;&lt;/script&gt;
+</code></pre><h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>html</p>
+<pre><code>seajs.config({
+    // Sea.js 的基础路径（修改这个就不是路径就不是相对于seajs文件了）
+    base: &quot;seajs/js&quot;
+    // 别名配置（用变量表示文件，解决路径层级过深和实现路径映射）
+   alias: {
+        &quot;jquery&quot;: &quot;jquery/jquery/1.10.1/jquery.js&quot;/!*
+        ,
+        &apos;es5-safe&apos;: &apos;gallery/es5-safe/0.9.3/es5-safe&apos;,
+        &apos;json&apos;: &apos;gallery/json/1.0.2/json&apos;*!/
+    }*/
+});
+
+seajs.use([&quot;hello&quot;,&quot;jquery&quot;],function(main){
+    main.sayHello();
+});
+</code></pre><p>hello.js</p>
+<pre><code>define(function(require, exports, module) {
+    exports.sayHello = function() {  //exports 对外提供接口,或者通过 module.exports 提供整个接口
+        $(&apos;#box&apos;).click(function(){
+         alert(1);
+         });
+    };
+
+
+    // 对外提供接口  
+    module.exports = {  
+        name: &apos;a&apos;,  
+        doSomething: function() {};  
+    };  
+});
+</code></pre><h2 id="如何引入jquery"><a href="#如何引入jquery" class="headerlink" title="如何引入jquery"></a>如何引入jquery</h2><ul>
+<li>从单个文件中引入</li>
+</ul>
+<pre><code>//jquery.js
+
+define(function(){
+    //jquery源代码
+    return $.noConflict();
+});
+
+//引入的文件
+
+
+define(function(require, exports, module) {
+    var $ = require(&quot;jquery&quot;);   //依赖jquery
+    console.log($(&apos;#box&apos;));
+});
+</code></pre><p>这样做的缺陷是，直接使用jquery的时候会报错<code>$ is not a function</code></p>
+<p>推荐方法：</p>
+<pre><code>(function(factory) {
+    if (typeof define === &apos;function&apos;) {
+        define(&apos;/jquery&apos;, [], factory);
+    }
+    else {
+        factory();
+    }
+
+})(function(require) {
+    //这里放jQuery源代码
+    if (require) return $.noConflict(true);
+
+});
+</code></pre><hr>
+<ul>
+<li><p>从main中引入</p>
+<pre><code>seajs.use([&quot;hello&quot;,&quot;jquery&quot;],function(main){
+    main.sayHello(); //执行hello.js中输入的sayHello功能
+});
+</code></pre></li>
+</ul>
+<p>这样就不需要从hello.js中引入jquery了</p>
+<h2 id="路径的管理"><a href="#路径的管理" class="headerlink" title="路径的管理"></a>路径的管理</h2><p>项目的路径图形：<img src="http://i.imgur.com/lpfKuRY.png" alt=""></p>
+<pre><code>seajs.config({
+    // Sea.js 的基础路径（修改这个就不是路径就不是相对于seajs文件了）
+    base: &quot;seajs/js&quot;,   //定义js文件的根目录，找后面的js文件都相对于这个文件，seajs只要相对于之前的目录即可
+    // 别名配置（用变量表示文件，解决路径层级过深和实现路径映射）
+    alias: {      //前面是后面[]中代替js名称的名字，后面为js文件的完整地址相对于上面的根目录
+        &quot;jquery&quot;: &quot;jquery/jquery.1.11.1.min.js&quot;,
+        &quot;angular&quot;:&quot;angular/angular.js&quot;,
+        &quot;zepto123&quot;:&quot;zepto/zepto.min.js&quot;
+    }
+
+    // 路径配置（用变量表示路径，解决路径层级过深的问题，方便跨项目调用  ）
+    paths: {
+        &apos;gallery&apos;: &apos;https://a.alipayobjects.com/gallery&apos;
+    }
+});
+
+seajs.use([&quot;hello&quot;,&quot;jquery&quot;,&quot;angular&quot;,&quot;zepto/zepto.min.js&quot;],function(a){  //可以使用alias中的别名，也可以直接使用相对于更目录的地址
+    a.sayHello();
+});
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/07/内置对象/" rel="next" title="对象">
+                <i class="fa fa-chevron-left"></i> 对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/02/常用js/" rel="prev" title="常用js">
+                常用js <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要代码模块化"><span class="nav-number">2.</span> <span class="nav-text">为什么要代码模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数封装"><span class="nav-number">2.1.</span> <span class="nav-text">函数封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">2.2.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数"><span class="nav-number">2.3.</span> <span class="nav-text">立即执行函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript的AMD规范"><span class="nav-number">3.</span> <span class="nav-text">Javascript的AMD规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Javascript的CMD规范"><span class="nav-number">4.</span> <span class="nav-text">Javascript的CMD规范</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cmd和amd的区别"><span class="nav-number">5.</span> <span class="nav-text">cmd和amd的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#require-js"><span class="nav-number">6.</span> <span class="nav-text">require.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用它的原因："><span class="nav-number">6.1.</span> <span class="nav-text">使用它的原因：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载"><span class="nav-number">6.2.</span> <span class="nav-text">加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">6.3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块的加载"><span class="nav-number">6.4.</span> <span class="nav-text">模块的加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义模块的加载"><span class="nav-number">6.5.</span> <span class="nav-text">自定义模块的加载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加载非AMD规范模块"><span class="nav-number">7.</span> <span class="nav-text">加载非AMD规范模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件"><span class="nav-number">8.</span> <span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#requirejs的路径解析问题"><span class="nav-number">8.1.</span> <span class="nav-text">requirejs的路径解析问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sea-js"><span class="nav-number">9.</span> <span class="nav-text">sea.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">9.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本配置"><span class="nav-number">9.2.</span> <span class="nav-text">基本配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何引入jquery"><span class="nav-number">9.3.</span> <span class="nav-text">如何引入jquery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径的管理"><span class="nav-number">9.4.</span> <span class="nav-text">路径的管理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

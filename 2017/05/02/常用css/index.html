@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="css," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言工作上常遇见的一些css方面的问题，特意列出">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用css">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/常用css/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言工作上常遇见的一些css方面的问题，特意列出">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-05T07:54:42.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用css">
+<meta name="twitter:description" content="前言工作上常遇见的一些css方面的问题，特意列出">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/02/常用css/"/>
+
+
+
+
+
+  <title>常用css | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/常用css/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">常用css</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T09:05:33+08:00">
+                2017-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>工作上常遇见的一些css方面的问题，特意列出</p>
+<a id="more"></a><!--more-->
+<h1 id="样式清空"><a href="#样式清空" class="headerlink" title="样式清空"></a>样式清空</h1><pre><code>/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 设置默认字体 */
+body,
+button, input, select, textarea { /* for ie */
+    /*font: 12px/1 Tahoma, Helvetica, Arial, &quot;宋体&quot;, sans-serif;*/
+    font: 12px/1 Tahoma, Helvetica, Arial, &quot;\5b8b\4f53&quot;, sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+}
+
+h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4, h5, h6 { font-size: 100%; }
+
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp, tt { font-family: &quot;Courier New&quot;, Courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+
+/* 重置文本格式元素 */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+border-bottom: 1px dotted;
+cursor: help;
+}
+
+q:before, q:after { content: &apos;&apos;; }
+
+/* 重置表单元素 */
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+
+/* 重置表格元素 */
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+    border: none;
+    height: 1px;
+}
+</code></pre><h1 id="常用的公共css"><a href="#常用的公共css" class="headerlink" title="常用的公共css"></a>常用的公共css</h1><pre><code>¥  &amp;yen;   //人民币符号
+
+
+.text-overflow{   //文字溢出   宽度自己定义
+  white-space:nowrap;   //不换行     都支持
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;   //省略号显示   都支持
+  overflow: hidden;
+}
+.none{
+  display: none;
+}
+.hidden{
+  visibility: hidden;
+}
+
+.relative{
+  position: relative;
+}
+.y-center{       //配合relative，父元素垂直居中     IE9及其以上
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform:translateY(-50%);     /* IE 9 */
+  -moz-transform:translateY(-50%);    /* Firefox */
+  -webkit-transform:translateY(-50%);/* Safari 和 Chrome */
+  -o-transform:translateY(-50%);     /* Opera */
+}
+.xy-center{//配合relative，父元素水平垂直居中     IE9及其以上
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform:translate(-50%,-50%);     /* IE 9 */
+  -moz-transform:translate(-50%,-50%);    /* Firefox */
+  -webkit-transform:translate(-50%,-50%);/* Safari 和 Chrome */
+  -o-transform:translate(-50%,-50%);     /* Opera */
+}
+.clearfix:after{    //清除浮动  利用的是伪元素
+  content: &quot;\0020&quot;;
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix{
+  zoom: 1;
+}
+</code></pre><h1 id="文本不可以选中："><a href="#文本不可以选中：" class="headerlink" title="文本不可以选中："></a>文本不可以选中：</h1><pre><code>-moz-user-select:none;/*火狐*/
+-webkit-user-select:none;/*webkit浏览器*/
+-ms-user-select:none;/*IE10*/
+-khtml-user-select:none;/*早期浏览器*/
+user-select:none;
+</code></pre><h1 id="苹果文本框的黑框问题"><a href="#苹果文本框的黑框问题" class="headerlink" title="苹果文本框的黑框问题"></a>苹果文本框的黑框问题</h1><pre><code>input{
+    outline:none; 
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+</code></pre><h1 id="textarea文本框禁止拉伸"><a href="#textarea文本框禁止拉伸" class="headerlink" title="textarea文本框禁止拉伸"></a>textarea文本框禁止拉伸</h1><pre><code> textarea{
+    resize:none
+}
+</code></pre><h1 id="文本框溢出隐藏，以逗号省略"><a href="#文本框溢出隐藏，以逗号省略" class="headerlink" title="文本框溢出隐藏，以逗号省略"></a>文本框溢出隐藏，以逗号省略</h1><pre><code>width:200px; 
+white-space:nowrap;   //不换行     都支持
+text-overflow:ellipsis; 
+-o-text-overflow:ellipsis;   //省略号显示   都支持
+overflow: hidden;
+</code></pre><p>两行：</p>
+<pre><code>//兼容性有问题  推荐在手机端上使用   PC端让后台限制
+
+word-break: break-all;
+text-overflow: ellipsis;
+display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+-webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+-webkit-line-clamp: 2; /** 显示的行数 **/
+overflow: hidden;  /** 隐藏超出的内容 **/
+</code></pre><h1 id="内容超出滚动条"><a href="#内容超出滚动条" class="headerlink" title="内容超出滚动条"></a>内容超出滚动条</h1><pre><code>width: 200px;
+height: 100px;
+overflow: auto;
+</code></pre><p>不过水平滚动条影响用户体验,推荐使用即可</p>
+<pre><code>overflow-y
+</code></pre><h1 id="选择器"><a href="#选择器" class="headerlink" title="+选择器"></a>+选择器</h1><pre><code>就是选择某个元素的下一个元素
+&lt;p id=&quot;x&quot;&gt;&lt;p&gt;
+&lt;p&gt;&lt;/p&gt;
+
+#x + p 就是选择第二个P
+</code></pre><h1 id="important无效"><a href="#important无效" class="headerlink" title="!important无效"></a>!important无效</h1><pre><code>background-color: red;!important;
+
+   正确：background-color: red!important;
+</code></pre><h1 id="背景蒙层的设置"><a href="#背景蒙层的设置" class="headerlink" title="背景蒙层的设置"></a>背景蒙层的设置</h1><pre><code>position: fixed;
+z-index: 1000;
+top: 0;
+right: 0;
+left: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.6);  
+</code></pre><h1 id="css的水平居中"><a href="#css的水平居中" class="headerlink" title="css的水平居中"></a>css的水平居中</h1><pre><code>top: 50%(让元素的上边界定位到父元素的50%位置)
+transform: translateY(-50%)(让元素往上移动元素自身高度的50%)
+</code></pre><p>同理垂直居中：</p>
+<pre><code>top: 50%;
+transform: translateY(-50%);
+</code></pre><p>兼容性：ie10，加前缀到ie9</p>
+<pre><code>position: absolute;
+top: 50%;
+transform: translateY(-50%);
+-ms-transform:translateY(-50%);     /* IE 9 */
+-moz-transform:translateY(-50%);    /* Firefox */
+-webkit-transform:translateY(-50%);/* Safari 和 Chrome */
+-o-transform:translateY(-50%);     /* Opera */
+</code></pre><p>不考虑兼容性的做法：</p>
+<pre><code>.father{
+    display: table;
+}
+.son{
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    /*=============不能在contect的div 设置float属性 复制无效，应该设置在class中===========
+}
+</code></pre><p>水平垂直居中+左固定，右自适应</p>
+<pre><code>@width:800px;
+.box{
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+    .left{
+        float: left;
+        width: @width;
+        height: 100%;
+        background-color: #CCC;
+    }
+    .right{
+        background-color: pink;
+        height: 100%;
+        min-width: 150px;
+        margin-left: @width;
+        position: relative;
+        .rBox{
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+  }
+}
+</code></pre><p>儿子已知宽高的垂直居中</p>
+<pre><code>position: relative;
+  .rBox{
+      background-color: red;
+      position:absolute;
+      top:0;
+      left: 0;
+      right:0;
+      bottom:0;
+      margin:auto;
+      width:300px;
+      height:300px;
+  }
+</code></pre><h1 id="css的隐藏元素，无需js代码"><a href="#css的隐藏元素，无需js代码" class="headerlink" title="css的隐藏元素，无需js代码"></a>css的隐藏元素，无需js代码</h1><pre><code>transform: translateY(100%)隐藏了起来
+显示时用translateY(0). 
+</code></pre><h1 id="uc浏览器不支持transform"><a href="#uc浏览器不支持transform" class="headerlink" title="uc浏览器不支持transform"></a>uc浏览器不支持transform</h1><p>用-webkit-transform来代替</p>
+<h1 id="input-number的默认样式的修改"><a href="#input-number的默认样式的修改" class="headerlink" title="input number的默认样式的修改"></a>input number的默认样式的修改</h1><pre><code>input[type=number] {
+    -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+</code></pre><h1 id="禁止复制"><a href="#禁止复制" class="headerlink" title="禁止复制"></a>禁止复制</h1><pre><code>body {  
+    -webkit-touch-callout: none;  
+    -webkit-user-select: none;  
+    -khtml-user-select: none;  
+    -moz-user-select: none;  
+    -ms-user-select: none;  
+    user-select: none;  
+}
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+document.oncontextmenu=function(e){return false;}
+&lt;/script&gt;  
+&lt;body onselectstart=&quot;return false&quot;&gt;
+</code></pre><h1 id="在title上添加logo"><a href="#在title上添加logo" class="headerlink" title="在title上添加logo"></a>在title上添加logo</h1><pre><code>&lt;link rel=&quot;SHORTCUT ICON&quot; href=&quot;http://网址路径/favicon.ico&quot;&gt;
+
+
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;
+</code></pre><h1 id="颜色透明的英文"><a href="#颜色透明的英文" class="headerlink" title="颜色透明的英文"></a>颜色透明的英文</h1><pre><code>transparent
+</code></pre><h1 id="移动端常见的medta"><a href="#移动端常见的medta" class="headerlink" title="移动端常见的medta"></a>移动端常见的medta</h1><pre><code>weui在加载js和css文件后一般不会生效，要加上对应的meta才行。
+
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,user-scalable=0&quot;&gt;
+</code></pre><p>viewport：可视区域的宽度   通过innerWidth和Height获取</p>
+<p>device-width：手机屏幕分辨率适合的宽度，不同的设备宽度不一样</p>
+<p>intial-scale：页面首次被显示是可视区域的缩放级别，取值1.0则页面按实际尺寸显示，无任何缩放</p>
+<p>user-scalable:是否可对页面进行缩放，no 禁止缩放</p>
+<p>动态改变meta标签的方式：</p>
+<pre><code>document.write(&apos;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;&apos;)
+
+&lt;meta id=&quot;testViewport&quot; name=&quot;viewport&quot; content=&quot;width = 380&quot;&gt;
+&lt;script&gt;
+var mvp = document.getElementById(&apos;testViewport&apos;);
+mvp.setAttribute(&apos;content&apos;,&apos;width=480&apos;);
+&lt;/script&gt;
+</code></pre><h1 id="meta禁止缓存"><a href="#meta禁止缓存" class="headerlink" title="meta禁止缓存"></a>meta禁止缓存</h1><pre><code>&lt;meta content=&quot;no-cache,must-revalidate&quot; http-equiv=&quot;Cache-Control&quot;&gt;
+</code></pre><p>no-cache: 告诉浏览器、缓存服务器，不管本地副本是否过期，使用资源副本前，一定要到源服务器进行副本有效性校验。</p>
+<p>must-revalidate：告诉浏览器、缓存服务器，本地副本过期前，可以使用本地副本；本地副本一旦过期，必须去源服务器进行有效性校验。</p>
+<p>禁用客户端缓存<br>HTM网页<br>    <meta http-equiv="pragma" content="no-cache"><br>    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"><br>    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"></p>
+<h1 id="去掉input-”number”的默认样式"><a href="#去掉input-”number”的默认样式" class="headerlink" title="去掉input=”number”的默认样式"></a>去掉input=”number”的默认样式</h1><pre><code>input[type=number] {  
+    -moz-appearance:textfield;  
+}  
+input[type=number]::-webkit-inner-spin-button,  
+input[type=number]::-webkit-outer-spin-button {  
+    -webkit-appearance: none;  
+    margin: 0;  
+}  
+</code></pre><h1 id="下拉滚动条隐藏但是可以滚动"><a href="#下拉滚动条隐藏但是可以滚动" class="headerlink" title="下拉滚动条隐藏但是可以滚动"></a>下拉滚动条隐藏但是可以滚动</h1><p>推荐方法：思路是一个dom包含一个子dom，子dom比父宽17px，父dom溢出隐藏.可以查看一下滚动条的宽度</p>
+<pre><code>&lt;div class=&quot;box1&quot;&gt;
+    &lt;div class=&quot;box&quot; &gt;&lt;/div&gt;
+&lt;/div&gt;
+
+.box{
+    width: 318px;
+    height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.box1{
+    margin: 200px auto;
+    width: 300px;
+    height: 250px;
+    overflow: hidden;
+}
+
+
+//webkit内核的浏览器
+::-webkit-scrollbar{
+  display:none;
+}
+
+
+//ie可以  
+html {
+    -ms-overflow-style:none;
+    overflow:-moz-scrollbars-none;
+}
+html::-webkit-scrollbar{width:0px}
+</code></pre><h1 id="去掉聚焦在input框上时产生的发光轮廓"><a href="#去掉聚焦在input框上时产生的发光轮廓" class="headerlink" title="去掉聚焦在input框上时产生的发光轮廓"></a>去掉聚焦在input框上时产生的发光轮廓</h1><pre><code>input:focus{outline:0 !important}
+</code></pre><h1 id="谷歌浏览器最小字体为12px的解决："><a href="#谷歌浏览器最小字体为12px的解决：" class="headerlink" title="谷歌浏览器最小字体为12px的解决："></a>谷歌浏览器最小字体为12px的解决：</h1><pre><code>-webkit-transform-origin-x: 0;//解决缩放后margin-left的位移问题
+
+-webkit-transform: scale(0.5);   //缩放让字体变小
+
+
+.small-font{
+    font-size:12px;
+
+    transform: scale(0.90);
+    transform-origin:0 0;
+
+    -ms-transform: scale(0.90);         /* IE 9 */
+    -ms-transform-origin:0 0;       /* IE 9 */
+
+    -webkit-transform: scale(0.90); /* Safari 和 Chrome */
+    -webkit-transform-origin:0 0;   /* Safari 和 Chrome */
+
+    -moz-transform: scale(0.90);        /* Firefox */
+    -moz-transform-origin:0 0;      /* Firefox */
+
+    -o-transform: scale(0.90);      /* Opera */
+    -o-transform-origin:0 0;        /* Opera */
+}
+</code></pre><h1 id="box-shadow兼容ie8"><a href="#box-shadow兼容ie8" class="headerlink" title="box-shadow兼容ie8"></a>box-shadow兼容ie8</h1><pre><code>-moz-box-shadow:3px 5px 5px #969696;
+-webkit-box-shadow:3px 5px 5px #969696;
+box-shadow:3px 5px 5px #969696;
+ filter: progid:DXImageTransform.Microsoft.Shadow(color=&apos;#969696&apos;, Direction=125, Strength=9);
+</code></pre><h1 id="三行省略-兼容ie8"><a href="#三行省略-兼容ie8" class="headerlink" title="三行省略   兼容ie8"></a>三行省略   兼容ie8</h1><pre><code>.two-row-css{
+  position:relative;
+  line-height:1.4em;
+  /* 3 times the line-height to show 3 lines */
+  height:2.8em;
+  overflow:hidden;
+}
+.two-row-css:after{
+  content:&quot;...&quot;;
+  display: block;
+  width: 10px;
+  height: 19px;
+  background-color: @white;
+  font-weight:bold;
+  position:absolute;
+  bottom:0;
+  right:0;
+}、
+</code></pre><p>配合js：<br>    $(function () {<br>        var heigh=$(“.movie-time”).height();   //单行的高度<br>        var $twoRow=$(“.two-row”);<br>        for(var i=0;i&lt;$twoRow.size();i++){    //超过两倍高度的时候显示两行….<br>            ($twoRow.eq(i).height()&gt;2*heigh)&amp;&amp;($twoRow.eq(i).addClass(“two-row-css”));<br>        }<br>    })</p>
+<h1 id="ie-margin-auto失效"><a href="#ie-margin-auto失效" class="headerlink" title="ie margin auto失效"></a>ie margin auto失效</h1><pre><code>body{window：100%；text-align:center;}
+</code></pre><h1 id="html5视频填满整个dom"><a href="#html5视频填满整个dom" class="headerlink" title="html5视频填满整个dom"></a>html5视频填满整个dom</h1><pre><code>object：fit；
+
+
+
+fill: 中文释义“填充”。默认值。替换内容拉伸填满整个content box, 不保证保持原有的比例。
+contain: 中文释义“包含”。保持原有尺寸比例。保证替换内容尺寸一定可以在容器里面放得下。因此，此参数可能会在容器内留下空白。
+cover: 中文释义“覆盖”。保持原有尺寸比例。保证替换内容尺寸一定大于容器尺寸，宽度和高度至少有一个和容器一致。因此，此参数可能会让替换内容（如图片）部分区域不可见。
+none: 中文释义“无”。保持原有尺寸比例。同时保持替换内容原始尺寸大小。
+scale-down: 中文释义“降低”。就好像依次设置了none或contain, 最终呈现的是尺寸比较小的那个。
+</code></pre><h1 id="中文换行，英文不换行"><a href="#中文换行，英文不换行" class="headerlink" title="中文换行，英文不换行"></a>中文换行，英文不换行</h1><p>适用于table的宽度设定好，但是没有自动换到导致整个table布局破坏</p>
+<pre><code>1. word-break:break-all;只对英文起作用，以字母作为换行依据
+2. word-wrap:break-word; 只对英文起作用，以单词作为换行依据
+</code></pre><p>中英文都换行：</p>
+<pre><code>white-space:pre-wrap;
+word-break:break-all;
+</code></pre><p>其他：</p>
+<pre><code>1. word-break:break-all;只对英文起作用，以字母作为换行依据
+2. word-wrap:break-word; 只对英文起作用，以单词作为换行依据
+3.white-space:pre-wrap; 只对中文起作用，强制换行
+4.white-space:nowrap; 强制不换行，都起作用
+5.white-space:nowrap; 
+overflow:hidden; 
+text-overflow:ellipsis;不换行，超出部分隐藏且以省略号形式出现（部分浏览器支持）
+</code></pre><h1 id="li下面的3px间距"><a href="#li下面的3px间距" class="headerlink" title="li下面的3px间距"></a>li下面的3px间距</h1><p>解决方法是给li 添加一个css {vertical-align:bottom;} 无需hack</p>
+<h1 id="禁止选择文本"><a href="#禁止选择文本" class="headerlink" title="禁止选择文本"></a>禁止选择文本</h1><p>   -moz-user-select: -moz-none;<br>   -khtml-user-select: none;<br>   -webkit-user-select: none;<br>   -ms-user-select: none;<br>   user-select: none;</p>
+<h1 id="hover点击以后失效"><a href="#hover点击以后失效" class="headerlink" title="hover点击以后失效"></a>hover点击以后失效</h1><pre><code>元素执行完click事件后hover效果就失效问题
+
+css 里面加“ !important”可以提高优先级。
+.a1:hover{backgroundcolor:red !important;}
+</code></pre><p>   或者两个类名，用js来切换</p>
+<h1 id="两边固定，中间自适应"><a href="#两边固定，中间自适应" class="headerlink" title="两边固定，中间自适应"></a>两边固定，中间自适应</h1><pre><code>#left,#right { float: left; width: 220px; height: 200px; background: blue;} 
+
+#right { float: right;} 
+
+#main { margin: 0 230px;background: red; height: 200px;}
+</code></pre><p>这种方法我利用的就是浮动原理，左右定宽度分别进行左浮动和右浮动，此时主内容列（中间列没有定度）主会自动插入到左右两列的中间，最要注意的一点是，中间列一定要放在左右两列的后面</p>
+<h1 id="上下固定，中间自适应"><a href="#上下固定，中间自适应" class="headerlink" title="上下固定，中间自适应"></a>上下固定，中间自适应</h1><p>  利用postion：a的自动填充</p>
+<pre><code>.header{ 
+position:absolute; 
+top:0px; 
+height:268px;/*高度可以不写，可以通过内部元素撑开，但是需要考虑是否会与自适应部分发生重合*/ 
+width: 182px;/*宽度是必要，如果没有宽度就无法撑出div*/ 
+} 
+.middle_outer{ 
+position:absolute!important; 
+position:relative; 
+top:268px!important;/*header部分的高度*/ 
+top:0; 
+bottom:52px;/*footer部分的高度*/ 
+width:182px; 
+overflow:hidden;/*外层div不滚动，而是内层div滚动，实现自适应*/ 
+height:auto!important; 
+height:100%; 
+} 
+.middle_inner{ 
+height:100%; 
+overflow-y:auto;/*当内容超出后，就会出现滚动条*/ 
+} 
+
+
+&lt;div class=&apos;header&apos;&gt;&lt;/div&gt; 
+&lt;div class=&apos;middle_outer&apos;&gt; 
+&lt;div class=&apos;middle_inner&apos;&gt;&lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&apos;footer&apos;&gt;&lt;/div&gt; 
+</code></pre><h1 id="大于符号-gt"><a href="#大于符号-gt" class="headerlink" title="大于符号&gt;"></a>大于符号&gt;</h1><pre><code>.gl{//大于号样式
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-left: 1px solid #999;
+  border-bottom: 1px solid #999;
+  -webkit-transform: translate(0,-50%) rotate(-135deg);
+  transform: translate(0,-50%) rotate(-135deg);
+}
+</code></pre><h1 id="placeholder的颜色"><a href="#placeholder的颜色" class="headerlink" title="placeholder的颜色"></a>placeholder的颜色</h1><pre><code>/*=====placeholder的颜色=====*/
+::-webkit-input-placeholder{color: #c1c1c4}
+:-moz-placeholder          {color: #c1c1c4}
+::-moz-placeholder         {color: #c1c1c4}
+:-ms-input-placeholder     {color: #c1c1c4}
+</code></pre><h1 id="footer固定在最下面"><a href="#footer固定在最下面" class="headerlink" title="footer固定在最下面"></a>footer固定在最下面</h1><pre><code>&lt;body&gt;
+    &lt;header&gt;header&lt;/header&gt;
+    &lt;main&gt;main content&lt;/main&gt;
+    &lt;footer&gt;footer&lt;/footer&gt;
+&lt;/body&gt;
+
+
+
+html{height:100%;}
+body{min-height:100%;margin:0;padding:0;position:relative;}
+main{padding-bottom:100px;}
+
+/* main的padding-bottom值要等于或大于footer的height值 */
+
+footer{position:absolute;bottom:0;width:100%;height:100px;}
+</code></pre><h1 id="清除浮动加上后dom高度无故变高"><a href="#清除浮动加上后dom高度无故变高" class="headerlink" title="清除浮动加上后dom高度无故变高"></a>清除浮动加上后dom高度无故变高</h1><pre><code>使用的是左固定右自适应的布局
+在右的容器上加上
+margin-left：xxxpx 上加上overflow:hidden解决;
+</code></pre><h1 id="滚动条"><a href="#滚动条" class="headerlink" title="滚动条"></a>滚动条</h1><pre><code>::-webkit-scrollbar-thumb {
+  /* height: 60px; */
+  background-color: #636871;
+  -webkit-border-radius: 10px;
+  outline: #c6ced7 solid 2px;
+  outline-offset: -2px;
+  border: 2px solid #c6ced7;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #c6ced7;
+  -webkit-border-radius: 0;
+}
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+</code></pre><h1 id="常用的框架布局"><a href="#常用的框架布局" class="headerlink" title="常用的框架布局"></a>常用的框架布局</h1><pre><code>html,body,.app{
+  width: 100%;
+  height: 100%;
+  background-color: #e9ecf3!important;
+}
+.header{
+  width: 100%;
+  height: 50px;
+  background-color: red;
+}
+.container{
+  width: 100%;
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  .aside{
+    background-color: pink;
+    height: 100%;
+    width: 200px;
+    float: left;
+  }
+  .main-container{
+    height: 100%;
+    margin-left: 200px;
+    position: relative;
+    .main{
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 30px;
+      background-color: orange;
+    }
+    .foot{
+      width: 100%;
+      height: 30px;
+      position: absolute;
+      bottom: 0;
+      background-color: blue;
+    }
+  }
+}
+
+
+
+
+&lt;div id=&quot;app&quot; v-cloak class=&quot;app&quot;&gt;
+    &lt;div class=&quot;header&quot;&gt;
+
+    &lt;/div&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;aside&quot;&gt;
+
+        &lt;/div&gt;
+        &lt;div class=&quot;main-container&quot;&gt;
+            &lt;div class=&quot;main&quot;&gt;
+
+            &lt;/div&gt;
+            &lt;div class=&quot;foot&quot;&gt;
+
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h1 id="移动设备上-宽高一样自适应"><a href="#移动设备上-宽高一样自适应" class="headerlink" title="移动设备上 宽高一样自适应"></a>移动设备上 宽高一样自适应</h1><pre><code>.ui-square {
+  width: 20%;
+  height: 0;
+  padding-bottom: 20%;
+  background: blue;
+}
+</code></pre><h1 id="数字排列"><a href="#数字排列" class="headerlink" title="数字排列"></a>数字排列</h1><pre><code>.one {
+    margin: 0 auto;
+    height: 193px;
+    line-height: 2;
+    font-size: 24px;
+    writing-mode: vertical-lr;/*从左向右 从右向左是 writing-mode: vertical-rl;*/
+    writing-mode: tb-lr;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+}
+</code></pre><h1 id="html5-视频隐藏进度条"><a href="#html5-视频隐藏进度条" class="headerlink" title="html5  视频隐藏进度条"></a>html5  视频隐藏进度条</h1><pre><code>video::-webkit-media-controls {
+    display:none !important;
+}
+
+
+video::-webkit-media-controls-enclosure {
+    /*禁用播放器控制栏的样式*/
+    display: none !important;
+}
+</code></pre><h1 id="渐变"><a href="#渐变" class="headerlink" title="渐变"></a>渐变</h1><pre><code>.gradient{
+     background:-moz-linear-gradient(top, #fffab2, #ffc343)!important;
+     background:-webkit-gradient(linear, 0 0, 0 bottom, from(#fffab2), to(#ffc343))!important;
+     background:-o-linear-gradient(top, #fffab2, #ffc343)!important;
+
+
+
+    background: -moz-linear-gradient(top, #fffab2 0%, #ffc343 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fffab2 0%), color-stop(100%,#ffc343));
+    background: -webkit-linear-gradient(top, #fffab2 0%,#ffc343 100%);
+    background: -o-linear-gradient(top, #fffab2 0%,#ffc343 100%);
+    background: -ms-linear-gradient(top, #fffab2 0%,#ffc343 100%);
+    background: linear-gradient(to bottom, #fffab2 0%,#ffc343 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=&apos;#fffab2&apos;, endColorstr=&apos;#ffc343&apos;,GradientType=0 );
+}
+</code></pre><h1 id="常用的符号"><a href="#常用的符号" class="headerlink" title="常用的符号"></a>常用的符号</h1><h2 id="关闭符号"><a href="#关闭符号" class="headerlink" title="关闭符号"></a>关闭符号</h2><pre><code>.close{
+  position: relative;
+  width: 50px;
+  transform:rotate(-45deg);
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:flex-end;
+  margin-left: 40px;
+  box-sizing: border-box;
+  padding-top: 19px;
+}
+.close::after,.close::before{
+  content: &apos;&apos;;
+  display: block;
+  width: 30px;
+  border-top: 5px solid #333;
+  position: absolute;
+}
+.close::after{
+}
+.close::before{
+  transform:rotate(-90deg);
+}
+</code></pre><h1 id="下三角"><a href="#下三角" class="headerlink" title="下三角"></a>下三角</h1><pre><code>.arrow-down{
+  content: &apos;&apos;;
+  width: 20px;
+  height: 20px;
+  border-right:5px solid #cbcbcb;
+  border-bottom: 5px solid #cbcbcb;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform:rotate(45deg)  translateY(-50%);
+}
+</code></pre><h1 id="next和prev"><a href="#next和prev" class="headerlink" title="next和prev"></a>next和prev</h1><pre><code>.next,.prev{
+    width: 20px;
+    background-color: pink;
+    float: left;
+    position: relative;
+}
+.next:after,.prev:after{
+    content: &apos;&apos;;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #999999;
+    border-bottom: 2px solid #999999;
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+
+}
+.next:after{
+    transform:rotate(-135deg);
+    left: 20%;
+}
+.prev:after{
+    transform:rotate(45deg);
+    left: 50%;
+}
+</code></pre><h1 id="常见符号"><a href="#常见符号" class="headerlink" title="常见符号"></a>常见符号</h1><pre><code>&amp;lt;       &lt;      小於号或显示标记    
+&amp;gt;     &gt;     大於号或显示标记
+&amp;amp;        &amp;     可用於显示其它特殊字符  
+&amp;quot;     &quot;     引号
+&amp;reg;     ®     己注册
+&amp;copy;      ©     版权
+&amp;trade;     ™     商标
+&amp;ensp;          半方大的空白
+&amp;emsp;          全方大的空白
+&amp;nbsp;          不断行的空白
+</code></pre><h1 id="table的文字溢出问题"><a href="#table的文字溢出问题" class="headerlink" title="table的文字溢出问题"></a>table的文字溢出问题</h1><pre><code>table{
+
+　　width:100px;
+
+　　table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+
+}
+
+td{
+
+　　width:100%;
+
+　　word-break:keep-all;/* 不换行 */
+
+　　white-space:nowrap;/* 不换行 */
+
+　　overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+
+　　text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用*/
+
+}
+</code></pre><h1 id="flex属性的新认识"><a href="#flex属性的新认识" class="headerlink" title="flex属性的新认识"></a>flex属性的新认识</h1><pre><code>flex是flex-grow、flex-shrink和flex-basis三个属性的速记
+
+
+li { flex: 0 1 auto; }
+
+li { flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto; }
+</code></pre><ol>
+<li>flex-grow 属性用于设置或检索弹性盒子的扩展比率</li>
+</ol>
+<ol start="2">
+<li><p>flex-shrink的默认值为1，如果没有显示定义该属性，将会自动按照默认值1在所有因子相加之后计算比率来进行空间收缩。主要是宽度没有默认的宽度那么大时，缩放时的大小比例</p>
+</li>
+<li><p>flex-basis 属性用于设置或检索弹性盒伸缩基准值，可以用来设置固定的宽度</p>
+</li>
+</ol>
+<h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><p>控制其内部的元素是否可以换行</p>
+<p>nowrap 不可以换行<br>wrap   可以换行，正顺序<br>wrap-reverse   可以换行，逆序</p>
+<h1 id="修改光标的颜色"><a href="#修改光标的颜色" class="headerlink" title="修改光标的颜色"></a>修改光标的颜色</h1><pre><code>caret-color:#2198f0;  
+</code></pre><p>兼容性：IE 11 苹果不兼容</p>
+<h1 id="多列均匀分布"><a href="#多列均匀分布" class="headerlink" title="多列均匀分布"></a>多列均匀分布</h1><pre><code>text-align:justify + text-align-last
+</code></pre><p>但是</p>
+<pre><code>text-align-last兼容性差
+
+
+text-align:justify
+
+（文字内容要超过一行）
+</code></pre><p>兼容IE6+需要用</p>
+<pre><code>.justify{
+    text-align:justify;
+    background-color: pink;
+    font-size: 0;  //清空素质方向的多于高度
+}
+.justify div{
+    width: 22%;
+    height: 50px;
+    font-size: 14px;
+    display: inline-block;
+    background-color: beige;
+    outline: 1px solid #2BD6A4;
+}
+
+.justify:after {
+    display:inline-block;
+    width:100%;
+    height:0;
+    content:&apos;&apos;;
+}
+
+
+
+&lt;div class=&quot;justify&quot;&gt;
+    &lt;div&gt;1&lt;/div&gt;
+    &lt;div&gt;2&lt;/div&gt;
+    &lt;div&gt;3&lt;/div&gt;
+    &lt;div&gt;4&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div&gt;6&lt;/div&gt;
+    &lt;div&gt;7&lt;/div&gt;
+    &lt;div&gt;8&lt;/div&gt;
+    &lt;div&gt;9&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+    &lt;div&gt;5&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h1 id="苹果手机点击输入框时页面自动放大"><a href="#苹果手机点击输入框时页面自动放大" class="headerlink" title="苹果手机点击输入框时页面自动放大"></a>苹果手机点击输入框时页面自动放大</h1><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, user-scalable=no&quot;&gt;
+
+** user-scalable=no是“禁止手动缩放”，添加此属性后便不可手动控制页面大小。
+</code></pre><h1 id="毛玻璃"><a href="#毛玻璃" class="headerlink" title="毛玻璃"></a>毛玻璃</h1><pre><code>.background_img{ 
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(20px);
+  z-index: -1;
+  transform: scale(1.5); /*和网易云音乐对比了一下，发现也是放大1.5倍*/
+}
+
+
+&lt;!-- play.wxml --&gt;
+&lt;image src=&quot;{{song.al.picUrl}}&quot; class=&quot;background_img&quot; &gt;&lt;/image&gt;
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/02/常用js/" rel="next" title="常用js">
+                <i class="fa fa-chevron-left"></i> 常用js
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/02/vue基础/" rel="prev" title="vue基础">
+                vue基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#样式清空"><span class="nav-number">2.</span> <span class="nav-text">样式清空</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的公共css"><span class="nav-number">3.</span> <span class="nav-text">常用的公共css</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本不可以选中："><span class="nav-number">4.</span> <span class="nav-text">文本不可以选中：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#苹果文本框的黑框问题"><span class="nav-number">5.</span> <span class="nav-text">苹果文本框的黑框问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#textarea文本框禁止拉伸"><span class="nav-number">6.</span> <span class="nav-text">textarea文本框禁止拉伸</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本框溢出隐藏，以逗号省略"><span class="nav-number">7.</span> <span class="nav-text">文本框溢出隐藏，以逗号省略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内容超出滚动条"><span class="nav-number">8.</span> <span class="nav-text">内容超出滚动条</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择器"><span class="nav-number">9.</span> <span class="nav-text">+选择器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#important无效"><span class="nav-number">10.</span> <span class="nav-text">!important无效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#背景蒙层的设置"><span class="nav-number">11.</span> <span class="nav-text">背景蒙层的设置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css的水平居中"><span class="nav-number">12.</span> <span class="nav-text">css的水平居中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css的隐藏元素，无需js代码"><span class="nav-number">13.</span> <span class="nav-text">css的隐藏元素，无需js代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#uc浏览器不支持transform"><span class="nav-number">14.</span> <span class="nav-text">uc浏览器不支持transform</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#input-number的默认样式的修改"><span class="nav-number">15.</span> <span class="nav-text">input number的默认样式的修改</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#禁止复制"><span class="nav-number">16.</span> <span class="nav-text">禁止复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在title上添加logo"><span class="nav-number">17.</span> <span class="nav-text">在title上添加logo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#颜色透明的英文"><span class="nav-number">18.</span> <span class="nav-text">颜色透明的英文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动端常见的medta"><span class="nav-number">19.</span> <span class="nav-text">移动端常见的medta</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#meta禁止缓存"><span class="nav-number">20.</span> <span class="nav-text">meta禁止缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#去掉input-”number”的默认样式"><span class="nav-number">21.</span> <span class="nav-text">去掉input=”number”的默认样式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下拉滚动条隐藏但是可以滚动"><span class="nav-number">22.</span> <span class="nav-text">下拉滚动条隐藏但是可以滚动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#去掉聚焦在input框上时产生的发光轮廓"><span class="nav-number">23.</span> <span class="nav-text">去掉聚焦在input框上时产生的发光轮廓</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#谷歌浏览器最小字体为12px的解决："><span class="nav-number">24.</span> <span class="nav-text">谷歌浏览器最小字体为12px的解决：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#box-shadow兼容ie8"><span class="nav-number">25.</span> <span class="nav-text">box-shadow兼容ie8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三行省略-兼容ie8"><span class="nav-number">26.</span> <span class="nav-text">三行省略   兼容ie8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ie-margin-auto失效"><span class="nav-number">27.</span> <span class="nav-text">ie margin auto失效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html5视频填满整个dom"><span class="nav-number">28.</span> <span class="nav-text">html5视频填满整个dom</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中文换行，英文不换行"><span class="nav-number">29.</span> <span class="nav-text">中文换行，英文不换行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#li下面的3px间距"><span class="nav-number">30.</span> <span class="nav-text">li下面的3px间距</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#禁止选择文本"><span class="nav-number">31.</span> <span class="nav-text">禁止选择文本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hover点击以后失效"><span class="nav-number">32.</span> <span class="nav-text">hover点击以后失效</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两边固定，中间自适应"><span class="nav-number">33.</span> <span class="nav-text">两边固定，中间自适应</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上下固定，中间自适应"><span class="nav-number">34.</span> <span class="nav-text">上下固定，中间自适应</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大于符号-gt"><span class="nav-number">35.</span> <span class="nav-text">大于符号&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#placeholder的颜色"><span class="nav-number">36.</span> <span class="nav-text">placeholder的颜色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#footer固定在最下面"><span class="nav-number">37.</span> <span class="nav-text">footer固定在最下面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#清除浮动加上后dom高度无故变高"><span class="nav-number">38.</span> <span class="nav-text">清除浮动加上后dom高度无故变高</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#滚动条"><span class="nav-number">39.</span> <span class="nav-text">滚动条</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的框架布局"><span class="nav-number">40.</span> <span class="nav-text">常用的框架布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动设备上-宽高一样自适应"><span class="nav-number">41.</span> <span class="nav-text">移动设备上 宽高一样自适应</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数字排列"><span class="nav-number">42.</span> <span class="nav-text">数字排列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#html5-视频隐藏进度条"><span class="nav-number">43.</span> <span class="nav-text">html5  视频隐藏进度条</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#渐变"><span class="nav-number">44.</span> <span class="nav-text">渐变</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的符号"><span class="nav-number">45.</span> <span class="nav-text">常用的符号</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭符号"><span class="nav-number">45.1.</span> <span class="nav-text">关闭符号</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下三角"><span class="nav-number">46.</span> <span class="nav-text">下三角</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#next和prev"><span class="nav-number">47.</span> <span class="nav-text">next和prev</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见符号"><span class="nav-number">48.</span> <span class="nav-text">常见符号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#table的文字溢出问题"><span class="nav-number">49.</span> <span class="nav-text">table的文字溢出问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#flex属性的新认识"><span class="nav-number">50.</span> <span class="nav-text">flex属性的新认识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#flex-wrap"><span class="nav-number">50.1.</span> <span class="nav-text">flex-wrap</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改光标的颜色"><span class="nav-number">51.</span> <span class="nav-text">修改光标的颜色</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多列均匀分布"><span class="nav-number">52.</span> <span class="nav-text">多列均匀分布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#苹果手机点击输入框时页面自动放大"><span class="nav-number">53.</span> <span class="nav-text">苹果手机点击输入框时页面自动放大</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#毛玻璃"><span class="nav-number">54.</span> <span class="nav-text">毛玻璃</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

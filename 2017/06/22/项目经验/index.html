@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言这是记录自己做过项目的经验">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目经验">
+<meta property="og:url" content="http://yoursite.com/2017/06/22/项目经验/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言这是记录自己做过项目的经验">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-05T08:02:08.197Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="项目经验">
+<meta name="twitter:description" content="前言这是记录自己做过项目的经验">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/22/项目经验/"/>
+
+
+
+
+
+  <title>项目经验 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/项目经验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">项目经验</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T10:19:42+08:00">
+                2017-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是记录自己做过项目的经验</p>
+<a id="more"></a><!--more-->
+<h1 id="京江南风霆迅数娱"><a href="#京江南风霆迅数娱" class="headerlink" title="京江南风霆迅数娱"></a>京江南风霆迅数娱</h1><p>风霆迅数字娱乐平台，是整合海量高品质电影，体育、明星直播，竞技游戏、虚拟现实、音乐等资源所打造的数字娱乐业务平台。创新的构建了一整套门店运营管理系统、电影播控系统、卖品管理系统、互联网票务系统、流量导入和互动社交系统，可以提供线下综合数字娱乐体验的整体解决方案。</p>
+<h1 id="风霆迅微信公众号"><a href="#风霆迅微信公众号" class="headerlink" title="风霆迅微信公众号"></a>风霆迅微信公众号</h1><p>时间：2017-5-1 ——————2017-6-4</p>
+<p>迅娱APP是私人影吧的移动票务预订服务的提供者，迅娱旨在打造线上泛娱乐的票务服务平台，帮助线下类似于影吧服务的提供商提供线上预订服务，同时也帮助线上的影吧观影用户预订泛娱乐服务，目前系统展示了平台的所有视频资源，附近的影院，影院的详情，通过这些内容帮助用户判断、选择预订的影片和影院，最终在线购买影院服务。</p>
+<p>包时和包片<br>多了是电影和不是电影的判断，不同的进不同的页面，以前的弹窗改为页面。</p>
+<p>新增分类，下拉页面，还有新增上传营业执照的页面</p>
+<p>负责选片部分</p>
+<p>1.zepto  weui  下来加载（dropload）  </p>
+<p>负责测试时，bug的修改</p>
+<h1 id="风霆迅官网v2-0"><a href="#风霆迅官网v2-0" class="headerlink" title="风霆迅官网v2.0"></a>风霆迅官网v2.0</h1><p>时间：2017-6-5 ——————2017-7-14</p>
+<p>负责全部网页的编写</p>
+<p><a href="http://www.ftxjoy.com/" target="_blank" rel="noopener">http://www.ftxjoy.com/</a></p>
+<p>将静态页面全部变为后台可编辑，多了后台可以管理</p>
+<h1 id="官网加强视频播放功能"><a href="#官网加强视频播放功能" class="headerlink" title="官网加强视频播放功能"></a>官网加强视频播放功能</h1><p>时间：2017-10-10 ——————2017-10-20</p>
+<p>问题：谷歌浏览器最新版本,播放视频途中最小化窗口，偶现部分视频不出现，The media playback was aborted due to a corruption problem or because the media used features your browser did not support.</p>
+<p>解决：用谷歌监听最小和最大化然后重新加载视频，应该是最小化以后视频地址出现问题。</p>
+<h1 id="风霆迅微信公众号v1-3"><a href="#风霆迅微信公众号v1-3" class="headerlink" title="风霆迅微信公众号v1.3"></a>风霆迅微信公众号v1.3</h1><p>时间：2017-7-20 ——————2017-7-27</p>
+<p>遥控器新增详情页面，搜索页面改为同步搜索。点击影片播放为，进入详情页面</p>
+<p>风霆迅数娱</p>
+<h1 id="风霆顺网"><a href="#风霆顺网" class="headerlink" title="风霆顺网"></a>风霆顺网</h1><p>时间：2017-7-20 ——————2017-8-11</p>
+<p>负责测试时，bug的修改；增加一种支付方式，增加flash判断开始是否</p>
+<p><a href="http://dy.jjnsy.cp67.ott.cibntv.net/ShunWang.html" target="_blank" rel="noopener">http://dy.jjnsy.cp67.ott.cibntv.net/ShunWang.html</a></p>
+<h1 id="影院管理系统1-3（含收银端、影院后台、影院片库）v1-3"><a href="#影院管理系统1-3（含收银端、影院后台、影院片库）v1-3" class="headerlink" title="影院管理系统1.3（含收银端、影院后台、影院片库）v1.3"></a>影院管理系统1.3（含收银端、影院后台、影院片库）v1.3</h1><p>影院后台管理系统主要是影院的内部管理系统，可进行订单，账目查询，影厅设置，折扣管理，卖品管理等。</p>
+<p>目前市面上，做影吧行业系统的公司很多，比如威动等，但是专注于为影吧客户提供成套的、闭环的系统这个垂直细分领域的较小，目前大多数也停留在摸索，徘徊中，风霆迅影吧系统算是目前规模中做的比较出色的。<br>风霆迅拥有众多版权提供商及渠道分销商，这些可以让我们在泛娱乐行业有不错的发展及前景。<br> 该文档分为风霆迅收银端系统需求说明文档。即为roadmap中的二期规划。旨在打造更加专业的影吧收银系统，为客户提供更加便捷的服务。</p>
+<p>影院片库管理系统主要是影院的内部管理系统，可影片下载，删除，播放记录统计财务统计等等。</p>
+<p>将过去的三个系统统一在一个系统上面，用的新模板，编辑页面变为弹窗</p>
+<p>时间：2017-8-15 ——————2017-10-14</p>
+<p>负责后面页面的编写</p>
+<h1 id="VOD系统产品文档"><a href="#VOD系统产品文档" class="headerlink" title="VOD系统产品文档"></a>VOD系统产品文档</h1><p>时间：2017-10-17  </p>
+<p>云端后台+商户后台的统一</p>
+<p>事件委托是怎么做的</p>
+<h1 id="公共号"><a href="#公共号" class="headerlink" title="公共号"></a>公共号</h1><pre><code>&lt;div style=&quot;overflow: hidden;height: 0&quot;&gt;
+    &lt;img src=&quot;/Public/home/images/share_logo01.jpg&quot; alt=&quot;&quot; style=&quot;&quot;&gt;
+&lt;/div&gt;
+</code></pre><p> 微信开房js-sdk后分享以前的分享代码失效 </p>
+<p> tittl为网页title  图片为body内第一张大于300*300的图  带display：none的忽视， 用的透明度为0</p>
+<p> 配合后端使用使用js-sdk  width:0px;height:0px;</p>
+<p>先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”，测试环境没办法测，只能在线上环境测</p>
+<p>后端的配置没对，后面开始了debug模式才，发现</p>
+<p>wx.ready(function(){}）；<br>wx.error(function(){}）；  都没进去</p>
+<p>2.安卓不支持刷新当前页面.</p>
+<p>window.location.reload()</p>
+<p>window.location.href = location.href+’?time=’+((new Date()).getTime());</p>
+<p>对于安卓手机微信中浏览器，reload是从缓存中装载文档，所以是失效的；</p>
+<p>3.按后退键不刷新问题</p>
+<p>因为后退键以后数据都是从缓存中加载的，部分其他动态数据无法正常显示 这个时候的做法可以是</p>
+<p>利用sessionStorage</p>
+<pre><code>上一个页面
+
+(!sessionStorage.url)&amp;&amp;(sessionStorage.url=window.location.href);
+
+下一个页面
+
+window.history.pushState(&apos;&apos;, &quot;title&quot;, &quot;?123&quot;);
+$(window).on(&quot;popstate&quot;, function(e) {   //点击了返回上一页
+    window.location.href=sessionStorage.url+&apos;?time=&apos;+((new Date()).getTime());
+    e.preventDefault();
+});
+</code></pre><p>4.判断时候点击了微信的返回按钮</p>
+<p>利用history的pushState</p>
+<pre><code>$(function () {
+    var i=0;
+    $(&quot;a&quot;).click(function(e){
+        e.preventDefault();
+        window.history.pushState(i, &quot;title&quot;, &quot;#&quot;+i);
+        i++;
+    });
+    $(window).on(&quot;popstate&quot;, function() {   //点击了返回上一页
+        console.log(1);
+    });
+});
+</code></pre><p>官网</p>
+<h1 id="视频播放遇到的坑"><a href="#视频播放遇到的坑" class="headerlink" title="视频播放遇到的坑"></a>视频播放遇到的坑</h1><h2 id="判断视频缓存以后在播放"><a href="#判断视频缓存以后在播放" class="headerlink" title="判断视频缓存以后在播放"></a>判断视频缓存以后在播放</h2><p>bug：在点击播放以后会有一段的缓存时间，如果网速慢这个时候没视频没缓存上就会有一段黑屏的时期。</p>
+<p>解决思路：</p>
+<ul>
+<li><p>利用video的canplay来解决，最开始不显示，当可以播放的时候才切换到video界面。</p>
+<p>  然而canplay在ios并不能使用，ios下监听’canplay’和’canplaythrough’在加载的时候不会触发，preload=”auto”也无效，仅仅只有play以后才触发和最开始的想法就向反。chrome调试器下和android能够触发。</p>
+</li>
+<li><p>利用video的readyState来解决，当其为4的时候代表可以播放视频</p>
+<pre><code>然而和上面一样ios在preload状态下只会到1，仅只有点击play()以后才会跳转到4，同样不行
+</code></pre></li>
+<li><p>利用post属性添加一个gif的loading图片，当播放前加载这个图片作为缓存图片</p>
+<pre><code>这次出问题的是android，兼容的并不好，但是android可以利用canplay，可以利用这里在canplay前显示gif图片，可以播放以后，将video切换回来
+</code></pre></li>
+</ul>
+<p>解决： IOS利用poster，android视频上加一层div做封面，由于android不允许视频上层有东西，所以首先将视频设为的width：1px，当canplay后，上层的封面remove掉，同时width：100%或者你想要的宽度</p>
+<p>另外的方法：</p>
+<pre><code>video.addEventListener(&apos;timeupdate&apos;,function (){
+    //当视频的currentTime大于0.1时表示黑屏时间已过，已有视频画面，可以移除浮层（.pagestart的div元素）
+    if ( !video.isPlayed &amp;&amp; this.currentTime&gt;0.1 ){
+        $(&apos;.pagestart&apos;).fadeOut(500);
+        video.isPlayed = !0;
+    }
+})
+</code></pre><p>另外的思路：可以播放一下然后马上暂停，然后等待canplay</p>
+<p>vod云端</p>
+<p>1.ajax的滚动请求+自锁 减少服务器的压力</p>
+<pre><code>    var double=true;
+    if(double){
+        double=false;
+        obj.animate(json,function(){
+
+         double=true;
+        })
+    }
+
+
+(function() {
+    var finished = true;
+    function loadData() {
+        //xxxx
+        finished = true;
+    }
+    dom.onscroll = function() {
+        if(finished &amp;&amp; this.scrollHeight - this.clientHeight == this.scrollTop) {
+            finished = false;
+            loadData();
+        }
+    }
+})();
+</code></pre><p>2.window下ajax返回204却走的error</p>
+<p>原因：是window上面用原生txt编辑器打开会导致编码有问题</p>
+<p>重新拉代码，下载的编辑器打开修改的，保证编辑器设置的文件编码是utf-8</p>
+<p>最后发现是后端在window下编辑器的地方多了一个空格</p>
+<p>兼容性问题；</p>
+<h1 id="IE9下标签没有写全会重复"><a href="#IE9下标签没有写全会重复" class="headerlink" title="IE9下标签没有写全会重复"></a>IE9下标签没有写全会重复</h1><p>IE9时的如果标签没有封闭会导致，浏览器重复解析</p>
+<pre><code>&lt;a&gt;&lt;a/&gt;或者&lt;a&gt;没有封闭的标签不会像其他浏览器一样自动帮你加上，会导致部分代码重复，如果IE9浏览器下的代码，莫名的重复还是先关注一下是不是有没有封闭的标签
+</code></pre><h1 id="firefox下checkbox刷新后仍选中问题"><a href="#firefox下checkbox刷新后仍选中问题" class="headerlink" title="firefox下checkbox刷新后仍选中问题"></a>firefox下checkbox刷新后仍选中问题</h1><pre><code>&lt;input type=&quot;checkbox&quot; autocomplete=&quot;off&quot;/&gt;
+</code></pre><h1 id="input输入框中的光标在ios上乱跳的问题"><a href="#input输入框中的光标在ios上乱跳的问题" class="headerlink" title="input输入框中的光标在ios上乱跳的问题"></a>input输入框中的光标在ios上乱跳的问题</h1><p><a href="http://blog.csdn.net/zhongguohaoshaonian/article/details/78392447?locationNum=9&amp;fps=1" target="_blank" rel="noopener">http://blog.csdn.net/zhongguohaoshaonian/article/details/78392447?locationNum=9&amp;fps=1</a></p>
+<p>如果弹出框是fixed定位，并且弹出框中输入框，那么就很可能会出现这种问题。很简单的解决办法，你把fixed定位去掉，改变你的样式表现方式。我这里是把弹出框改成absolute定位，弹出框的父元素改成relative定位解决的。 </p>
+<h1 id="数据中心-vue的思路"><a href="#数据中心-vue的思路" class="headerlink" title="数据中心 vue的思路"></a>数据中心 vue的思路</h1><p>路由是用的后端路由laraval-进入页面显示什么页面</p>
+<ul>
+<li>html页面是路由指定下的blade。php页面，</li>
+<li>引入的main.js文件是通过webpack.mix.js  通过src转化到Public里的js文件</li>
+<li>css,字体，img,插件都是直接丢到了public里，没有被打包</li>
+<li>通过用php来动态绑定content部分的标签</li>
+<li>数据是vuex中的丢在layout里,每个页面的数据都被window.datas丢在指定的最开始的页面里</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/26/js中的一些语法要求/" rel="next" title="'js中的一些语法要求'">
+                <i class="fa fa-chevron-left"></i> 'js中的一些语法要求'
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/11/兼容性问题/" rel="prev" title="兼容性问题">
+                兼容性问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#京江南风霆迅数娱"><span class="nav-number">2.</span> <span class="nav-text">京江南风霆迅数娱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#风霆迅微信公众号"><span class="nav-number">3.</span> <span class="nav-text">风霆迅微信公众号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#风霆迅官网v2-0"><span class="nav-number">4.</span> <span class="nav-text">风霆迅官网v2.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#官网加强视频播放功能"><span class="nav-number">5.</span> <span class="nav-text">官网加强视频播放功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#风霆迅微信公众号v1-3"><span class="nav-number">6.</span> <span class="nav-text">风霆迅微信公众号v1.3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#风霆顺网"><span class="nav-number">7.</span> <span class="nav-text">风霆顺网</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#影院管理系统1-3（含收银端、影院后台、影院片库）v1-3"><span class="nav-number">8.</span> <span class="nav-text">影院管理系统1.3（含收银端、影院后台、影院片库）v1.3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VOD系统产品文档"><span class="nav-number">9.</span> <span class="nav-text">VOD系统产品文档</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公共号"><span class="nav-number">10.</span> <span class="nav-text">公共号</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视频播放遇到的坑"><span class="nav-number">11.</span> <span class="nav-text">视频播放遇到的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断视频缓存以后在播放"><span class="nav-number">11.1.</span> <span class="nav-text">判断视频缓存以后在播放</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IE9下标签没有写全会重复"><span class="nav-number">12.</span> <span class="nav-text">IE9下标签没有写全会重复</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firefox下checkbox刷新后仍选中问题"><span class="nav-number">13.</span> <span class="nav-text">firefox下checkbox刷新后仍选中问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#input输入框中的光标在ios上乱跳的问题"><span class="nav-number">14.</span> <span class="nav-text">input输入框中的光标在ios上乱跳的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据中心-vue的思路"><span class="nav-number">15.</span> <span class="nav-text">数据中心 vue的思路</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

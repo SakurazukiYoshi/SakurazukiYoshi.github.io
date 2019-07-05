@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前述 第一次面试别人让我谈谈什么是js原型，一时大脑就当机了，还以为他说的是js的组成，结果气氛非常尴尬。知道后面又问我连原型链都不知道吗？才反应过来问的是所有内置对象的原型，然而机会已经错过。特意写一遍文章来复习一下原型的内容。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象">
+<meta property="og:url" content="http://yoursite.com/2017/03/07/内置对象/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前述 第一次面试别人让我谈谈什么是js原型，一时大脑就当机了，还以为他说的是js的组成，结果气氛非常尴尬。知道后面又问我连原型链都不知道吗？才反应过来问的是所有内置对象的原型，然而机会已经错过。特意写一遍文章来复习一下原型的内容。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://i.imgur.com/LsoBAu0.png">
+<meta property="og:image" content="http://i.imgur.com/pNqiapr.png">
+<meta property="og:updated_time" content="2019-07-05T07:38:17.532Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对象">
+<meta name="twitter:description" content="前述 第一次面试别人让我谈谈什么是js原型，一时大脑就当机了，还以为他说的是js的组成，结果气氛非常尴尬。知道后面又问我连原型链都不知道吗？才反应过来问的是所有内置对象的原型，然而机会已经错过。特意写一遍文章来复习一下原型的内容。">
+<meta name="twitter:image" content="http://i.imgur.com/LsoBAu0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/07/内置对象/"/>
+
+
+
+
+
+  <title>对象 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/07/内置对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T10:54:16+08:00">
+                2017-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前述"><a href="#前述" class="headerlink" title="前述"></a>前述</h1><p> 第一次面试别人让我谈谈什么是js原型，一时大脑就当机了，还以为他说的是js的组成，结果气氛非常尴尬。知道后面又问我连原型链都不知道吗？才反应过来问的是所有内置对象的原型，然而机会已经错过。特意写一遍文章来复习一下原型的内容。</p>
+ <a id="more"></a><!--more-->
+<h1 id="js的原型"><a href="#js的原型" class="headerlink" title="js的原型"></a>js的原型</h1><p>Javascript是一种基于对象的语言，用一句话来说就是“万物皆对象”。但是js又不是一种真正的面向对象编程语言，因为它的语法中没有class（类）。因此js中创造了对象和函数对象的原型，Object和Function是JS内置对象。</p>
+<h3 id="new的本质"><a href="#new的本质" class="headerlink" title="new的本质"></a>new的本质</h3><pre><code>function _new(OBJ) {
+    var obj={};   
+    obj.__proto__=OBJ.prototype;   //copy原型的属性和方法
+    OBJ.call(obj);                 //copy构造的属性和方法
+    return obj;
+}
+
+var person=_new(Person);
+console.log(person);
+</code></pre><h1 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>原型对象是每个对象拥有的属性（原型）是一个对象。包含所有实例共享的属性和方法。</p>
+<p>prototype是构造函数指向原型对象的属性</p>
+<p>constructor是原型对象指向构造函数的属性</p>
+<p><code>__proto__</code>是实例指向构造函数的原型对象的属性，而不是实例指向构造函数之间的属性</p>
+<p>这里需要注意：虽然可以通过对象实例访问保存在原型中的值，但却不能通过对象实例重写原型中的值</p>
+<p> </p>
+<h2 id="属性的访问机制"><a href="#属性的访问机制" class="headerlink" title="属性的访问机制"></a>属性的访问机制</h2><p>1.现在构造函数对象中寻找</p>
+<p>2.如果没有，到该对象的<strong>proto</strong>指向的对象继续寻找属性和方法</p>
+<p>3.一直循环到<strong>proto</strong>为null</p>
+<pre><code>Object.prototype.__proto__===null
+Function.prototype.__proto__===Object.prototype
+Function/Object/Aarray/String.__proto__===Functio.prototype
+</code></pre><p><img src="http://i.imgur.com/LsoBAu0.png" alt=""></p>
+<p>面向对象是通过<em>proto</em>实现的</p>
+<pre><code>Function.prototype.__proto__指向Object.prototype    
+
+Object._proto_指向Function.prototype
+
+object.prototype._proto_指向null
+</code></pre><p>总结：</p>
+<p>Object——Function.prototype——Object.prototype——null</p>
+<p>object是Function原型的实例，Function原型是object原型的实例</p>
+<p>所以：所有对象Object，Array，Date，Number对象都是Function的实例</p>
+<p>内置的关系图</p>
+<p>第一代  </p>
+<pre><code>Obeject.prototype
+</code></pre><p>第二代</p>
+<pre><code>Function
+</code></pre><p>第三代：</p>
+<pre><code>Object，Array，Date，Number，error
+</code></pre><p>第四代（实例）：</p>
+<pre><code>obj.__proto_===Object.prototype  
+
+arr.__proto_===Array.prototype
+
+reg.__proto_===RegExp.prototype
+
+data.__proto_===Date.prototype
+
+error.__proto_===Error.prototype
+</code></pre><p>自创对象关系</p>
+<p>第一代</p>
+<pre><code>Obeject.prototype
+</code></pre><p>第二代</p>
+<pre><code>Function
+</code></pre><p>第三代</p>
+<pre><code>fn
+</code></pre><p>第四代</p>
+<pre><code>new fn
+</code></pre><p>原型链的关系图：</p>
+<p><img src="http://i.imgur.com/pNqiapr.png" alt=""></p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="原型链是实现继承的主要方法"><a href="#原型链是实现继承的主要方法" class="headerlink" title="原型链是实现继承的主要方法"></a>原型链是实现继承的主要方法</h3><p>基本思想：利用原型让一个引用类型继承另一个引用类型的属性和方法。</p>
+<p>son 继承了 father,son继承了father的方法和属性,构造函数继承构造函数，原型继承原型。属性的访问顺序依旧是按照访问机制来的。先构造再原型</p>
+<pre><code>son.prototype = new father();
+</code></pre><p>本质：son的原型指向了father，son的原型继承了，father的所有方法和属性。根据访问机制，现实找son的构造函数，再找son的原型，所以对于son构造函数拥有的属性和方法，并不能继承。</p>
+<pre><code>son.prototype.__proto__=father.prototype;  
+son.prototype.call(father);  //son的原型copy了father所有的方法，改变this指向
+return son.prototype;
+</code></pre><p>继承的使用：对于祖传的方法，都丢在father的prototype中，只要father添加了，son就跟着有了，当然要使用<code>father.prototype[a]=&quot;ooxx&quot;;</code>的方式，不然原型链有问题</p>
+<p>同时要注意，因为son的原型被father代替了，所以son原本原型中的方法，会被抹去，因此son单独的方法应该写在继承的后面。</p>
+<p>错误：</p>
+<pre><code>son.prototype.a=function(){
+    alert(233);
+};
+son.prototype = new father();    //这样方法a就没有了
+</code></pre><p>正确：</p>
+<pre><code>son.prototype = new father();
+son.prototype.a=function(){   //被覆盖了以后再
+    alert(233);
+};
+</code></pre><p>弊端也有很多</p>
+<h3 id="使用call和apply"><a href="#使用call和apply" class="headerlink" title="使用call和apply"></a>使用call和apply</h3><p>供爷法则，借东西的人在前面</p>
+<pre><code>function father(name){
+    this.name = name;
+}
+function son(){
+    //继承了 father，同时还传递了参数
+    father.call(this, &quot;son&quot;);
+    this.age = 29;
+}
+var instance = new son();
+alert(instance.name);
+</code></pre><p>缺点：方法都得写在构造函数中</p>
+<h3 id="推荐组合继承"><a href="#推荐组合继承" class="headerlink" title="推荐组合继承"></a>推荐组合继承</h3><p>原型链和借用构造函数的技术组合到一块。<br>原型链————将属性和方法都存在原型中，这样属性改一个其他都改<br>call和apply————将属性和方法都存在构造函数中，每次方法都是新建<br>结合在一起：<br>属性继承在构造函数中，方法继承在原型中</p>
+<pre><code>function father(name){
+    this.name = name;
+    this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
+}
+father.prototype.sayName = function(){
+    alert(this.name);
+};
+function son(name, age){
+    father.call(this, name);  //继承构造函数属性,color和name
+    this.age = age;           //age是自己的
+}
+//继承方法
+son.prototype = new father();  //son.prototype的复制father所有的属性，_proto__指向father复制father的方法
+son.prototype.constructor = son;  //修正son原型的constructor指向为son,之前指向的是father
+</code></pre><h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><h2 id="toLowerCase-转化为小写"><a href="#toLowerCase-转化为小写" class="headerlink" title="toLowerCase()    转化为小写"></a>toLowerCase()    转化为小写</h2><pre><code>var str=&quot;HELLO WORLD&quot;;
+var str1=str.toLowerCase();
+console.log(str1);
+</code></pre><h2 id="toUpperCase-转化为大写"><a href="#toUpperCase-转化为大写" class="headerlink" title="toUpperCase()      转化为大写"></a>toUpperCase()      转化为大写</h2><pre><code>var str=&quot;hello world&quot;;
+var str1=str.toUpperCase();
+console.log(str1);
+</code></pre><h2 id="split-将字符串转化为数组"><a href="#split-将字符串转化为数组" class="headerlink" title="split()  将字符串转化为数组"></a>split()  将字符串转化为数组</h2><p>格式：str.split(“分割的内容”)</p>
+<pre><code>var s=&quot;a,bc,d&quot;;
+console.log(s.split(&quot;,&quot;));//[&quot;a&quot;, &quot;bc&quot;, &quot;d&quot;]
+s=&quot;a1b1c1d1&quot;;
+console.log(s.split(&quot;1&quot;));//[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;&quot;]
+</code></pre><h2 id="slice-获取部分字符串"><a href="#slice-获取部分字符串" class="headerlink" title="slice() 获取部分字符串"></a>slice() 获取部分字符串</h2><p>格式：slice(startIndex,endIndex) </p>
+<pre><code>一、    如果 start 为负，将它作为 length + start处理，此处 length 为数组的长度。也就是从为start的时候从最后开始数，顺序反过来
+二、    如果 end 为负，就将它作为 length + end 处理，此处 length 为数组的长度。也就是从为end的时候从前面开始数
+三、    如果省略 end ，那么 slice 方法将一直复制到 arrayObj 的结尾。
+四、    如果 end 大于 start，不复制任何元素到新数组中。
+五、    slice可以对数组操作，substring不行
+</code></pre><h2 id="substring-获取部分字符串"><a href="#substring-获取部分字符串" class="headerlink" title="substring()获取部分字符串"></a>substring()获取部分字符串</h2><p>格式：str.substring(startIndex,endIndex)<br>截取 起始索引startIndex  到  结束索引endIndex的子字符串，<br>结果包含startIndex处的字符，不包含endIndex处的字符。</p>
+<pre><code>var arr=&quot;hello world&quot;;
+console.log(arr.substring(1,3));
+</code></pre><h2 id="substr-从起始索引fromIndex开始截取长度length的字符串"><a href="#substr-从起始索引fromIndex开始截取长度length的字符串" class="headerlink" title="substr() 从起始索引fromIndex开始截取长度length的字符串"></a>substr() 从起始索引fromIndex开始截取长度length的字符串</h2><p>substr() 从起始索引fromIndex开始截取长度length的字符串<br>格式：str. substr(fromIndex,length)  </p>
+<pre><code>var arr=&quot;hello world&quot;;
+console.log(arr.substr(1,3));
+结果：“ell”
+</code></pre><h2 id="charAt-根据索引值获取单个字符"><a href="#charAt-根据索引值获取单个字符" class="headerlink" title="charAt():根据索引值获取单个字符"></a>charAt():根据索引值获取单个字符</h2><pre><code>myString=&quot;JavaScript&quot;;
+console.log(myString.charAt(1));//a
+console.log(myString.charAt(10000000000000000));//若索引越界，返回空字符串
+</code></pre><h2 id="indexOf-获取索引值"><a href="#indexOf-获取索引值" class="headerlink" title="indexOf():获取索引值"></a>indexOf():获取索引值</h2><p>格式：str/arr.indexOf(’字符/数字‘)<br>如果有返回字符所在的索引多个返回第一个，如果没有返回-1<br>常规方法：<br>    var a=”aabcc”;<br>    console.log(a.indexOf(“b”));    </p>
+<h1 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h1><h1 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h1><p>函数都是Function对象的实例，例如：Array，Object，Number。这些对象都拥有以下的属性。</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="contructor"><a href="#contructor" class="headerlink" title="contructor"></a>contructor</h3><p>返回对创建此对象的数组函数的引用。可以用于判断对象的类型</p>
+<pre><code>var test=new Array();
+
+if (test.constructor==Array)
+{
+document.write(&quot;This is an Array&quot;);
+}
+if (test.constructor==Boolean)
+{
+document.write(&quot;This is a Boolean&quot;);
+}
+if (test.constructor==Date)
+{
+document.write(&quot;This is a Date&quot;);
+}
+if (test.constructor==String)
+{
+document.write(&quot;This is a String&quot;);
+}
+</code></pre><h3 id="argunments"><a href="#argunments" class="headerlink" title="argunments"></a>argunments</h3><p>用于保存函数的参数(实际参数)，只有在运行的时候才有用。保存的数据时一个伪数组。</p>
+<pre><code>function add(a,b,c){
+    console.log(arguments);
+}
+add(5,9,30);
+
+结果为：{0：5,1：9,3：30，length：3}
+</code></pre><p>argunments.length指的是实参的个数</p>
+<h3 id="calller"><a href="#calller" class="headerlink" title="calller"></a>calller</h3><p>返回的是调用这个函数的对象，是谁使用了函数</p>
+<pre><code>var a = function() {   
+alert(a.caller);   
+}   
+var b = function() {   
+a();   
+}   
+b();   //返回的是函数b
+a();   //返回的是最外部的自执行函数
+</code></pre><h3 id="callee"><a href="#callee" class="headerlink" title="callee"></a>callee</h3><p>返回正在执行的函数对象，一般用于递归。是arguments中的一个属性</p>
+<pre><code>function a(){
+     b();
+}
+function b(){
+    console.log(arguments.callee)
+}
+a(); //返回的是函数b
+</code></pre><h3 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h3><p>使您有能力向对象添加属性和方法</p>
+<pre><code>object.prototype.name=value
+</code></pre><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="Apply"><a href="#Apply" class="headerlink" title="Apply()"></a>Apply()</h3><p>和call的功能一样只是参数的方式不一样。</p>
+<pre><code>格式（供爷法则）：
+
+借钱人.方法.call(贷款人,[参数])
+
+var a={
+    say:function(i+j){
+        alert(i+j);
+    }
+};
+var b={};
+a.say.call(b,[i,j]);
+</code></pre><h3 id="Call"><a href="#Call" class="headerlink" title="Call()"></a>Call()</h3><h4 id="1-借用其他函数-对象-的方法"><a href="#1-借用其他函数-对象-的方法" class="headerlink" title="1. 借用其他函数(对象)的方法"></a>1. 借用其他函数(对象)的方法</h4><p>格式（供爷法则）：</p>
+<pre><code>借钱人.方法.call(贷款人，参数1，参数2)
+
+var a={
+    say:function(i+j){
+        alert(i+j);
+    }
+};
+var b={};
+a.say.call(b,i,j);
+</code></pre><p>实例1：将伪数组转化为真数组</p>
+<pre><code>var wei=document.getElementsByClassName(&quot;a1&quot;);
+
+var arr=Array.prototype.slice.call(wei);
+arr.push(1);
+console.log(arr);
+</code></pre><p>实例2：找出最小的数</p>
+<pre><code>var arr=[12,8,9,10,5];
+var min=Math.min.apply(null,arr);
+console.log(min);
+</code></pre><p>伪数组不能使用数组的方法</p>
+<h4 id="2-调用其他函数-对象-的this"><a href="#2-调用其他函数-对象-的this" class="headerlink" title="2. 调用其他函数(对象)的this"></a>2. 调用其他函数(对象)的this</h4><p>格式：</p>
+<pre><code>贷款人.call(NEW 借钱人)
+
+    function a(){
+        this.a=&quot;233&quot;;
+    }
+    function b(){
+        console.log(this.a);
+    }
+    b.call(new a);
+
+
+
+
+
+Bind
+
+toString
+</code></pre><p>#new的本质</p>
+<p>new一个实例后系统做的事情：</p>
+<p>1.创建一个空对象var a={}</p>
+<p>2.拷贝构造函数中的方法属性到空对象中</p>
+<p>3.自动生成一个属性<em>protp</em>指向类原型</p>
+<p>a.<em>proto</em>=XXXX.prototype</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/01/hexo的使用/" rel="next" title="hexo的使用">
+                <i class="fa fa-chevron-left"></i> hexo的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/21/代码的模块化/" rel="prev" title="代码的模块化">
+                代码的模块化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前述"><span class="nav-number">1.</span> <span class="nav-text">前述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#js的原型"><span class="nav-number">2.</span> <span class="nav-text">js的原型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#new的本质"><span class="nav-number">2.0.1.</span> <span class="nav-text">new的本质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型链"><span class="nav-number">3.</span> <span class="nav-text">原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识"><span class="nav-number">3.1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性的访问机制"><span class="nav-number">3.2.</span> <span class="nav-text">属性的访问机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">3.3.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链是实现继承的主要方法"><span class="nav-number">3.3.1.</span> <span class="nav-text">原型链是实现继承的主要方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用call和apply"><span class="nav-number">3.3.2.</span> <span class="nav-text">使用call和apply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐组合继承"><span class="nav-number">3.3.3.</span> <span class="nav-text">推荐组合继承</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#String"><span class="nav-number">4.</span> <span class="nav-text">String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#toLowerCase-转化为小写"><span class="nav-number">4.1.</span> <span class="nav-text">toLowerCase()    转化为小写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toUpperCase-转化为大写"><span class="nav-number">4.2.</span> <span class="nav-text">toUpperCase()      转化为大写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#split-将字符串转化为数组"><span class="nav-number">4.3.</span> <span class="nav-text">split()  将字符串转化为数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slice-获取部分字符串"><span class="nav-number">4.4.</span> <span class="nav-text">slice() 获取部分字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#substring-获取部分字符串"><span class="nav-number">4.5.</span> <span class="nav-text">substring()获取部分字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#substr-从起始索引fromIndex开始截取长度length的字符串"><span class="nav-number">4.6.</span> <span class="nav-text">substr() 从起始索引fromIndex开始截取长度length的字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#charAt-根据索引值获取单个字符"><span class="nav-number">4.7.</span> <span class="nav-text">charAt():根据索引值获取单个字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#indexOf-获取索引值"><span class="nav-number">4.8.</span> <span class="nav-text">indexOf():获取索引值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Array"><span class="nav-number">5.</span> <span class="nav-text">Array</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Function"><span class="nav-number">6.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性"><span class="nav-number">6.1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#contructor"><span class="nav-number">6.1.1.</span> <span class="nav-text">contructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#argunments"><span class="nav-number">6.1.2.</span> <span class="nav-text">argunments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#calller"><span class="nav-number">6.1.3.</span> <span class="nav-text">calller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#callee"><span class="nav-number">6.1.4.</span> <span class="nav-text">callee</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prototype"><span class="nav-number">6.1.5.</span> <span class="nav-text">Prototype</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number">6.2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apply"><span class="nav-number">6.2.1.</span> <span class="nav-text">Apply()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call"><span class="nav-number">6.2.2.</span> <span class="nav-text">Call()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-借用其他函数-对象-的方法"><span class="nav-number">6.2.2.1.</span> <span class="nav-text">1. 借用其他函数(对象)的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-调用其他函数-对象-的this"><span class="nav-number">6.2.2.2.</span> <span class="nav-text">2. 调用其他函数(对象)的this</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

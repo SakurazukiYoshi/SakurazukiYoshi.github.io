@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言都说前端最恼火的是兼容性问题，之前做的项目都是简单的数据绑定没有复杂的逻辑，所以没有体会到兼容性的麻烦。这次做了顺网以后，看着各种来浏览器提来的问题顿时心情都不好了。好在终于把所有的兼容性问题都解决了。特意来记录一下这次让我万分头痛的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="兼容性问题">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/兼容性问题/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言都说前端最恼火的是兼容性问题，之前做的项目都是简单的数据绑定没有复杂的逻辑，所以没有体会到兼容性的麻烦。这次做了顺网以后，看着各种来浏览器提来的问题顿时心情都不好了。好在终于把所有的兼容性问题都解决了。特意来记录一下这次让我万分头痛的问题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-05T07:34:22.029Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="兼容性问题">
+<meta name="twitter:description" content="前言都说前端最恼火的是兼容性问题，之前做的项目都是简单的数据绑定没有复杂的逻辑，所以没有体会到兼容性的麻烦。这次做了顺网以后，看着各种来浏览器提来的问题顿时心情都不好了。好在终于把所有的兼容性问题都解决了。特意来记录一下这次让我万分头痛的问题">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/11/兼容性问题/"/>
+
+
+
+
+
+  <title>兼容性问题 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/兼容性问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">兼容性问题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T15:02:10+08:00">
+                2017-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>都说前端最恼火的是兼容性问题，之前做的项目都是简单的数据绑定没有复杂的逻辑，所以没有体会到兼容性的麻烦。这次做了顺网以后，看着各种来浏览器提来的问题顿时心情都不好了。好在终于把所有的兼容性问题都解决了。特意来记录一下这次让我万分头痛的问题</p>
+<a id="more"></a><!--more-->
+<h1 id="css3"><a href="#css3" class="headerlink" title="css3"></a>css3</h1><p>css3是一个好东西，各种效果都比较圆滑，一些动画效果做出来也很圆滑。然而支持的只有IE9及其以上的浏览器。如果想要兼容IE9以下的浏览器，一开始千万注意不要使用css3</p>
+<h1 id="浏览器的默认多选框"><a href="#浏览器的默认多选框" class="headerlink" title="浏览器的默认多选框"></a>浏览器的默认多选框</h1><p>每个浏览器的多选框都不一样，默认样式也奇丑无比，修改起来也各种麻烦。如果一开始就想要修改多选框的样式的话，还是自己写一个样式比较好。</p>
+<h1 id="postion"><a href="#postion" class="headerlink" title="postion"></a>postion</h1><p>父相子绝，这个是常用的定位手段，然而如果postion不加上left，top的话，每个浏览器默认的位置不同，一定要注意加了绝对定位的属性一定要写上left和top，不然浏览器定位不一样</p>
+<h1 id="a：hover"><a href="#a：hover" class="headerlink" title="a：hover"></a>a：hover</h1><p>a链接在打开新页面的时候，部分浏览器，没有将新页面认为是移出原来的dom，导致原来的页面的hover效果还在。</p>
+<p>解决办法：在点击以后增加一个class覆盖，原本的hover效果，然后在鼠标移入的时候删除class名。</p>
+<h1 id="IE9下标签没有写全会重复"><a href="#IE9下标签没有写全会重复" class="headerlink" title="IE9下标签没有写全会重复"></a>IE9下标签没有写全会重复</h1><p>IE9时的如果标签没有封闭会导致，浏览器重复解析</p>
+<pre><code>&lt;a&gt;&lt;a/&gt;或者&lt;a&gt;没有封闭的标签不会像其他浏览器一样自动帮你加上，会导致部分代码重复，如果IE9浏览器下的代码，莫名的重复还是先关注一下是不是有没有封闭的标签
+</code></pre><h1 id="firefox下checkbox刷新后仍选中问题"><a href="#firefox下checkbox刷新后仍选中问题" class="headerlink" title="firefox下checkbox刷新后仍选中问题"></a>firefox下checkbox刷新后仍选中问题</h1><pre><code>&lt;input type=&quot;checkbox&quot; autocomplete=&quot;off&quot;/&gt;
+</code></pre><h1 id="ajax返回成功但却走的error"><a href="#ajax返回成功但却走的error" class="headerlink" title="ajax返回成功但却走的error"></a>ajax返回成功但却走的error</h1><pre><code>dataType: &apos;json&apos;
+
+
+ajax请求的action中的result返回类型不是json
+
+
+dataType: &apos;text&apos;
+
+
+
+var data;
+var firstCode = data1.charCodeAt(0);
+if (firstCode &lt; 0x20 || firstCode &gt; 0x7f) {
+    data = JSON.parse(data1.substring(1)); // 去除第一个字符
+}else {
+    data=JSON.parse(data1);
+}
+</code></pre><h1 id="input输入框中的光标在ios上乱跳的问题"><a href="#input输入框中的光标在ios上乱跳的问题" class="headerlink" title="input输入框中的光标在ios上乱跳的问题"></a>input输入框中的光标在ios上乱跳的问题</h1><p><a href="http://blog.csdn.net/zhongguohaoshaonian/article/details/78392447?locationNum=9&amp;fps=1" target="_blank" rel="noopener">http://blog.csdn.net/zhongguohaoshaonian/article/details/78392447?locationNum=9&amp;fps=1</a></p>
+<p>如果弹出框是fixed定位，并且弹出框中输入框，那么就很可能会出现这种问题。很简单的解决办法，你把fixed定位去掉，改变你的样式表现方式。我这里是把弹出框改成absolute定位，弹出框的父元素改成relative定位解决的。 </p>
+<p>这是为什么呢？简单解释下： &gt; 软键盘唤起后，页面的 fixed 元素将失效（即无法浮动，也可以理解为变成了 absolute 定位），所以当页面超过一屏且滚动时，失效的 fixed 元素就会跟随滚动了。</p>
+<h1 id="视频播放遇到的坑"><a href="#视频播放遇到的坑" class="headerlink" title="视频播放遇到的坑"></a>视频播放遇到的坑</h1><h2 id="判断视频缓存以后在播放"><a href="#判断视频缓存以后在播放" class="headerlink" title="判断视频缓存以后在播放"></a>判断视频缓存以后在播放</h2><p>bug：在点击播放以后会有一段的缓存时间，如果网速慢这个时候没视频没缓存上就会有一段黑屏的时期。</p>
+<p>解决思路：</p>
+<ul>
+<li><p>利用video的canplay来解决，最开始不显示，当可以播放的时候才切换到video界面。</p>
+<p>  然而canplay在ios并不能使用，ios下监听’canplay’和’canplaythrough’在加载的时候不会触发，preload=”auto”也无效，仅仅只有play以后才触发和最开始的想法就向反。chrome调试器下和android能够触发。</p>
+</li>
+<li><p>利用video的readyState来解决，当其为4的时候代表可以播放视频</p>
+<pre><code>然而和上面一样ios在preload状态下只会到1，仅只有点击play()以后才会跳转到4，同样不行
+</code></pre></li>
+<li><p>利用post属性添加一个gif的loading图片，当播放前加载这个图片作为缓存图片</p>
+<pre><code>这次出问题的是android，兼容的并不好，但是android可以利用canplay，可以利用这里在canplay前显示gif图片，可以播放以后，将video切换回来
+</code></pre></li>
+</ul>
+<p>解决： IOS利用poster，android视频上加一层div做封面，由于android不允许视频上层有东西，所以首先将视频设为的width：1px，当canplay后，上层的封面remove掉，同时width：100%或者你想要的宽度</p>
+<p>另外的方法：</p>
+<pre><code>video.addEventListener(&apos;timeupdate&apos;,function (){
+    //当视频的currentTime大于0.1时表示黑屏时间已过，已有视频画面，可以移除浮层（.pagestart的div元素）
+    if ( !video.isPlayed &amp;&amp; this.currentTime&gt;0.1 ){
+        $(&apos;.pagestart&apos;).fadeOut(500);
+        video.isPlayed = !0;
+    }
+})
+</code></pre><p>另外的思路：可以播放一下然后马上暂停，然后等待canplay</p>
+<h2 id="视频播放全屏的问题"><a href="#视频播放全屏的问题" class="headerlink" title="视频播放全屏的问题"></a>视频播放全屏的问题</h2><p>pc端的方法百度即可</p>
+<pre><code>//android
+if(myVideo.webkitRequestFullScreen){
+    myVideo.webkitRequestFullScreen()
+}
+
+//IOS默认播放全屏
+</code></pre><p>退出全屏：</p>
+<pre><code>//ios
+
+myVideo.addEventListener(&quot;ended&quot;,function(){
+    if(this.webkitExitFullScreen){
+        this.webkitExitFullScreen();
+    }
+});
+
+
+playsinline webkit-playsinline这两个属性和这个库基本可以保证ios端
+
+ x5-video-player-fullscreen=&quot;true&quot; 
+</code></pre><p>android没能找到能退出全屏的方法</p>
+<h2 id="视频的控制条隐藏"><a href="#视频的控制条隐藏" class="headerlink" title="视频的控制条隐藏"></a>视频的控制条隐藏</h2><p>  不需要control属性</p>
+<p>全屏时候的隐藏，仅pc端有用   ios和android无效没找到方法：</p>
+<pre><code>video::-webkit-media-controls {
+    display:none !important;
+}
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+::-webkit-media-controls{
+    display:none !important;
+}
+</code></pre><h2 id="自动播放"><a href="#自动播放" class="headerlink" title="自动播放"></a>自动播放</h2><p>android始终不能自动播放，IOS自动播放</p>
+<pre><code>//也可以在这个事件触发后播放一次然后暂停（这样以后视频会处于加载状态，为后面的流畅播放做准备）
+document.addEventListener(&quot;WeixinJSBridgeReady&quot;, function (){ 
+    video.play();
+    video.pause();
+}, false)
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/22/项目经验/" rel="next" title="项目经验">
+                <i class="fa fa-chevron-left"></i> 项目经验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/16/插件源代码的研究/" rel="prev" title="layui源代码的研究">
+                layui源代码的研究 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css3"><span class="nav-number">2.</span> <span class="nav-text">css3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器的默认多选框"><span class="nav-number">3.</span> <span class="nav-text">浏览器的默认多选框</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#postion"><span class="nav-number">4.</span> <span class="nav-text">postion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#a：hover"><span class="nav-number">5.</span> <span class="nav-text">a：hover</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IE9下标签没有写全会重复"><span class="nav-number">6.</span> <span class="nav-text">IE9下标签没有写全会重复</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firefox下checkbox刷新后仍选中问题"><span class="nav-number">7.</span> <span class="nav-text">firefox下checkbox刷新后仍选中问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax返回成功但却走的error"><span class="nav-number">8.</span> <span class="nav-text">ajax返回成功但却走的error</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#input输入框中的光标在ios上乱跳的问题"><span class="nav-number">9.</span> <span class="nav-text">input输入框中的光标在ios上乱跳的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视频播放遇到的坑"><span class="nav-number">10.</span> <span class="nav-text">视频播放遇到的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#判断视频缓存以后在播放"><span class="nav-number">10.1.</span> <span class="nav-text">判断视频缓存以后在播放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视频播放全屏的问题"><span class="nav-number">10.2.</span> <span class="nav-text">视频播放全屏的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视频的控制条隐藏"><span class="nav-number">10.3.</span> <span class="nav-text">视频的控制条隐藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动播放"><span class="nav-number">10.4.</span> <span class="nav-text">自动播放</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

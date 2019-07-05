@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言 对于工作中最常使用的js库，研究一下其他的源代码，为了以后的搭框架铺好路。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jq源代码">
+<meta property="og:url" content="http://yoursite.com/2018/02/02/jq源代码/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言 对于工作中最常使用的js库，研究一下其他的源代码，为了以后的搭框架铺好路。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-05T07:44:22.019Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jq源代码">
+<meta name="twitter:description" content="前言 对于工作中最常使用的js库，研究一下其他的源代码，为了以后的搭框架铺好路。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/02/jq源代码/"/>
+
+
+
+
+
+  <title>jq源代码 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/jq源代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jq源代码</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T16:38:15+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
+<p>对于工作中最常使用的js库，研究一下其他的源代码，为了以后的搭框架铺好路。</p>
+<a id="more"></a><!--more-->
+<h1 id="无new构建"><a href="#无new构建" class="headerlink" title="无new构建"></a>无new构建</h1><p>思路：</p>
+<ul>
+<li><p>因为jq是无new构造，一般的方法会无限new</p>
+<pre><code>var a=function () {
+    return new a();
+};
+</code></pre></li>
+<li><p>解决jq原型上建立一个新的子函数，然后继承其功能，然后返回new 子函数即可。</p>
+</li>
+</ul>
+<pre><code>!(function () {
+    var a=function () {
+        return new a.prototype.init();
+    };
+    a.prototype={
+        constructor:&quot;a&quot;,
+        init:function () {
+            alert(1);
+            return this;
+        },
+        fn1:function () {
+            console.log(2)
+        }
+    };
+    a.prototype.init.prototype=a.prototype;
+    a.fn=function () {
+       console.log(1);
+       return this;
+    };
+    window.a=a;
+})(window,undefined);
+
+a.fn();  //直接执行的a.fn()  没有返回new a.prototype.init()  所以不用构建整个a
+a().fn1();  //执行了一次a()   new a.prototype.init()   拷贝了大量的数据
+</code></pre><p>这样做的原因：提高 jQuery 的查询效率。</p>
+<p>jQuery选择器，根据传入的数据不同而有不同的jQuery对象。</p>
+<p>jQuery的方法分为两种：</p>
+<p>jq自带的方法：</p>
+<pre><code>- 静态方法
+就是直接通过$访问的方法，这些方法一般不对dom元素操作，提供了一些常用的工具。
+eg：$.ajax,$.type,$.merge   
+
+-实例方法
+
+会对jQuery查询的DOM元素进行操作，jQuery 执行$()会构建一个 jQuery 对象，这个对象以数组的方法存储查询出的所有DOM元素，然后在这个对象的原型链上实现了对这些 DOM 操作的方法。
+eg:$().each(),$().html,$().remove()。
+</code></pre><p>对于实例方法，因为要对DOM进行操作所以每个实例的jQuery的对象不一定相同，因此每个实例方法都需要new一次。</p>
+<p>静态方法不需要对DOM操作每个对象都是一样的，因此没必要每次都要new一次存在jQuery的原型上即可。</p>
+<p>jQuery.fn 中的方法为什么不直接定义在 init prototype上，而要定义在 jQuery prototype上？</p>
+<pre><code>目的是为了提高 jQuery 的查询效率。
+
+直接定义在 init 的 prototype 对象上每执行一次查询（实例化一次），就会在内存中创建这样一个庞大的prototype对象，
+
+定义在jQuery prototype上，在jQuery加载时，这个对象就会被初始化并一直存在于内存中，以后每次执行 $() 时，只需要将init中的prototype指向这个对象就可以了，而不用每次都去创建一遍相同的对象。
+
+
+init 函数中返回的 this -- jQuery原型  //动态方法
+
+jQuery函数中的this   -- jQuery   //静态方法
+</code></pre><ul>
+<li>jQuery每次查询会创建一个jQuery对象，</li>
+<li>所有 jQuery 对象都会共享同一个 jQuery原型。</li>
+<li>jQuery对象不仅包含了DOM查询结果集，还继承了 jQuery原型对象上的操作方法。</li>
+<li>可以在查询后直接调用方法来操作这些DOM元素了。</li>
+</ul>
+<p>缺陷：查询复杂，每次都要创建一个复杂的jQuery对象，尽管共享同一个 jQuery 原型，既要考虑各种不同的匹配标识，同时又要考虑不同浏览器的兼容性。如果是简单的查询不推荐使用jQ对象</p>
+<h1 id="原型上自带的方法"><a href="#原型上自带的方法" class="headerlink" title="原型上自带的方法"></a>原型上自带的方法</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li>jquery:版本号</li>
+<li>constructor:修正<code>jQuery.prototype={}</code>带来的constructor指向错误</li>
+<li>init:初始化</li>
+<li>selector:选中的元素</li>
+<li>length:选中DOM中元素的个数</li>
+<li>toArray:把DOM元素转换为数组，然后输出该数组元素的HTML</li>
+<li>get:没带参数-$(OX)伪数组转化为真数组，带正参数-数组中的对应，负参数-length-参数的元素</li>
+<li>pushStack：$(OX)选中记录的数组</li>
+<li>merge:合并两个数组，修改第一个参数的内容</li>
+</ol>
+<h2 id="toArray"><a href="#toArray" class="headerlink" title="toArray"></a>toArray</h2><pre><code>console.log(toString.call($(&quot;li&quot;)));        //[object Object]
+console.log(toString.call($(&quot;li&quot;).toArray()));  //[object Array]
+</code></pre><p>jq选择器的DOM是一个假数组对象</p>
+<p>   {0:’li’,1:’li’,2:’li’,length:3,…}</p>
+<p>转化为真数组：</p>
+<pre><code>[li, li, li]
+</code></pre><p>原理：</p>
+<pre><code>[].slice.call(伪数组)；
+
+[].slice.call({0:&apos;li&apos;,1:&apos;li&apos;,2:&apos;li&apos;,length:3})；
+</code></pre><p>Array.prototype.slice.call(arguments)能将具有length属性的对象转成数组</p>
+<pre><code>console.log([].slice.call({3:&apos;li&apos;,1:&apos;li&apos;,2:&apos;li&apos;,length:3}));  
+//[empty, &quot;li&quot;, &quot;li&quot;]
+</code></pre><p>根据length来获取长度，然后根据符号的下标来转化</p>
+<h2 id="pushStack"><a href="#pushStack" class="headerlink" title="pushStack"></a>pushStack</h2><p>jQuery对象栈:每个遍历会找到一个jQuery对象，然后jQuery会把这组元素推入到栈中。</p>
+<p>eg：</p>
+<pre><code>$(&apos;ul&apos;).children(&apos;li&apos;).css(&quot;backgroundColor&quot;,&quot;#CCC&quot;);  
+</code></pre><p>ul首先入栈，子元素li后入栈</p>
+<p>源代码：</p>
+<pre><code>pushStack: function( elems ) {  
+
+        // Build a new jQuery matched element set  
+        var ret = jQuery.merge( this.constructor(), elems );  
+
+        // Add the old object onto the stack (as a reference)  
+        ret.prevObject = this;  
+        ret.context = this.context;  
+
+        // Return the newly-formed element set  
+        return ret;  
+}  
+
+merge: function( first, second ) {
+    var l = second.length,
+        i = first.length,
+        j = 0;
+
+    if ( typeof l === &quot;number&quot; ) {
+        for ( ; j &lt; l; j++ ) {
+            first[ i++ ] = second[ j ];
+        }
+    } else {
+        while ( second[j] !== undefined ) {
+            first[ i++ ] = second[ j++ ];
+        }
+    }
+
+    first.length = i;
+
+    return first;
+}
+
+
+eq: function( i ) {
+    var len = this.length,   //现在选中元素的长度
+        j = +i + ( i &lt; 0 ? len : 0 );  //i&lt;0  len-i     i&gt;0   len+i
+
+    // i的个数超过选中的范围 pushStack([])     没超过就 pushStack(this[j])
+    //一般是选中的html，即原生html对象
+    return this.pushStack( j &gt;= 0 &amp;&amp; j &lt; len ? [ this[j] ] : [] );
+}
+</code></pre><p>先理解merge的作用：</p>
+<ul>
+<li><p>将两个数组合并</p>
+<p>   $.merge( [0,1,2], [2,3,4] );  //[0,1,2,2,3,4]</p>
+</li>
+<li><p>将伪数组对象合并，只能合并length以内的数字key，其他的属性不能合并</p>
+</li>
+</ul>
+<pre><code>var a={
+    0:&apos;ul&apos;,
+    context:&apos;document&apos;,
+    length:1
+};
+var b={
+    0:&apos;li&apos;,
+    context:&apos;html&apos;,
+    length:1
+};
+merge(a,b);
+结果：
+var b={
+    0:&apos;ul&apos;,
+    1：&apos;li&apos;
+    context:&apos;html&apos;,
+    length:2
+};
+</code></pre><p>在思考pushStack：</p>
+<ul>
+<li><p>this.constructor 就是jQuery的构造函数init,及是jQuery，所以this.constructor()返回一个jQuery对象.</p>
+</li>
+<li><p>构建一个新的jQuery对象，无参 this.constructor()，只是返回引用this</p>
+</li>
+<li><p>jQuery.merge 把elems节点，合并到新的jQuery对象</p>
+</li>
+</ul>
+<ul>
+<li>给返回的新jQuery对象添加属性prevObject，所以我们看到prevObject 其实还是当前jQuery的一个引用罢了</li>
+</ul>
+<h1 id="extend方法"><a href="#extend方法" class="headerlink" title="extend方法"></a>extend方法</h1><hr>
+<h2 id="extend的用法"><a href="#extend的用法" class="headerlink" title="extend的用法"></a>extend的用法</h2><p><code>jQuery.extend</code>————把两个或者多个对象合并到第一个对象当中</p>
+<p><code>jQuery.fn.extend</code>———把对象挂载到 jQuery的prototype 上以扩展一个新的 jQuery 实例方法 </p>
+<p>语法：</p>
+<pre><code>jQuery.extend([deep,] [target,] object1 [,objectN]);
+
+jQuery.fn.extend([deep，] [target,] object1 [,objectN])
+</code></pre><ul>
+<li>deep: Boolen，选，表示是否进行递归合并（深/浅复制）默认浅复制false。</li>
+</ul>
+<ul>
+<li>target:扩展对象，选，将接收新的属性。</li>
+</ul>
+<ul>
+<li>objectN:一个对象，包含额外的属性，扩展到目标对象（扩展对象）。</li>
+</ul>
+<p>案例：</p>
+<pre><code>function getOpt(target, obj1, obj2, obj3){
+    $.extend(target, obj1, obj2, obj3);
+    return target;
+}
+
+var _default = {
+    name : &apos;wenzi&apos;,
+    age : &apos;25&apos;,
+    sex : &apos;male&apos;
+};
+var obj1 = {
+    name : &apos;obj1&apos;
+};
+var obj2 = {
+    name : &apos;obj2&apos;,
+    age : &apos;36&apos;
+};
+var obj3 = {
+    age : &apos;67&apos;,
+    sex : {&apos;error&apos;:&apos;sorry, I dont\&apos;t kown&apos;}
+};
+console.log(getOpt(_default, obj1, obj2, obj3));
+// {name: &quot;obj2&quot;, age: &quot;67&quot;, sex: {error: &quot;sorry, I dont&apos;t kown&quot;}}
+</code></pre><h2 id="区分深浅拷贝："><a href="#区分深浅拷贝：" class="headerlink" title="区分深浅拷贝："></a>区分深浅拷贝：</h2><p>浅拷贝：</p>
+<p>浅复制对象A时，对象B将复制A的所有字段：</p>
+<ul>
+<li>如果字段是引用类型，B将复制地址</li>
+</ul>
+<ul>
+<li>如果字段是基本类型，B将复制其值</li>
+</ul>
+<p>缺点： 引用类型两个的地址一样，改变了B的地址，同样就改变了A的地址</p>
+<pre><code>function copy(target,clone){
+    for(var i in clone){
+        target[i]  = clone[i];
+    }
+    return target;
+}
+</code></pre><p>深拷贝：</p>
+<p>完全复制所有数据</p>
+<ul>
+<li>优点是B与A不会相互依赖（A,B完全脱离关联）</li>
+</ul>
+<ul>
+<li>缺点是复制的速度慢，代价大。</li>
+</ul>
+<pre><code>    function type(obj){
+        return Object.prototype.toString.call(obj).slice(8,-1);
+        //&quot;[object Object]&quot;  截取  第8个元素  和倒数第二个袁术
+    }
+    function deepCopy(target,cloneObj){
+        var copy;
+        for(var i in cloneObj){
+            copy = cloneObj[i];
+
+            //跳过循环中的一个迭代   防止a={b:a} 这种无限循环    构造函数不能喝之中的key相同
+            if(target === copy){
+                continue;
+            }
+/*
+* arguments.callee的作用：当函数被调用时，它的arguments.callee对象就会指向自身
+*
+*1. 这个属性只有在函数执行时才有效
+*
+*2. 它length属性，用来获得形参的个数，可以比较形参和实参个数是否一致，arguments.length和arguments.callee.length
+*
+*3. 它可以用来递归匿名函数。
+*
+* arguments.callee为自身    arguments.callee()  自身又执行了一次
+*
+* 现在已经不推荐使用arguments.callee()；
+* 缺点：因为它是个很大的对象，每次递归调用时都需要重新创建。影响现代浏览器的性能，还会影响闭包。
+*
+* */
+
+            if(type(copy) === &quot;Array&quot;){
+/*
+* copy一个  key:value  中value为数组
+*
+* value存在不存在
+* 存在     deepCopy(value,copy)
+*
+* 不存在    deepCopy([],copy)
+*
+* */
+                target[i] = arguments.callee(target[i] || [],copy);
+            }else if(type(copy) === &quot;Object&quot;){
+/*
+* copy={ c:&quot;c&quot; }    i=a   target[a]不存在
+*
+* deepCopy({},{ c:&quot;c&quot; } )    这里target[i]={}  重新copy
+*
+*
+* */
+                target[i] = arguments.callee(target[i] || {},copy);
+            }else{
+                target[i] = copy;      
+            }
+        }
+        return target;
+    }
+
+    var a = {
+        a:{ c:&quot;c&quot; },
+        b:&quot;b&quot;
+    };
+    var t = deepCopy({},a);
+    //t.a.c =&quot;e&quot;;
+    console.log(t);//c
+    //console.log(a.a.c);//c
+</code></pre><p> 深浅拷贝的实例区别</p>
+<pre><code>var obj1 = {
+    name: &quot;John&quot;,
+    location: {
+        city: &quot;Boston&quot;,
+        county: &quot;USA&quot;
+    }
+}
+
+var obj2 = {
+    last: &quot;Resig&quot;,
+    location: {
+        state: &quot;MA&quot;,
+        county: &quot;China&quot;
+    }
+}
+
+$.extend(false, {}, obj1, obj2); 
+// { name: &quot;John&quot;, last: &quot;Resig&quot;, location: { state: &quot;MA&quot;, county: &quot;China&quot; }}
+
+$.extend(true, {}, obj1, obj2); 
+// { name: &quot;John&quot;, last: &quot;Resig&quot;, location: { city: &quot;Boston&quot;, state: &quot;MA&quot;, county: &quot;China&quot; }}
+</code></pre><ul>
+<li>深度复制 会递归遍历每个对象中含有复杂对象（如：数组、函数、json对象等）的属性值进行复制</li>
+</ul>
+<ul>
+<li>浅度复制 只会选择最后一个对象的值。</li>
+</ul>
+<h2 id="代码思路"><a href="#代码思路" class="headerlink" title="代码思路"></a>代码思路</h2><ul>
+<li>第一个参数为布尔值的时候</li>
+</ul>
+<p>记录传入的布尔值，目标对象变为第二个参数,循环+1</p>
+<pre><code>jQuery.extend( true, obj1, obj2 );
+</code></pre><ul>
+<li><p>传入的不是obj，也不是function的其他基本类型，其他的基本类型没有自身的属性</p>
+<pre><code>&quot;hi&quot;.test=&quot;hello&quot;   没效果    还是undefined
+</code></pre></li>
+</ul>
+<ul>
+<li>参数个数等于1,或者带布尔值的2个参数的情况</li>
+</ul>
+<pre><code>jQuery.extend(obj)
+jQuery.extend(true，obj)
+</code></pre><ul>
+<li>对参数开始循环</li>
+</ul>
+<pre><code>1.获取参数对象的每个key，value
+
+2.将第一个参数的key和循环的key比较，防止自循
+
+3.循环的obj的value存在并且是一个纯对象，或者是一个数组
+
+3.1 数组和对象的异常情况分别用[]  {}处理
+</code></pre><h2 id="jq插件的开发"><a href="#jq插件的开发" class="headerlink" title="jq插件的开发"></a>jq插件的开发</h2><p>源代码：</p>
+<pre><code>if ( length === i ) {
+    target = this;
+    --i;
+}
+</code></pre><p>这里首先的明白this的指向：</p>
+<ol>
+<li>this的指向在函数定义的时候是确定不了的，</li>
+<li>只有函数执行的时候才能确定this到底指向谁，</li>
+<li>实际上this的最终指向的是那个调用它的对象</li>
+<li>apply和call可以改变this指向。</li>
+</ol>
+<p>返回规则：</p>
+<ul>
+<li>如果返回值是一个对象，那么this指向的就是那个返回的对象</li>
+</ul>
+<ul>
+<li>如果返回值不是一个对象那么this还是指向函数的实例</li>
+</ul>
+<p>这里调用的是</p>
+<ol>
+<li><p>Fn();调用</p>
+</li>
+<li><p>new关键字可以改变this的指向，将这个this指向f1.</p>
+</li>
+<li><p>F1没有返回值，指向函数的实例为fn</p>
+</li>
+</ol>
+<pre><code>function Fn() {
+   console.log(this);
+}
+
+Fn();   //window
+
+var f1=new Fn();   //Fn
+
+/**
+
+    function a() {
+        var f1={};
+        f1.__proto__==Fn.prototype;
+        Fn.call(f1);       //f1 的this 指向Fn
+        return f1;
+    }
+
+* */
+</code></pre><p>所以构造函数里的方法指向的this通常是指向的构造函数</p>
+<pre><code>var a=function () {
+    return new a.prototype.init()
+};
+
+a().say();   //  new a.prototype.init().say();
+
+a.say();    //  a在调用
+</code></pre><p>所以原型内部的方法this是指向init,通过原型链找到<code>a.prototype</code></p>
+<p>jQuery插件开发分为两种：</p>
+<pre><code>/*
+* jQuery.extend时，this指的是jQuery；
+* $.extend()的
+* $.ooxx=function(){}     调用$.ooxx();
+*
+* jQuery.fn.extend时，this指的是jQuery.fn
+* $.prototype=function(){ooxx:function(){}}  调用$().ooxx();
+*
+* */
+</code></pre><p>本质就是利用<code>this</code>在不同情况下的指向不同，然后分别在jQuery和jQuery的原型上拷贝原型上面没有的方法。</p>
+<h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><h3 id="事件的基础"><a href="#事件的基础" class="headerlink" title="事件的基础"></a>事件的基础</h3><p>1.历史  DOM事件的级别,对于DOM的规范版本</p>
+<pre><code>DOM0  
+    element.onclick = function(){}
+
+DOM2
+
+window.addEventListener(&apos;click&apos;, function () {...}, false);
+window.removeEventListener(&apos;click&apos;, listener, false);
+增减了三个事件模型：捕获阶段，目标阶段，冒泡阶段
+
+DOM3
+对于addEventListener增添了一些时间，
+
+DOM1中没有对于时间的修正
+
+
+dispatchEvent   vue的关键点
+</code></pre><p>捕获流程：</p>
+<p>捕获阶段：window-document-html-body-target</p>
+<p>冒泡：反过来</p>
+<p>DOM事件模型：IE所使用的冒泡型事件（Bubbling）+DOM标准定义的冒泡型与捕获型（Capture）的事件</p>
+<p>事件代理的原理：</p>
+<ul>
+<li>由于事件会在冒泡阶段向上传播到父节点</li>
+<li>把子节点的监听函数定义在父节点上，利用e.target来获取触发的子节点，由父节点的监听函数统一处理多个子元素的事件。</li>
+</ul>
+<p>好处是：</p>
+<ul>
+<li>只要定义一个监听函数，就能处理多个子节点的事件</li>
+<li>以后再添加子节点，监听函数依然有效。</li>
+<li>如果希望事件到某个节点为止，不再传播，可以使用事件对象的stopPropagation方法</li>
+</ul>
+<pre><code>event.currentTarget  //获得其监听器触发了事件的那个元素
+
+event.target    //获得触发事件的元素
+</code></pre><p>后两者的区别：</p>
+<pre><code>target:触发事件的某个具体对象，只会出现在事件流的目标阶段
+
+currentTarget:绑定事件的对象，恒等于this，可能出现在事件流的任意一个阶段中
+
+
+父子嵌套的关系中，父元素绑定了事件，单击了子元素，
+这时候currentTarget指向的是父元素，因为他是绑定事件的对象，
+而target指向了子元素，因为他是触发事件的那个具体对象
+
+事件委托的时候，两者的对象则不同  
+</code></pre><p>实例：将li的事件绑定在了ul上，利用e.target来判断谁被点击了</p>
+<p>需要注意的是这里：捕获阶段是到触发事件的节点为止，这里的触发节点并不是指绑定事件的节点，是指在到由windows到target节点这个阶段中发现事件的节点就执行</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;第1个&lt;button class=&quot;btn&quot; id=&quot;1&quot;&gt;删除&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;第2个&lt;button class=&quot;btn&quot; id=&quot;2&quot;&gt;删除&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;第3个&lt;button class=&quot;btn&quot; id=&quot;3&quot;&gt;删除&lt;/button&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+var ul=document.querySelector(&apos;ul&apos;);
+ul.addEventListener(&apos;click&apos;,function (e) {
+    var liNow=e.target;
+    liNow.innerHTML=&apos;hello world&apos;;
+},false);
+</code></pre><h3 id="绑定基础"><a href="#绑定基础" class="headerlink" title="绑定基础"></a>绑定基础</h3><pre><code>* .bind()
+* .live()
+* .delegate()
+* .on()
+</code></pre><p>不管是用什么方式绑定,归根到底还是用addEventListener/attachEvent处理的</p>
+<pre><code>document.addEventListener(&apos;click&apos;,function () {},false)
+</code></pre><p>现有问题：</p>
+<ol>
+<li>大量的事件绑定，性能消耗，而且还需要解绑（IE会泄漏）</li>
+<li>绑定的元素必须要存在</li>
+<li>后期生成HTML会没有事件绑定，需要重新绑定</li>
+<li>语法过于繁杂</li>
+</ol>
+<p>事件委托:可以解决第大量事件绑定的性能消耗</p>
+<p>DOM2.0模型将事件处理流程分为三个阶段：</p>
+<ol>
+<li>事件捕获阶段</li>
+<li>事件目标阶段</li>
+<li>事件起泡阶段</li>
+</ol>
+<p>事件委托就是事件目标自身不处理事件，而是把处理任务委托给其父元素或者祖先元素.</p>
+<p>不管你用的是（click / bind / delegate)之中那个方法，最终都是jQuery底层都是调用on方法来完成最终的事件绑定</p>
+<p>add  -4554<br>on  -  5256</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/22/常识的总结/" rel="next" title="常识的总结">
+                <i class="fa fa-chevron-left"></i> 常识的总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/24/闭包的分析/" rel="prev" title="'闭包的分析'">
+                '闭包的分析' <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无new构建"><span class="nav-number">2.</span> <span class="nav-text">无new构建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型上自带的方法"><span class="nav-number">3.</span> <span class="nav-text">原型上自带的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">3.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toArray"><span class="nav-number">3.2.</span> <span class="nav-text">toArray</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushStack"><span class="nav-number">3.3.</span> <span class="nav-text">pushStack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#extend方法"><span class="nav-number">4.</span> <span class="nav-text">extend方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#extend的用法"><span class="nav-number">4.1.</span> <span class="nav-text">extend的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区分深浅拷贝："><span class="nav-number">4.2.</span> <span class="nav-text">区分深浅拷贝：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码思路"><span class="nav-number">4.3.</span> <span class="nav-text">代码思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jq插件的开发"><span class="nav-number">4.4.</span> <span class="nav-text">jq插件的开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件绑定"><span class="nav-number">4.5.</span> <span class="nav-text">事件绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件的基础"><span class="nav-number">4.5.1.</span> <span class="nav-text">事件的基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定基础"><span class="nav-number">4.5.2.</span> <span class="nav-text">绑定基础</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

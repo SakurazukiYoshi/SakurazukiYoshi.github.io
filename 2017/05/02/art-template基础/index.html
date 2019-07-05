@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言这是一个前端字符模板的使用方案。不过还是推荐直接使用vue.js当字符模板">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="art-template基础">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/art-template基础/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言这是一个前端字符模板的使用方案。不过还是推荐直接使用vue.js当字符模板">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-05T06:13:06.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="art-template基础">
+<meta name="twitter:description" content="前言这是一个前端字符模板的使用方案。不过还是推荐直接使用vue.js当字符模板">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/02/art-template基础/"/>
+
+
+
+
+
+  <title>art-template基础 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/art-template基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">art-template基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T13:49:18+08:00">
+                2017-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是一个前端字符模板的使用方案。不过还是推荐直接使用vue.js当字符模板</p>
+<a id="more"></a><!--more-->
+<h1 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h1><h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><pre><code>{{value}}
+{{data.key}}
+{{data['key']}}
+{{a ? b : c}}
+{{a || b}}
+{{a + b}}
+</code></pre><h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><pre><code>因为 imports 定义的全局变量的优先级会比普通模板变量高，所以建议命名使用 $ 前缀。
+
+{{date | $timestamp | $dateFormat 'yyyy-MM-dd hh:mm:ss'}}
+
+
+{{value | filter}} 过滤器语法类似管道操作符，它的上一个输出作为下一个输入。
+</code></pre><h2 id="引用文件"><a href="#引用文件" class="headerlink" title="引用文件"></a>引用文件</h2><pre><code>&lt;script src=&quot;dist/template.js&quot;&gt;&lt;/script&gt;
+</code></pre><h2 id="artTenmplate部分"><a href="#artTenmplate部分" class="headerlink" title="artTenmplate部分"></a>artTenmplate部分</h2><pre><code>&lt;script id=&quot;idA&quot; type=&quot;text/html&quot;&gt;
+    {{if people}}
+
+
+    &lt;ul&gt;
+        &lt;li&gt;{{people.name}}&lt;/li&gt;
+        &lt;li&gt;{{people.age}}&lt;/li&gt;
+        &lt;li&gt;{{people.sex}}&lt;/li&gt;
+        &lt;li&gt;{{add}}&lt;/li&gt;
+        &lt;li&gt;{{fuck.data}}&lt;/li&gt;
+    &lt;/ul&gt;
+
+    {{/if}}
+&lt;/script&gt;
+</code></pre><h2 id="js部分"><a href="#js部分" class="headerlink" title="js部分"></a>js部分</h2><pre><code>var data={
+    people:{
+        name:&quot;tom&quot;,
+        age:18,
+        sex:&quot;boy&quot;
+    },
+    add:&quot;233&quot;,
+    fuck:{
+        data:666
+    }
+};
+var html = template(&apos;idA&apos;, data);
+//console.log(html);
+$(&apos;.box&apos;).html(html);
+</code></pre><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><pre><code>{{if 变量1}}        //变量1为，template中的data内的一个key值
+{{变量2}}          //代表变量，值等于js中的变量2的值
+{{/if}}
+</code></pre><p>当data为json的情况：</p>
+<pre><code>var data = {
+ author: &apos;宫崎骏&apos;,
+ isAdmin: true,
+ list: [&apos;千与千寻&apos;, &apos;哈尔的移动城堡&apos;, &apos;幽灵公主&apos;, &apos;风之谷&apos;, &apos;龙猫&apos;]
+ };
+ var html = template(&apos;id1&apos;, data);
+ $(&apos;.box&apos;).html(html);
+
+&lt;script id=&quot;id1&quot; type=&quot;text/html&quot;&gt;
+    {{if isAdmin}}
+    &lt;ul&gt;
+        &lt;li&gt;&lt;h1&gt;{{author}}&lt;/h1&gt;&lt;/li&gt;
+        {{each list}}
+        &lt;li&gt;{{$index}}.{{$value}}&lt;/li&gt;
+        {{/each}}
+    &lt;/ul&gt;
+    {{/if}}
+&lt;/script&gt;
+</code></pre><p>当data为数组的情况：</p>
+<pre><code>[{id: &quot;12&quot;, nickname: &quot;张三&quot;, content: &quot;测试内容12&quot;}]
+直接在var html = template(&apos;idA&apos;, data[0]); {{if id}}即可
+
+//当为多个元素的情况：
+
+var data=[
+    {
+        name:&quot;tom&quot;,
+        age:18,
+        sex:&quot;boy&quot;
+    },{
+        name:&quot;jack&quot;,
+        age:19,
+        sex:&quot;girl&quot;
+    }
+];
+
+
+//利用循环和拼接即可
+var html=&quot;&quot;;
+for(var i=0; i&lt;data.length; i++){
+    html+= template(&apos;idA&apos;, data[i]);
+}
+console.log(html);
+$(&apos;.box&apos;).html(html);
+
+
+//做成一个新的数据在传入
+var data=[
+    {
+        name:&quot;tom&quot;,
+        age:18,
+        sex:&quot;boy&quot;
+    },{
+        name:&quot;jack&quot;,
+        age:19,
+        sex:&quot;girl&quot;
+    }
+];
+var data1={data:data};
+var html= template(&apos;idA&apos;, data1);
+$(&apos;.box&apos;).html(html);
+&lt;script id=&quot;idA&quot; type=&quot;text/html&quot;&gt;
+    {{if data}}
+
+
+    &lt;ul&gt;
+        &lt;li&gt;{{data[0].name}}&lt;/li&gt;
+        &lt;li&gt;{{data[1].name}}&lt;/li&gt;
+    &lt;/ul&gt;
+
+    {{/if}}
+&lt;/script&gt;
+</code></pre><p>情况2：如果标签里面有“”需要带入数据</p>
+<pre><code>&lt;img src=&quot;{{value1.img}}&quot; alt=&quot;&quot;&gt;    不用连字符
+</code></pre><p>情况3：变量为伪数组，不要加[i]用自己即可</p>
+<pre><code>var data={
+    name:&quot;tom&quot;,
+    albums:[&quot;http://juheimg.oss-cn-hangzhou.aliyuncs.com/cookbook/t/0/9_653116.jpg&quot;]
+};
+var html=template(&quot;id&quot;,data);
+$(&quot;.box&quot;).html(html);
+&lt;script id=&quot;id&quot; type=&quot;text/html&quot;&gt;
+    {{if albums}}
+    {{each albums as value index}}
+    &lt;li&gt;&lt;img src=&quot;{{value}}&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+    {{/each}}
+    {{/if}}
+&lt;/script&gt;
+</code></pre><h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><pre><code>{{each target}}
+    {{$index}} {{$value}}
+{{/each}}
+
+
+{{each albums as value index}}
+{{/each}}
+</code></pre><h1 id="template-compile-str"><a href="#template-compile-str" class="headerlink" title="template.compile(str)"></a>template.compile(str)</h1><p>因为一直在html中增加<code>script</code>标签有时候看着比较麻烦，所以可以尝试全写在js代码中，这样维护什么的比较方便。</p>
+<pre><code>var data3={
+    text:&quot;hello world&quot;
+};
+var str=&quot;&quot;;
+str+=&quot;&lt;h1&gt;{{text}}&lt;/h1&gt;&quot;;
+var render=template.compile(str);
+var html=render(data);
+$(&apos;.box&apos;).html(html);
+</code></pre><h1 id="template-helper"><a href="#template-helper" class="headerlink" title="template.helper"></a>template.helper</h1><p>相当于自己添加函数功能，对传入的数据进行处理，直接返回想要达到的结果。</p>
+<pre><code>template.helper(&apos;add&apos;,add);
+
+function add(a,b){
+    return a+b;
+}
+
+var data = {
+    a: 3,
+    b: 4
+};
+
+var html = template(&apos;id&apos;, data);
+$(&apos;.box&apos;).html(html);
+
+
+&lt;script id=&quot;id&quot; type=&quot;text/html&quot;&gt;
+    {{add(a,b)}}
+    {{value.score | add:1}}
+{{value.class | actor:value.direct,value.starring }}
+&lt;/script&gt;
+</code></pre><p>推荐下一个方式，value.score为第一个参数，add为方法：后面为第二个参数</p>
+<p>eg:</p>
+<pre><code>{{value.score}}分
+
+template.helper(&apos;copyright_logo&apos;, function(flag) {  //判断是不是有误版权商标
+    var html=&quot;&quot;;
+    (+flag==1)&amp;&amp;(html+=&apos;&lt;lable class=&quot;huashu&quot;&gt;华数&lt;/lable&gt;&apos;);
+    return html;
+});
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/02/echarts/" rel="next" title="eachart的基础用法">
+                <i class="fa fa-chevron-left"></i> eachart的基础用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/02/js的基础/" rel="prev" title="js的基础">
+                js的基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础用法"><span class="nav-number">2.</span> <span class="nav-text">基础用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number">2.1.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤器"><span class="nav-number">2.2.</span> <span class="nav-text">过滤器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用文件"><span class="nav-number">2.3.</span> <span class="nav-text">引用文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#artTenmplate部分"><span class="nav-number">2.4.</span> <span class="nav-text">artTenmplate部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js部分"><span class="nav-number">2.5.</span> <span class="nav-text">js部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法"><span class="nav-number">3.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#条件判断"><span class="nav-number">3.1.</span> <span class="nav-text">条件判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">3.2.</span> <span class="nav-text">循环</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#template-compile-str"><span class="nav-number">4.</span> <span class="nav-text">template.compile(str)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#template-helper"><span class="nav-number">5.</span> <span class="nav-text">template.helper</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言用于记录一些项目中常用的thinkphp的标签">
+<meta property="og:type" content="article">
+<meta property="og:title" content="thinkphp的一些标签">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/thinkphp的一些标签/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言用于记录一些项目中常用的thinkphp的标签">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://i.imgur.com/cwgcfQi.png">
+<meta property="og:updated_time" content="2019-07-05T07:56:07.224Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="thinkphp的一些标签">
+<meta name="twitter:description" content="前言用于记录一些项目中常用的thinkphp的标签">
+<meta name="twitter:image" content="http://i.imgur.com/cwgcfQi.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/02/thinkphp的一些标签/"/>
+
+
+
+
+
+  <title>thinkphp的一些标签 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/thinkphp的一些标签/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">thinkphp的一些标签</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-02T13:41:16+08:00">
+                2017-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>用于记录一些项目中常用的thinkphp的标签</p>
+<a id="more"></a><!--more-->
+<h1 id="查看thinkphp版本号"><a href="#查看thinkphp版本号" class="headerlink" title="查看thinkphp版本号"></a>查看thinkphp版本号</h1><pre><code>ThinkPHP\Common\runtime.php 第22行有版本信息 ，如：
+define(&apos;THINK_VERSION&apos;, &apos;3.0&apos;);
+
+
+3.2rc版本中，版本常量的定义被移到了ThinkPHP.php
+</code></pre><h2 id="操作url的方法"><a href="#操作url的方法" class="headerlink" title="操作url的方法"></a>操作url的方法</h2><pre><code>I(&apos;变量类型.变量名&apos;,[&apos;默认值&apos;],[&apos;过滤方法&apos;])
+http://www.thinkphp.cn/document/308.html
+
+echo I(&apos;get.id&apos;); // 相当于 $_GET[&apos;id&apos;]
+echo I(&apos;get.name&apos;); // 相当于 $_GET[&apos;name&apos;]
+</code></pre><h2 id="Empty标签"><a href="#Empty标签" class="headerlink" title="Empty标签"></a>Empty标签</h2><p>判断模板变量是否为空</p>
+<pre><code>&lt;empty name=&quot;name&quot;&gt;name为空值&lt;/empty&gt;
+
+
+&lt;notempty name=&quot;name&quot;&gt;name不为空&lt;/notempty&gt;
+
+
+&lt;empty name=&quot;name&quot;&gt;name为空&lt;else /&gt; name不为空&lt;/empty&gt;
+</code></pre><p>empty当name为空的时候才显示，notempty是name不为空的时候显示</p>
+<pre><code>&lt;notempty name=&quot;comment[&apos;content&apos;]&quot;&gt;
+
+
+&lt;if condition=&quot;$comment[&apos;content&apos;]&quot;&gt;
+
+&lt;if condition=&quot;trim($comment[&apos;content&apos;])&quot;&gt;用于除去内容中的空格
+</code></pre><p>查看那么的参数：</p>
+<pre><code>&lt;notempty name=&quot;info[&apos;comments&apos;]&quot;&gt;
+
+
+&lt;pre&gt;&lt;?php var_dump($info[&apos;comments&apos;])?&gt;&lt;/pre&gt;
+
+
+
+先将array转化为json，console.log，比上面看着舒服
+var str=&lt;?php echo(json_encode($info[&apos;comments&apos;]))?&gt;;
+console.log(str);
+</code></pre><p>也可以在对应的controller里的public function index()</p>
+<pre><code>添加$copyrightSupport = json_encode($data[&apos;copyrightSupport&apos;]);
+</code></pre><p>然后在对应的网页里获取<br>    var data = {$copyrightSupport};<br>    console.log(data);</p>
+<p>php中</p>
+<pre><code>var_dump() 能打印出类型
+print_r() 只能打出值
+echo() 是正常输出...
+</code></pre><p>数组的形式：</p>
+<pre><code>【[name1]=&gt;array(1),[name2]=&gt;array(2)】
+
+调用数组：
+array【name1】即可
+</code></pre><h2 id="volist用于循环"><a href="#volist用于循环" class="headerlink" title="volist用于循环"></a>volist用于循环</h2><pre><code>&lt;pre&gt;&lt;?php var_dump($list)?&gt;&lt;/pre&gt;  //查看数组
+</code></pre><p>   index值为$i</p>
+<p><img src="http://i.imgur.com/cwgcfQi.png" alt=""></p>
+<p>还想查看其中的数据：例如套餐</p>
+<pre><code>&lt;pre&gt;&lt;?php var_dump($list[0][&quot;name&quot;])?&gt;&lt;/pre&gt;
+
+注意汉字1个字符三个汉字
+
+
+
+
+&lt;volist name=&quot;list&quot; id=&quot;vo&quot;&gt;
+//相当于  list.each(vo) 或者  for vo in list
+    {$vo.id}
+    {$vo.name}
+&lt;/volist&gt;
+
+
+$User = M(&apos;User&apos;);
+$list = $User-&gt;select();
+$this-&gt;assign(&apos;list&apos;,$list);
+</code></pre><p>支持输出部分数据，例如输出其中的第5～15条记录<br>    <volist name="list" id="vo" offset="5" length="10"><br>        {$vo.name}<br>    </volist></p>
+<p>输出偶数记录<br>    <volist name="list" id="vo" mod="2"><br>        <eq name="mod" value="1">{$vo.name}</eq><br>    </volist></p>
+<p>输出key值：<br>    <volist name="list" id="vo" mod="2"><br>        {$key}<br>    </volist></p>
+<pre><code>&lt;foreach name=&quot;arr&quot; item=&quot;vo&quot;&gt;
+    &lt;p&gt;{$vo}------ {$key}&lt;/p&gt;
+&lt;/foreach&gt;
+
+&lt;for start=&quot;1&quot; end=&quot;10&quot; comparison=&quot;elt&quot; name=&quot;arr&quot;&gt;
+    &lt;p&gt;{$arr}&lt;/p&gt;
+&lt;/for&gt;
+</code></pre><h2 id="if用于判断"><a href="#if用于判断" class="headerlink" title="if用于判断"></a>if用于判断</h2><pre><code>&lt;if condition=&quot;($name eq 1) OR ($name gt 100) &quot;&gt; value1
+&lt;elseif condition=&quot;$name eq 2&quot;/&gt;value2
+&lt;else /&gt; value3
+&lt;/if&gt;
+</code></pre><p>eg:</p>
+<pre><code>class=&quot;select &lt;if condition=&quot;ceil(count($film_class)/7) eq 1&quot;&gt;none&lt;/if&gt;&quot;
+</code></pre><p>condition是判断条件</p>
+<h2 id="U-‘index-profile’-array-‘id’-gt-vo-‘id’"><a href="#U-‘index-profile’-array-‘id’-gt-vo-‘id’" class="headerlink" title="{:U(‘index/profile’,array(‘id’=&gt;$vo[‘id’]))}"></a>{:U(‘index/profile’,array(‘id’=&gt;$vo[‘id’]))}</h2><p>U函数是tp里面特有的一个函数，作用是设置url链接。函数里面第一个参数是URL表达式，第二个参数是url带的参数。<br>这个地址经过u函数的解析后会返回一个链接：</p>
+<pre><code>index/profile?id=xxx
+</code></pre><p>eg:</p>
+<pre><code>{:U(&apos;details&apos;,array(&apos;id&apos;=&gt;$vo[&apos;id&apos;]))}
+$vo[&apos;id&apos;]=&gt;int(1)
+
+
+details/id/1
+</code></pre><h2 id="strpos-函数"><a href="#strpos-函数" class="headerlink" title="strpos() 函数"></a>strpos() 函数</h2><p>查找字符串在另一字符串中第一次出现的位置，函数对大小写敏感</p>
+<pre><code>&lt;?php
+echo strpos(&quot;You love php, I love php too!&quot;,&quot;php&quot;);
+?&gt;
+
+结果为9，从0开始结果为9,如何没有结果返回为false
+</code></pre><h2 id="numFormat-vo-‘lbsdistance’-1000-1"><a href="#numFormat-vo-‘lbsdistance’-1000-1" class="headerlink" title="{:numFormat($vo[‘lbsdistance’]/1000,1)}"></a>{:numFormat($vo[‘lbsdistance’]/1000,1)}</h2><p>number_format() 函数通过千位分组来格式化数字。</p>
+<pre><code>echo number_format(&quot;5000000&quot;).&quot;&lt;br&gt;&quot;;
+echo number_format(&quot;5000000&quot;,2).&quot;&lt;br&gt;&quot;;
+echo number_format(&quot;5000000&quot;,2,&quot;,&quot;,&quot;.&quot;);
+</code></pre><p>结果为：</p>
+<pre><code>5,000,000
+5,000,000.00
+5.000.000,00
+</code></pre><h2 id="比较标签"><a href="#比较标签" class="headerlink" title="比较标签"></a>比较标签</h2><pre><code>&lt;比较标签 name=&quot;变量&quot; value=&quot;值&quot;&gt;内容&lt;/比较标签&gt;
+
+eq或者 equal    等于
+neq 或者notequal    不等于
+gt    大于
+egt    大于等于
+lt    小于
+elt    小于等于
+heq    恒等于
+nheq    不恒等于
+
+&lt;eq name=&quot;name&quot; value=&quot;value&quot;&gt;value&lt;/eq&gt;
+
+求name变量的值等于value就输出
+</code></pre><h1 id="页面对应的控制器编写"><a href="#页面对应的控制器编写" class="headerlink" title="页面对应的控制器编写"></a>页面对应的控制器编写</h1><pre><code>找到对应的编辑器，controller中的文件
+
+
+public function movie(){  //不改变文件名称
+    $this-&gt;display();
+}
+
+public function test(){   //改变文件名称
+    $this-&gt;display(&apos;movie&apos;);
+}
+
+
+$this-&gt;display(&apos;Member:read&apos;); //跳转到其他控制器
+
+
+
+$page = I(&apos;request.page&apos;, 2, &apos;intval&apos;);
+
+request:ajax传过来的json
+request.page，json.page   默认值为2     变成数位整形
+</code></pre><h1 id="获取数组的长度"><a href="#获取数组的长度" class="headerlink" title="获取数组的长度"></a>获取数组的长度</h1><pre><code>count($data[copyrightSupport]) elt 2
+当数组小于等于2的时候
+</code></pre><h1 id="限制一些输出的字长"><a href="#限制一些输出的字长" class="headerlink" title="限制一些输出的字长"></a>限制一些输出的字长</h1><pre><code>{$res[&apos;drama_cn&apos;]}
+
+{:msubstr($res[&apos;drama_cn&apos;], 0, 90)}
+</code></pre><h1 id="第一个项加class名"><a href="#第一个项加class名" class="headerlink" title="第一个项加class名"></a>第一个项加class名</h1><pre><code>&lt;volist name=&quot;list[data_list]&quot; id=&quot;vo&quot;&gt;
+    &lt;div class=&quot;swiper-slide two-overflow &lt;eq name=&apos;key&apos; value=&apos;0&apos;&gt;active&lt;/eq&gt;&quot;  data-movieid=&quot;{$vo.id}&quot;  data-video_source=&quot;{$vo.video_source}&quot;&gt;
+        {$vo.title}
+    &lt;/div&gt;
+&lt;/volist&gt;
+</code></pre><h1 id="根据url链接来显示状态"><a href="#根据url链接来显示状态" class="headerlink" title="根据url链接来显示状态"></a>根据url链接来显示状态</h1><pre><code> url中存在？type=1
+
+&lt;if condition=&quot;I(&apos;get.type&apos;) EQ 1&quot;&gt;
+    &lt;a href=&quot;/Customer/message/type/1.html&quot; class=&quot;on playMsg&quot;&gt;播放记录&lt;/a&gt;
+    &lt;else/&gt;
+    &lt;a href=&quot;/Customer/message/type/1.html&quot; class=&quot;playMsg&quot;&gt;播放记录&lt;/a&gt;
+&lt;/if&gt;
+
+&lt;if condition=&quot;I(&apos;get.type&apos;) EQ 2&quot;&gt;
+    &lt;a href=&quot;/Customer/message/type/2.html&quot; class=&quot;on userMsg&quot;&gt;购买记录&lt;/a&gt;
+    &lt;else/&gt;
+    &lt;a href=&quot;/Customer/message/type/2.html&quot; class=&quot;userMsg&quot;&gt;购买记录&lt;/a&gt;
+&lt;/if&gt;
+
+&lt;if condition=&quot;I(&apos;get.type&apos;) EQ 3&quot;&gt;
+    &lt;a href=&quot;/Customer/message/type/3.html&quot; class=&quot;on userMsg&quot;&gt;消息&lt;/a&gt;
+    &lt;else/&gt;
+    &lt;a href=&quot;/Customer/message/type/3.html&quot; class=&quot;userMsg&quot;&gt;消息&lt;/a&gt;
+&lt;/if&gt;
+</code></pre><h1 id="本页"><a href="#本页" class="headerlink" title="本页"></a>本页</h1><pre><code>&lt;a href=&quot;{:U()}&quot;&gt;testtest&lt;/a&gt;
+
+
+  U(&quot;模块/方法&quot;,array(参数=值，参数=值)，&quot;html&quot;,true/false 是否跳转，域名)；
+</code></pre><h1 id="获取url中的值"><a href="#获取url中的值" class="headerlink" title="获取url中的值"></a>获取url中的值</h1><pre><code>&lt;if condition=&quot;$Think.get.show_detail eq 1&quot;&gt;
+</code></pre><h1 id="循环的条件为空"><a href="#循环的条件为空" class="headerlink" title="循环的条件为空"></a>循环的条件为空</h1><pre><code>&lt;if condition=&quot;!empty($VideoHallList)&quot;&gt;
+</code></pre><h1 id="URL生成"><a href="#URL生成" class="headerlink" title="URL生成"></a>URL生成</h1><p>使用U方法</p>
+<p>U(‘地址表达式’,[‘参数’],[‘伪静态后缀’],[‘显示域名’])</p>
+<pre><code>U(&apos;User/add&apos;) // 生成User控制器的add操作的URL地址
+U(&apos;Blog/read?id=1&apos;) // 生成Blog控制器的read操作 并且id为1的URL地址
+U(&apos;Admin/User/select&apos;) // 生成Admin模块的User控制器的select操作的URL地址
+
+
+
+U(&apos;Blog/cate&apos;,array(&apos;cate_id&apos;=&gt;1,&apos;status&apos;=&gt;1))
+U(&apos;Blog/cate&apos;,&apos;cate_id=1&amp;status=1&apos;)
+U(&apos;Blog/cate?cate_id=1&amp;status=1&apos;)
+</code></pre><p>但是不允许使用下面的定义方式来传参数<br>    U(‘Blog/cate/cate_id/1/status/1’);</p>
+<p>伪静态后缀</p>
+<pre><code>U(&apos;Blog/cate&apos;,&apos;cate_id=1&amp;status=1&apos;,&apos;xml&apos;);
+</code></pre><h2 id="ajax返回"><a href="#ajax返回" class="headerlink" title="ajax返回"></a>ajax返回</h2><p>数据</p>
+<pre><code>$this-&gt;ajaxReturn($data,&apos;xml&apos;); //默认为json
+</code></pre><p>正确</p>
+<pre><code>// 操作完成3秒后跳转到 /Article/index
+$this-&gt;success(&apos;操作完成&apos;,&apos;/Article/index&apos;,3);
+// 操作失败5秒后跳转到 /Article/error
+$this-&gt;error(&apos;操作失败&apos;,&apos;/Article/error&apos;,5);
+</code></pre><h2 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h2><p>I(‘变量类型.变量名/修饰符’,[‘默认值’],[‘过滤方法’],[‘额外数据源’])</p>
+<pre><code>echo I(&apos;get.id&apos;); // 相当于 $_GET[&apos;id&apos;]
+echo I(&apos;get.name&apos;); // 相当于 $_GET[&apos;name&apos;]
+
+
+
+I(&apos;post.name&apos;,&apos;&apos;,&apos;htmlspecialchars&apos;); // 采用htmlspecialchars方法对$_POST[&apos;name&apos;] 进行过滤，如果不存在则返回空字符串
+I(&apos;session.user_id&apos;,0); // 获取$_SESSION[&apos;user_id&apos;] 如果不存在则默认为0
+I(&apos;cookie.&apos;); // 获取整个 $_COOKIE 数组
+I(&apos;server.REQUEST_METHOD&apos;); // 获取 $_SERVER[&apos;REQUEST_METHOD&apos;] 
+</code></pre><p>变量过滤</p>
+<pre><code>// 系统默认的变量过滤机制
+&apos;DEFAULT_FILTER&apos;        =&gt; &apos;htmlspecialchars&apos;
+
+
+// 等同于 htmlspecialchars($_GET[&apos;name&apos;])
+I(&apos;get.name&apos;); 
+</code></pre><p>变量修饰符</p>
+<pre><code>例如：
+    I(&apos;get.id/d&apos;);
+    I(&apos;post.name/s&apos;);
+    I(&apos;post.ids/a&apos;);
+
+    修饰符    作用
+    s    强制转换为字符串类型
+    d    强制转换为整形类型
+    b    强制转换为布尔类型
+    a    强制转换为数组类型
+    f    强制转换为浮点类型
+</code></pre><h2 id="判断请求类型"><a href="#判断请求类型" class="headerlink" title="判断请求类型"></a>判断请求类型</h2><pre><code>IS_GET    判断是否是GET方式提交
+IS_POST    判断是否是POST方式提交
+IS_PUT    判断是否是PUT方式提交
+IS_DELETE    判断是否是DELETE方式提交
+IS_AJAX    判断是否是AJAX提交
+REQUEST_METHOD    当前提交类型
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/02/项目踩的坑/" rel="next" title="项目踩的坑">
+                <i class="fa fa-chevron-left"></i> 项目踩的坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/02/echarts/" rel="prev" title="eachart的基础用法">
+                eachart的基础用法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看thinkphp版本号"><span class="nav-number">2.</span> <span class="nav-text">查看thinkphp版本号</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作url的方法"><span class="nav-number">2.1.</span> <span class="nav-text">操作url的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Empty标签"><span class="nav-number">2.2.</span> <span class="nav-text">Empty标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volist用于循环"><span class="nav-number">2.3.</span> <span class="nav-text">volist用于循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if用于判断"><span class="nav-number">2.4.</span> <span class="nav-text">if用于判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#U-‘index-profile’-array-‘id’-gt-vo-‘id’"><span class="nav-number">2.5.</span> <span class="nav-text">{:U(‘index/profile’,array(‘id’=&gt;$vo[‘id’]))}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strpos-函数"><span class="nav-number">2.6.</span> <span class="nav-text">strpos() 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#numFormat-vo-‘lbsdistance’-1000-1"><span class="nav-number">2.7.</span> <span class="nav-text">{:numFormat($vo[‘lbsdistance’]/1000,1)}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较标签"><span class="nav-number">2.8.</span> <span class="nav-text">比较标签</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#页面对应的控制器编写"><span class="nav-number">3.</span> <span class="nav-text">页面对应的控制器编写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取数组的长度"><span class="nav-number">4.</span> <span class="nav-text">获取数组的长度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#限制一些输出的字长"><span class="nav-number">5.</span> <span class="nav-text">限制一些输出的字长</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一个项加class名"><span class="nav-number">6.</span> <span class="nav-text">第一个项加class名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#根据url链接来显示状态"><span class="nav-number">7.</span> <span class="nav-text">根据url链接来显示状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#本页"><span class="nav-number">8.</span> <span class="nav-text">本页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取url中的值"><span class="nav-number">9.</span> <span class="nav-text">获取url中的值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#循环的条件为空"><span class="nav-number">10.</span> <span class="nav-text">循环的条件为空</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#URL生成"><span class="nav-number">11.</span> <span class="nav-text">URL生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax返回"><span class="nav-number">11.1.</span> <span class="nav-text">ajax返回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取数据"><span class="nav-number">11.2.</span> <span class="nav-text">获取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断请求类型"><span class="nav-number">11.3.</span> <span class="nav-text">判断请求类型</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

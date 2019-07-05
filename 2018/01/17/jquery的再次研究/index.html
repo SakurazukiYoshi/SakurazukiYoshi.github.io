@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言公司里jq用的比较多，基本功能大体都知道了，但是代码比较冗杂。特意研究一下精简一下自己的代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery的再次研究">
+<meta property="og:url" content="http://yoursite.com/2018/01/17/jquery的再次研究/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言公司里jq用的比较多，基本功能大体都知道了，但是代码比较冗杂。特意研究一下精简一下自己的代码">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/N1aQmiO.png">
+<meta property="og:updated_time" content="2019-07-05T07:44:29.654Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jquery的再次研究">
+<meta name="twitter:description" content="前言公司里jq用的比较多，基本功能大体都知道了，但是代码比较冗杂。特意研究一下精简一下自己的代码">
+<meta name="twitter:image" content="https://i.imgur.com/N1aQmiO.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/17/jquery的再次研究/"/>
+
+
+
+
+
+  <title>jquery的再次研究 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/jquery的再次研究/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">jquery的再次研究</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T16:45:20+08:00">
+                2018-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jquery/" itemprop="url" rel="index">
+                    <span itemprop="name">jquery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>公司里jq用的比较多，基本功能大体都知道了，但是代码比较冗杂。特意研究一下精简一下自己的代码</p>
+<a id="more"></a><!--more-->
+<h1 id="jq简介"><a href="#jq简介" class="headerlink" title="jq简介"></a>jq简介</h1><p>1.jquery是一个轻量级的库。</p>
+<p>2.优点：</p>
+<pre><code>1.选择器强大
+2.事件处理器可靠
+3.兼容性好
+4.链式操作
+</code></pre><p>等等</p>
+<p>3.jquery是一个闭包函数，不污染顶级变量</p>
+<h1 id="入口函数"><a href="#入口函数" class="headerlink" title="入口函数"></a>入口函数</h1><p>   1.dom结构绘制完毕就执行，原生要所有内容加载完毕才行包括图片；<br>   2.一个页面可以有多个，原生只能有一个；</p>
+<pre><code>$(function(){})
+</code></pre><h1 id="区分DOM对象和-对象"><a href="#区分DOM对象和-对象" class="headerlink" title="区分DOM对象和$对象"></a>区分DOM对象和$对象</h1><p>  原生dom对象：通过原生方法获取的dom对象，或者$循环出来的；只能用原生的方法</p>
+<p>  $对象就是：$(dom对象)；只能使用jq的方法</p>
+<p> 转化：    </p>
+<pre><code>ob=$ob[0];      ob=$ob.get(0);
+
+$ob=$(ob);
+</code></pre><h1 id="jq与其他库冲突"><a href="#jq与其他库冲突" class="headerlink" title="jq与其他库冲突"></a>jq与其他库冲突</h1><p>  var $J=jQuery.noConflict();  //自定义的快捷方式</p>
+<p>  $J(function(){});</p>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>  css中的选择器全都可以用</p>
+<h2 id="表单选择器"><a href="#表单选择器" class="headerlink" title="表单选择器"></a>表单选择器</h2><p>  $(“:text”)   $(“:password”)</p>
+<h2 id="选择器中含有特殊字符"><a href="#选择器中含有特殊字符" class="headerlink" title="选择器中含有特殊字符"></a>选择器中含有特殊字符</h2><p>要使用转义符</p>
+<p>  $(“#id、、#b”)</p>
+<h2 id="选择器空格问题"><a href="#选择器空格问题" class="headerlink" title="选择器空格问题"></a>选择器空格问题</h2><p>  对于一个有多个class名的要用属性选择器或类名选择器  要注意类名写全否则可能选不到</p>
+<h1 id="bug注意点"><a href="#bug注意点" class="headerlink" title="bug注意点"></a>bug注意点</h1><h2 id="attr-改变checkbox的checked无效"><a href="#attr-改变checkbox的checked无效" class="headerlink" title="attr()改变checkbox的checked无效"></a>attr()改变checkbox的checked无效</h2><p>描述：attr改变checked、disabled等功能的时候发现，第一次点击有效，之后点击无效。</p>
+<p>原因：因为checked属于为原型对象的属性。而attr在remove原型对象时会出错。原型对象指的是自身自带的，无法移除。</p>
+<p>解决：在jquery 1.6之后的版本中，改变元素的boolean类型属性用prop才能生效，而其他类型属性则继续沿用attr;</p>
+<pre><code>$(&quot;input[name=ids]&quot;).prop(&quot;checked&quot;, true);
+</code></pre><h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><h1 id="其中使用过的判断和正则"><a href="#其中使用过的判断和正则" class="headerlink" title="其中使用过的判断和正则"></a>其中使用过的判断和正则</h1><h2 id="选择器部分"><a href="#选择器部分" class="headerlink" title="选择器部分"></a>选择器部分</h2><h3 id="输入的元素是型"><a href="#输入的元素是型" class="headerlink" title="输入的元素是型"></a>输入的元素是<xxx>型</xxx></h3><pre><code>selector.charAt(0) === &quot;&lt;&quot; &amp;&amp; 
+//第一个元素是&lt; 
+
+selector.charAt( selector.length - 1 ) === &quot;&gt;&quot; &amp;&amp; 
+//最后一个元素是&gt; 
+
+selector.length &gt;= 3 
+//&lt;&gt;之间必须有内容  
+</code></pre><h3 id="防止利用hash在注入XSS"><a href="#防止利用hash在注入XSS" class="headerlink" title="防止利用hash在注入XSS"></a>防止利用hash在注入XSS</h3><pre><code>rquickExpr = /^(?:\s*(&lt;[\w\W]+&gt;)[^&gt;]*|#([\w-]*))$/
+
+^字符串的开始位置  $字符串的结尾位置
+
+?匹配前面的子表达式零次或一次，或指明一个非贪婪限定符
+
+?:代表不捕获分组   \s匹配任何空白字符   *前面的子表达式零次或多次
+
+[]表达式的开始   +前面的子表达式一次或多次
+
+-除换行符 \n 之外的任何单字符
+
+\w表示字符类（包括大小写字母，数字）
+\W表示非字符类（符号的内容）
+
+?:\s 不捕获空格多次或者0次
+
+(&lt;[\w\W]+&gt;) &lt;XXX...&gt;  XXX为所有内容
+
+[^&gt;]*  &gt;或者&gt;&gt;&gt;...  
+
+#([\w-]*)   #XXX...（除了回车）多个
+</code></pre><p>总体是说：</p>
+<pre><code>&lt;XXX...&gt;&gt;&gt;&gt;  ||  &lt;XXX....&gt;#XXX....
+</code></pre><h3 id="匹配空标签"><a href="#匹配空标签" class="headerlink" title="匹配空标签"></a>匹配空标签</h3><pre><code>rsingleTag = /^&lt;(\w+)\s*\/?&gt;(?:&lt;\/\1&gt;|)$/,
+
+
+^字符串的开始位置  $字符串的结尾位置
+
+?匹配前面的子表达式零次或一次，或指明一个非贪婪限定符
+
+?:代表不捕获分组   \s匹配任何空白字符   *前面的子表达式零次或多次
+
+[]表达式的开始   +前面的子表达式一次或多次
+
+-除换行符 \n 之外的任何单字符
+
+\w表示字符类（包括大小写字母，数字）
+\W表示非字符类（符号的内容）
+
+?:\s 不捕获空格多次或者0次
+</code></pre><h2 id="exec-的使用"><a href="#exec-的使用" class="headerlink" title="exec()的使用"></a>exec()的使用</h2><pre><code>match = rquickExpr.exec( selector );
+</code></pre><p>exec() 方法用于检索字符串中的正则表达式的匹配。</p>
+<pre><code>RegExpObject.exec(string)
+</code></pre><p>返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。<br>    数组第一个为正则表达式相匹配的文本；<br>    index 属性声明的是匹配文本的第一个字符的位置；<br>    input 属性则存放的是被检索的字符串 string</p>
+<pre><code>console.log(/w/g.exec(&quot;hello world&quot;));
+
+[&quot;w&quot;, index: 6, input: &quot;hello world&quot;]
+
+
+?:的分析
+
+要在一篇文章中查找&quot;program&quot;和&quot;project&quot;两个单词，正则表达式可表示为/program|project/,也可表示为/pro(gram|ject)/，但是缓存子匹配(gramject)没有意义，就可以用/pro(?:gram|ject)/进行非捕获性匹配这样既可以简洁匹配又可不缓存无实际意义的字匹配。
+
+ console.log((/pro(gram|ject)/).exec(&quot;program&quot;));
+
+[&quot;program&quot;, &quot;gram&quot;, index: 0, input: &quot;program&quot;]
+
+
+console.log((/pro(?:gram|ject)/).exec(&quot;program&quot;));
+
+[&quot;program&quot;, index: 0, input: &quot;program&quot;]
+
+不用捕获?:后面的东西
+</code></pre><h1 id="里面可以借鉴的方法"><a href="#里面可以借鉴的方法" class="headerlink" title="里面可以借鉴的方法"></a>里面可以借鉴的方法</h1><h2 id="获取函数的传入的参数"><a href="#获取函数的传入的参数" class="headerlink" title="获取函数的传入的参数"></a>获取函数的传入的参数</h2><pre><code>   function Fn(){
+    var target = arguments[0] || {} ；  //没传入参数就为{}空
+    var length = arguments.length;   //参数的长度
+}
+</code></pre><h2 id="字符串转成数组在循环，生成json"><a href="#字符串转成数组在循环，生成json" class="headerlink" title="字符串转成数组在循环，生成json"></a>字符串转成数组在循环，生成json</h2><pre><code>var class2type={}；
+
+jQuery.each(&quot;Boolean Number String Function Array Date RegExp Object Error&quot;.split(&quot; &quot;), function(i, name) {
+    class2type[ &quot;[object &quot; + name + &quot;]&quot; ] = name.toLowerCase();
+});
+</code></pre><h2 id="判断输入的字符类型"><a href="#判断输入的字符类型" class="headerlink" title="判断输入的字符类型"></a>判断输入的字符类型</h2><pre><code>var class2type={};
+var core_toString = class2type.toString;
+
+function fn() {
+   return null;
+}
+jQuery.each(&quot;Boolean Number String Function Array Date RegExp Object Error&quot;.split(&quot; &quot;), function(i, name) {
+    class2type[ &quot;[object &quot; + name + &quot;]&quot; ] = name.toLowerCase();
+});
+function type( obj ) {
+    if ( obj == null ) {
+        return String( obj );
+    }
+    return typeof obj === &quot;object&quot; || typeof obj === &quot;function&quot; ?
+        class2type[ core_toString.call(obj) ] || &quot;object&quot; :
+        typeof obj;
+}
+</code></pre><p>type of可以识别的类型：number、boolean、string、object、undefined、function</p>
+<p>无法识别object里面更多详细的类型：Array 、Date 以及自定义类</p>
+<pre><code>1.判断null和undefined
+
+2.剩下的再判断function和object，number、boolean、string一类
+
+3.function里面的返回值为false，null，‘’  这种情况
+</code></pre><h2 id="简单判断type"><a href="#简单判断type" class="headerlink" title="简单判断type"></a>简单判断type</h2><pre><code>function type(obj){
+    return Object.prototype.toString.call(obj).slice(8,-1);
+    //&quot;[object Object]&quot;  截取  第8个元素  和倒数第二个袁术
+}
+</code></pre><h2 id="判断是不是window对象"><a href="#判断是不是window对象" class="headerlink" title="判断是不是window对象"></a>判断是不是window对象</h2><pre><code>isWindow: function( obj ) {
+    return obj != null &amp;&amp; obj === obj.window;
+}
+
+//obj != null   是为了防止报错   null.window 报错
+</code></pre><h2 id="判读是不是数字"><a href="#判读是不是数字" class="headerlink" title="判读是不是数字"></a>判读是不是数字</h2><pre><code>isNumeric: function( obj ) {
+        return !isNaN( parseFloat(obj) ) &amp;&amp; isFinite( obj );
+}
+
+
+
+//isFinite() 函数用于检查其参数是否是无穷大
+//如果 number 是有限数字（或可转换为有限数字），那么返回 true。
+// 否则，如果 number 是 NaN（非数字），或者是正、负无穷大的数，则返回 false。
+
+
+//NaN不能通过相等操作符（== 和 ===）来判断 ，NaN == NaN 和 NaN === NaN 都会返回 false
+//isNaN() 函数通常用于检测 parseFloat() 和 parseInt() 的结果，以判断它们表示的是否是合法的数字
+</code></pre><h2 id="判断是否为DOM节点"><a href="#判断是否为DOM节点" class="headerlink" title="判断是否为DOM节点"></a>判断是否为DOM节点</h2><pre><code>if(obj.nodeType)
+</code></pre><p>   //dom  节点都有nodeType属性</p>
+<h2 id="判断是不是纯粹的对象"><a href="#判断是不是纯粹的对象" class="headerlink" title="判断是不是纯粹的对象"></a>判断是不是纯粹的对象</h2><p>基础：</p>
+<pre><code>//hasOwnProperty()  方法对待自身属性和继承属性的区别
+// 防止hasOwnProperty被修改，使用原型链上真正的 hasOwnProperty 方法 ({}).hasOwnProperty.call(foo, &apos;bar&apos;); // true
+//console.log(core_hasOwn);
+
+
+o = new Object();
+o.name = &apos;exists&apos;;
+console.log(class2type);
+console.log(o.hasOwnProperty(&apos;name&apos;));              // 返回 true     自身的
+console.log(o.hasOwnProperty(&apos;toString&apos;));          // 返回 false    继承的
+console.log(o.hasOwnProperty(&apos;hasOwnProperty&apos;));    // 返回 false    继承的
+
+console.log(o);
+</code></pre><p>正文：</p>
+<pre><code>//判断指定参数是否是一个纯粹的对象。
+//所谓&quot;纯粹的对象&quot;，就是该对象是通过&quot;{}&quot;或&quot;new Object&quot;创建的
+isPlainObject: function( obj ) {
+    // Not plain objects:
+    // - Any object or value whose internal [[Class]] property is not &quot;[object Object]&quot;
+    // - DOM nodes
+    // - window
+
+
+
+
+
+    if ( jQuery.type( obj ) !== &quot;object&quot; || obj.nodeType || jQuery.isWindow( obj ) ) {
+        //＄.type 返回的不是object    ＤＯＭ节点　window对象以及的情况。
+        //nodeType 属性返回以数字值返回指定节点的节点类型。
+        // 如果节点是元素节点，则 nodeType 属性将返回 1。
+        // 如果节点是属性节点，则 nodeType 属性将返回 2。
+        return false;
+    }
+
+    // Support: Firefox &lt;20
+    // The try/catch suppresses exceptions thrown when attempting to access
+    // the &quot;constructor&quot; property of certain host objects, ie. |window.location|
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=814622
+
+
+    try {
+        //只有Object.prototype中才有自带的“constructor”属性
+        //以及Object.prototype中才有自带的“isPrototypeOf”属性
+        if ( obj.constructor &amp;&amp;
+                !core_hasOwn.call( obj.constructor.prototype, &quot;isPrototypeOf&quot; ) ) {
+            //obj没有constructor  或者  没有     obj.constructor.prototype.hasOwnProperty(isPrototypeOf)
+            return false;
+        }
+    } catch ( e ) {
+        return false;
+    }
+
+    // If the function hasn&apos;t returned already, we&apos;re confident that
+    // |obj| is a plain object, created by {} or constructed with new Object
+    return true;
+},
+</code></pre><h2 id="判断是不是空对象"><a href="#判断是不是空对象" class="headerlink" title="判断是不是空对象"></a>判断是不是空对象</h2><pre><code>function isEmptyObject( obj ) {
+    var name;
+    for ( name in obj ) {
+        return false;
+    }
+    return true;
+}
+</code></pre><h2 id="伪数组转化为真数组"><a href="#伪数组转化为真数组" class="headerlink" title="伪数组转化为真数组"></a>伪数组转化为真数组</h2><pre><code>Array.prototype.slice.call(arguments)能将具有length属性的对象转成数组
+
+
+Array.prototype.slice.call(arguments)
+
+[].slice.call(arguments)
+
+
+console.log([].slice.call({3:&apos;li&apos;,1:&apos;li&apos;,2:&apos;li&apos;,length:3}));  //[empty, &quot;li&quot;, &quot;li&quot;]
+</code></pre><p>根据length来获取长度，然后根据符号的下标来转化</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>21-94定义一些变量和函数</p>
+<p>96-283给JQ对象，添加一些方法和属性</p>
+<p>285-347   extend：JQ的继承方法</p>
+<p>349-817   jQuery.extend（）；扩展一些工具方法</p>
+<p>877-2856  sizzle:复杂选择器的实现 </p>
+<p>2880-3042  callback：回调对象  函数的统一管理</p>
+<p>3043-3183  deferred：延迟对象，对异步的统一管理</p>
+<p>3184-3295  support：功能检查</p>
+<p>3308-3652  data():数据缓存</p>
+<p>3653-3797  queue（）：队列管理   动画的执行顺序啥的</p>
+<p>3803-4299 attr()  prop()  val() 等 给元素属性的操作</p>
+<p>4300-5128  on（） trigger（）   事件操作的相关方法</p>
+<p>5140-6057   dom操作  增删查改 都没筛选</p>
+<p>6058-6620 css)()  样式的操作  </p>
+<p>6621-7854  提交的书记和ajax()的操作</p>
+<p>7855-8584  animate（）  运动的方法</p>
+<p>8585-8792  offset()  位置和尺寸的方法</p>
+<p>8804-8821   jq支持模块化的模式</p>
+<p>8826    输出接口       window.jQuery=window.$=jQuery;</p>
+<h1 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h1><pre><code>(function( window, undefined ){
+     var jQuery=function() {
+      console.log(1);
+    };
+    window.jQuery=window.$=jQuery;
+})(window);
+jQuery();
+</code></pre><p>1.闭包函数，避免污染全局变量。</p>
+<p>2.为什么要传window</p>
+<pre><code>1 查找速度很多，不然找全局window根据机制每次都要找一段时间
+
+2 压缩的时候很有用
+</code></pre><p>3.为什么要传undefined</p>
+<pre><code>防止undefined在外面进行修改
+</code></pre><p>4.为什么不用严格模式  </p>
+<pre><code>不推荐，防止出现兼容性问题
+</code></pre><p>2.jq是一个面对对象的写法(实例方法)</p>
+<pre><code>源码：
+jQuery = function( selector, context ) {   
+    //返回的是jq的对象
+    return new jQuery.fn.init( selector, context, rootjQuery );
+}
+
+
+
+
+ $(&quot;#div&quot;).css();
+
+ var arr=new  Array();
+ arr.push();
+</code></pre><p>3.扩展工具方法</p>
+<pre><code>$.ajax();
+</code></pre><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="rootjQuery"><a href="#rootjQuery" class="headerlink" title="rootjQuery"></a>rootjQuery</h2><p>jquery的根目录，和jQuery(document)同样</p>
+<p>赋予的原因：</p>
+<pre><code>1 方便压缩
+2 使用变量方便维护，看名字知道干什么
+</code></pre><h2 id="readyList"><a href="#readyList" class="headerlink" title="readyList"></a>readyList</h2><h2 id="core-strundefined"><a href="#core-strundefined" class="headerlink" title="core_strundefined"></a>core_strundefined</h2><p>存的undefined的字符串</p>
+<p>用于防止xml的dom判断的时候存在出错的bug</p>
+<pre><code>core_strundefined = typeof undefined,
+</code></pre><h2 id="location-document-docElem"><a href="#location-document-docElem" class="headerlink" title="location document docElem"></a>location document docElem</h2><p>将其进行存储，这样有利于压缩</p>
+<h2 id="jQuery"><a href="#jQuery" class="headerlink" title="_jQuery  _$"></a>_jQuery  _$</h2><p>防止外部的jQuery和$被占用</p>
+<h2 id="class2type"><a href="#class2type" class="headerlink" title="class2type"></a>class2type</h2><p>$.type(); 判断类型</p>
+<h2 id="core-deletedIds"><a href="#core-deletedIds" class="headerlink" title="core_deletedIds"></a>core_deletedIds</h2><p>已经 删除</p>
+<h1 id="无new写法"><a href="#无new写法" class="headerlink" title="无new写法"></a>无new写法</h1><pre><code>jQuery = function( selector, context ) {
+    return new jQuery.fn.init( selector, context, rootjQuery );
+}
+
+jQuery.fn = jQuery.prototype={
+   return this；
+}
+jQuery.fn.init.prototype = jQuery.fn;
+</code></pre><p>思路因为jq是无new构造，一般的方法会无线new，这个时候用的思路就是在jq建立一个新的函数然后继承其功能，然后返回其即可</p>
+<h1 id="给JQ添加对象和方法"><a href="#给JQ添加对象和方法" class="headerlink" title="给JQ添加对象和方法"></a>给JQ添加对象和方法</h1><h2 id="jquery-版本"><a href="#jquery-版本" class="headerlink" title="jquery 版本"></a>jquery 版本</h2><h2 id="constructor-指向修正"><a href="#constructor-指向修正" class="headerlink" title="constructor 指向修正"></a>constructor 指向修正</h2><pre><code>//修正原型的指向，防止被外部修改     jQuery.prototype.constructor=jQuery
+
+
+jQuery.prototype.name=30;  constructor-jQuery
+
+jQuery.prototype={name:30}; constructor-Object
+</code></pre><p> 防止被修改</p>
+<h2 id="init-初始化和参数的提供"><a href="#init-初始化和参数的提供" class="headerlink" title="init 初始化和参数的提供"></a>init 初始化和参数的提供</h2><h3 id="字符串选择器的思路"><a href="#字符串选择器的思路" class="headerlink" title="字符串选择器的思路"></a>字符串选择器的思路</h3><p><img src="https://i.imgur.com/N1aQmiO.png" alt=""></p>
+<pre><code>因为$(&apos;li&apos;)和css（）是两种不同的方法
+
+获取的数组不能在两个作用域中使用，所以利用this来实现两个函数的连接
+
+
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+console.log($(&apos;li&apos;).css(&apos;background-color&apos;,&apos;red&apos;));
+</code></pre><p>选择器的逻辑：</p>
+<pre><code>if（str为空的时候）  返回this
+
+
+if（str是字符串的时候）{
+
+    if(str是&lt;XXX...&gt;){
+        match
+
+    }else{
+
+        match
+    }
+
+}
+</code></pre><p>3.扩展工具方法</p>
+<pre><code>$.ajax();
+</code></pre><h2 id="变量-1"><a href="#变量-1" class="headerlink" title="变量"></a>变量</h2><h3 id="rootjQuery-1"><a href="#rootjQuery-1" class="headerlink" title="rootjQuery"></a>rootjQuery</h3><p>jquery的根目录，和jQuery(document)同样</p>
+<p>赋予的原因：</p>
+<pre><code>1 方便压缩
+2 使用变量方便维护，看名字知道干什么
+</code></pre><h3 id="readyList-1"><a href="#readyList-1" class="headerlink" title="readyList"></a>readyList</h3><h3 id="core-strundefined-1"><a href="#core-strundefined-1" class="headerlink" title="core_strundefined"></a>core_strundefined</h3><p>存的undefined的字符串</p>
+<p>用于防止xml的dom判断的时候存在出错的bug</p>
+<pre><code>core_strundefined = typeof undefined,
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/28/性能优化/" rel="next" title="性能优化">
+                <i class="fa fa-chevron-left"></i> 性能优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/22/常识的总结/" rel="prev" title="常识的总结">
+                常识的总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jq简介"><span class="nav-number">2.</span> <span class="nav-text">jq简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#入口函数"><span class="nav-number">3.</span> <span class="nav-text">入口函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#区分DOM对象和-对象"><span class="nav-number">4.</span> <span class="nav-text">区分DOM对象和$对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jq与其他库冲突"><span class="nav-number">5.</span> <span class="nav-text">jq与其他库冲突</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择器"><span class="nav-number">6.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#表单选择器"><span class="nav-number">6.1.</span> <span class="nav-text">表单选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器中含有特殊字符"><span class="nav-number">6.2.</span> <span class="nav-text">选择器中含有特殊字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器空格问题"><span class="nav-number">6.3.</span> <span class="nav-text">选择器空格问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bug注意点"><span class="nav-number">7.</span> <span class="nav-text">bug注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#attr-改变checkbox的checked无效"><span class="nav-number">7.1.</span> <span class="nav-text">attr()改变checkbox的checked无效</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码"><span class="nav-number">8.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其中使用过的判断和正则"><span class="nav-number">9.</span> <span class="nav-text">其中使用过的判断和正则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器部分"><span class="nav-number">9.1.</span> <span class="nav-text">选择器部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入的元素是型"><span class="nav-number">9.1.1.</span> <span class="nav-text">输入的元素是型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防止利用hash在注入XSS"><span class="nav-number">9.1.2.</span> <span class="nav-text">防止利用hash在注入XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配空标签"><span class="nav-number">9.1.3.</span> <span class="nav-text">匹配空标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exec-的使用"><span class="nav-number">9.2.</span> <span class="nav-text">exec()的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#里面可以借鉴的方法"><span class="nav-number">10.</span> <span class="nav-text">里面可以借鉴的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取函数的传入的参数"><span class="nav-number">10.1.</span> <span class="nav-text">获取函数的传入的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串转成数组在循环，生成json"><span class="nav-number">10.2.</span> <span class="nav-text">字符串转成数组在循环，生成json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断输入的字符类型"><span class="nav-number">10.3.</span> <span class="nav-text">判断输入的字符类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单判断type"><span class="nav-number">10.4.</span> <span class="nav-text">简单判断type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断是不是window对象"><span class="nav-number">10.5.</span> <span class="nav-text">判断是不是window对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判读是不是数字"><span class="nav-number">10.6.</span> <span class="nav-text">判读是不是数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断是否为DOM节点"><span class="nav-number">10.7.</span> <span class="nav-text">判断是否为DOM节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断是不是纯粹的对象"><span class="nav-number">10.8.</span> <span class="nav-text">判断是不是纯粹的对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断是不是空对象"><span class="nav-number">10.9.</span> <span class="nav-text">判断是不是空对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪数组转化为真数组"><span class="nav-number">10.10.</span> <span class="nav-text">伪数组转化为真数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构"><span class="nav-number">11.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">12.</span> <span class="nav-text">框架</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">13.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rootjQuery"><span class="nav-number">13.1.</span> <span class="nav-text">rootjQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readyList"><span class="nav-number">13.2.</span> <span class="nav-text">readyList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#core-strundefined"><span class="nav-number">13.3.</span> <span class="nav-text">core_strundefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location-document-docElem"><span class="nav-number">13.4.</span> <span class="nav-text">location document docElem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery"><span class="nav-number">13.5.</span> <span class="nav-text">_jQuery  _$</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class2type"><span class="nav-number">13.6.</span> <span class="nav-text">class2type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#core-deletedIds"><span class="nav-number">13.7.</span> <span class="nav-text">core_deletedIds</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#无new写法"><span class="nav-number">14.</span> <span class="nav-text">无new写法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#给JQ添加对象和方法"><span class="nav-number">15.</span> <span class="nav-text">给JQ添加对象和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jquery-版本"><span class="nav-number">15.1.</span> <span class="nav-text">jquery 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor-指向修正"><span class="nav-number">15.2.</span> <span class="nav-text">constructor 指向修正</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#init-初始化和参数的提供"><span class="nav-number">15.3.</span> <span class="nav-text">init 初始化和参数的提供</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串选择器的思路"><span class="nav-number">15.3.1.</span> <span class="nav-text">字符串选择器的思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量-1"><span class="nav-number">15.4.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rootjQuery-1"><span class="nav-number">15.4.1.</span> <span class="nav-text">rootjQuery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#readyList-1"><span class="nav-number">15.4.2.</span> <span class="nav-text">readyList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#core-strundefined-1"><span class="nav-number">15.4.3.</span> <span class="nav-text">core_strundefined</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

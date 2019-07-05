@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="http协议HTTP 通常被译为超文本传输协议。基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="协议">
+<meta property="og:url" content="http://yoursite.com/2018/07/14/协议/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="http协议HTTP 通常被译为超文本传输协议。基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/7m7lSLS.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/408483/201605/408483-20160525182843100-1556227104.png">
+<meta property="og:updated_time" content="2019-07-05T08:00:10.956Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="协议">
+<meta name="twitter:description" content="http协议HTTP 通常被译为超文本传输协议。基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。">
+<meta name="twitter:image" content="https://i.imgur.com/7m7lSLS.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/14/协议/"/>
+
+
+
+
+
+  <title>协议 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/14/协议/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">协议</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-14T16:37:41+08:00">
+                2018-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/url/" itemprop="url" rel="index">
+                    <span itemprop="name">url</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h1><p>HTTP 通常被译为超文本传输协议。基于TCP/IP通信协议来传递数据（HTML 文件, 图片文件, 查询结果等）。</p>
+<a id="more"></a><!--more-->
+<p>工作于客户端-服务端架构上，浏览器作为HTTP客户端通过URL向HTTP服务端即WEB服务器发送所有请求。Web服务器根据接收到的请求后，向客户端发送响应信息。</p>
+<p>HTTP三点注意事项：</p>
+<ul>
+<li><p>HTTP是无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</p>
+</li>
+<li><p>HTTP是媒体独立的：这意味着，只要客户端和服务器知道如何处理的数据内容，任何类型的数据都可以通过HTTP发送。客户端以及服务器指定使用适合的MIME-type内容类型。</p>
+</li>
+<li><p>HTTP是无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</p>
+</li>
+</ul>
+<h2 id="浏览器输入URL后HTTP请求返回过程"><a href="#浏览器输入URL后HTTP请求返回过程" class="headerlink" title="浏览器输入URL后HTTP请求返回过程"></a>浏览器输入URL后HTTP请求返回过程</h2><p><img src="https://i.imgur.com/7m7lSLS.png" alt=""></p>
+<ol>
+<li><p>重定向</p>
+<pre><code>&lt;meta http-equiv=&quot;refresh&quot; url=http://jb51.net/&quot;&gt;
+</code></pre></li>
+<li><p>协商缓存（弱缓存）</p>
+</li>
+<li>DNS解析，解析域名</li>
+<li>建立TCP连接，三次握手</li>
+<li>发送请求</li>
+<li>接受相应</li>
+</ol>
+<h2 id="缓存的问题"><a href="#缓存的问题" class="headerlink" title="缓存的问题"></a>缓存的问题</h2><p>第一次请求：</p>
+<p><img src="https://images2015.cnblogs.com/blog/408483/201605/408483-20160525182843100-1556227104.png" alt=""></p>
+<p>关键点在于：通过请求相应头来设置缓存协商</p>
+<p>Expires：设置缓存的时间，在缓存的时间内使用强缓存</p>
+<p>eg：Expires：Thu，15 Apr  2010  20：00：00  GMT;  </p>
+<p>，cache-control，</p>
+<h2 id="网络协议分层"><a href="#网络协议分层" class="headerlink" title="网络协议分层"></a>网络协议分层</h2><p>HTTP,FTP是应用层。针对特定的应用协议，例如电子邮件的协议，远程登录的协议，文件传输的协议。。。</p>
+<p>TCP是传输层，管理两个节点之间的数据传输。</p>
+<p>TCP单纯建立连接，http负责收发数据</p>
+<p>TCP的三次握手,为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误.实例：</p>
+<pre><code>　　A : 你好我是A，你听得到我在说话吗
+
+　　B : 听到了，我是B，你听到我在说话吗
+
+　　A : 嗯，听到了
+
+　　建立连接，开始聊天！
+</code></pre><p>就是tcp是公路，http是送货人，IP是目的地，不停地运送货物</p>
+<ul>
+<li>首先是访问网站，将域名发送给DNS去解析，</li>
+<li>DNS解析后将网站的IP地址返回给客户端，</li>
+<li>然后通过IP地址发起HTTP请求。HTTP此时的作用是 生成针对目标WEB服务器（的HTTP请求报文，然后将请求报文传送给传输层，</li>
+<li>此时为了方便通信，TCP会将HTTP请求报文  分割成报文段，这些报文段会有一个序号，这里的报文段哪一个先发送哪一个先到达，它们是按序传送的。</li>
+<li>只要建立起TCP连接，客户端与服务器之间的报文交换就不会丢失，不会被破坏，也不会在接收时出现错序。</li>
+<li>接着到了网络层，此时IP协议的职责是，搜索对方的地址，一边中转一边传送。</li>
+<li>然后找到了服务器的位置，此时服务器的传输层中 TCP的职责是  接收到对方传送过来的报文段后，对其进行重组，这里的重组是按序号进行重组的。</li>
+<li>然后到了服务器的应用层，HTTP会对客户端请求的内容进行处理。</li>
+<li>处理完后，服务器同样会利用TCP/IP通信协议向客户端进行回传响应。</li>
+<li>最后客户端收到响应后，将内容输出页面显示。即完成了一次HTTP事务。</li>
+</ul>
+<h1 id="url是什么？"><a href="#url是什么？" class="headerlink" title="url是什么？"></a>url是什么？</h1><p>url：Uniform Resource Locator，统一资源定位符。</p>
+<pre><code>格式：协议类型://IP地址：端口号/资源路径/资源名称
+a. http超文本传输协议，用于解决浏览器和服务器之前的沟通问题 protocol
+b. 服务器IP地址=生活地址      hostname
+c. 服务器端口号=楼层，门牌号   port
+d. 资源路径：服务器在哪个文件找需要访问的文件 pathname  
+e. 可读可写字符串   ?之后的部分  search
+f. 可读可写字符串   #之后的部分  hash
+</code></pre><h1 id="A链接对象解析url的组成"><a href="#A链接对象解析url的组成" class="headerlink" title="A链接对象解析url的组成"></a>A链接对象解析url的组成</h1><pre><code>var url=&quot;https://www.baidu.com:8080/aaa/1.html?id=10#name&quot;;
+/*
+        protocol:https
+        host:www.baidu.com:8080
+        hostname:www.baidu.com
+        port:8080
+        pathname:/aaa/1.html
+        search:id=10
+        hash:#name
+*/
+
+var aLink=window.document.createElement(&quot;a&quot;);
+aLink.href=url;
+
+console.log(JSON.stringify(aLink.protocol));
+
+console.log(JSON.stringify(aLink.host));
+
+console.log(JSON.stringify(aLink.hostname));
+
+console.log(JSON.stringify(aLink.port));
+
+console.log(JSON.stringify(aLink.pathname));
+
+console.log(JSON.stringify(aLink.search));
+
+console.log(JSON.stringify(aLink.hash));
+
+//JSON就是字符串描述对象的方式
+//JSON.stringify() 方法将JavaScript值转换为JSON字符串
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/21/代码的部署/" rel="next" title="代码的部署">
+                <i class="fa fa-chevron-left"></i> 代码的部署
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#http协议"><span class="nav-number">1.</span> <span class="nav-text">http协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器输入URL后HTTP请求返回过程"><span class="nav-number">1.1.</span> <span class="nav-text">浏览器输入URL后HTTP请求返回过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存的问题"><span class="nav-number">1.2.</span> <span class="nav-text">缓存的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络协议分层"><span class="nav-number">1.3.</span> <span class="nav-text">网络协议分层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#url是什么？"><span class="nav-number">2.</span> <span class="nav-text">url是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#A链接对象解析url的组成"><span class="nav-number">3.</span> <span class="nav-text">A链接对象解析url的组成</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言这是针对前端的一些常用的小知识的总结和复习。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常识的总结">
+<meta property="og:url" content="http://yoursite.com/2018/01/22/常识的总结/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="前言这是针对前端的一些常用的小知识的总结和复习。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.runoob.com/images/box-model.gif">
+<meta property="og:image" content="https://i.imgur.com/34uImfD.jpg">
+<meta property="og:image" content="https://i.imgur.com/XyBGQEc.jpg">
+<meta property="og:image" content="https://i.imgur.com/EJ3xMjS.png">
+<meta property="og:image" content="http://b364.photo.store.qq.com/psb?/V11gSCnK0POvWR/FbpxB9*odj*no1ioDUvEkJyEA3bThfFDFYjSRKsFLrM!/b/dGwBAAAAAAAA&bo=lgOAAgAAAAADBzU!&rf=viewer_4">
+<meta property="og:image" content="https://i.imgur.com/V84g4x7.png">
+<meta property="og:image" content="https://i.imgur.com/Y6LartF.png">
+<meta property="og:image" content="https://i.imgur.com/vjedKqV.png">
+<meta property="og:image" content="http://www.2cto.com/uploadfile/Collfiles/20150623/20150623100326164.png">
+<meta property="og:image" content="https://i.imgur.com/kAEcDWU.png">
+<meta property="og:updated_time" content="2019-07-05T07:24:51.411Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常识的总结">
+<meta name="twitter:description" content="前言这是针对前端的一些常用的小知识的总结和复习。">
+<meta name="twitter:image" content="http://www.runoob.com/images/box-model.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/22/常识的总结/"/>
+
+
+
+
+
+  <title>常识的总结 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/常识的总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">常识的总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T09:51:45+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这是针对前端的一些常用的小知识的总结和复习。</p>
+<a id="more"></a><!--more-->
+<h2 id="记不住"><a href="#记不住" class="headerlink" title="记不住"></a>记不住</h2><pre><code>window.document.documentElement   //js 获取html
+
+获取高度
+
+window.getComputedStyle(document).height;
+document.getBoundingClientRect().width;
+
+
+grid布局
+
+
+    display: grid;
+    grid-template-columns: auto auto auto;  //水平
+    grid-template-rows: auto auto auto ;    //垂直
+</code></pre><h1 id="css-html"><a href="#css-html" class="headerlink" title="css,html"></a>css,html</h1><h2 id="页面两侧固定宽度，中间自适应"><a href="#页面两侧固定宽度，中间自适应" class="headerlink" title="页面两侧固定宽度，中间自适应"></a>页面两侧固定宽度，中间自适应</h2><h3 id="浮动方法"><a href="#浮动方法" class="headerlink" title="浮动方法"></a>浮动方法</h3><p>原理：利用浮动拖流的形式，先将左右两侧的位置占了，留下中间的位置自适应。</p>
+<p>注意点：<strong>左侧和右侧的两个DOM一定放在中间的前面</strong>，否者会出问题。</p>
+<pre><code>&lt;style&gt;
+   .left-center-right{
+       height: 300px;
+       margin-top: 20px;
+   }
+    .left,.center,.right{
+        height: 300px;
+    }
+    .float .left{
+        float:left;
+        width:300px;
+        background: red;
+    }
+    .float .right{
+        float:right;
+        width:300px;
+        background: blue;
+    }
+    .float .center{
+        background: yellow;
+    }
+&lt;/style&gt;
+
+
+
+
+&lt;div class=&quot;left-center-right  float&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;
+        &lt;p&gt;这是自适应&lt;/p&gt;
+        &lt;p&gt;这是自适应&lt;/p&gt;
+        &lt;p&gt;这是自适应&lt;/p&gt;
+        &lt;p&gt;这是自适应&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h3 id="定位方式"><a href="#定位方式" class="headerlink" title="定位方式"></a>定位方式</h3><p>原理：利用绝对定位的left和right来控制中间的宽度从而实现自适应的功能。</p>
+<pre><code>&lt;style&gt;
+   .left-center-right{
+       height: 300px;
+       margin-top: 20px;
+   }
+    .left,.center,.right{
+        height: 300px;
+    }
+    .absolute .right,.absolute .left,.absolute .center{
+        position: absolute;
+    }
+    .absolute .left{
+        left: 0;
+        width: 300px;
+    }
+    .absolute .right{
+        right: 0;
+        width: 300px;
+    }
+    .absolute .center{
+        left: 300px;
+        right: 300px;
+    }
+&lt;/style&gt;
+</code></pre><h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><p>css3新出的一个布局方式</p>
+<pre><code>.flex{
+    display: flex;
+}
+.flex .center{
+    flex: 1;
+}
+.flex .left,.flex .right{
+    width: 300px;
+}
+</code></pre><h3 id="table方式"><a href="#table方式" class="headerlink" title="table方式"></a>table方式</h3><p>原理：利用table的其他的宽度都已知，剩下的一个宽度自适应这点来解决。</p>
+<pre><code>&lt;style&gt;
+   .table{
+       width: 100%;
+       display: table;
+   }
+   .table div{
+       display: table-cell;
+   }
+    .left,.right{
+        width: 300px;
+    }
+&lt;/style&gt;
+</code></pre><h3 id="网格（Grid）布局方式"><a href="#网格（Grid）布局方式" class="headerlink" title="网格（Grid）布局方式"></a>网格（Grid）布局方式</h3><p>两侧固定，中间自适应：</p>
+<p>这是一个最新的布局方式。网络布局可以将应用程序分割成不同的空间，或者定义他们的大小、位置以及层级。</p>
+<p>兼容性：IE10及其以上</p>
+<p>flexbox是一维布局，他只能在一条直线上放置你的内容区块；而grid是一个二维布局。</p>
+<p>网格线：网格上面的线</p>
+<p>网格轨道：网格轨道是就是相邻两条网格线之间的空间。</p>
+<p>网格单元格：就是网格单元格的最小单位。</p>
+<p>网格区域：相当于表格中的合并单元格之后的区域</p>
+<p>原理：就是在页面布局弄上出table表格，然后指定DOM在哪一块</p>
+<p>设置：</p>
+<pre><code>父亲：定义为grid
+display：grid/inline-grid。
+
+子：指定的所在的位置。
+grid-column: 1 / 2;
+grid-row: 1 / 2;
+
+
+会失效的内容：
+
+1.多列布局模块中的所有column-*属性运用在网格容器上将失效
+2.float和clear使用在网格项目（网格单元格Grid Cell）上将失效
+3.vertical-align使用在网格单元格上将失效
+4.::first-line和::first-letter这样的伪元素不能应用在网格容器上
+</code></pre><p>使用方法：</p>
+<pre><code>.wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto ;
+}
+.box {
+         background-color: #444;
+         color: #fff;
+         font-size: 24px;
+         text-align: center;
+     }
+.a{
+    grid-area: 1 / 8 / 9 / 9; background: orange; height: 100%; box-sizing:border-box;
+    /*垂直开始，水平开始，垂直结束，水平结束*/
+}
+.b{
+    grid-area: 1 / 1 / 9 / 8; background: red; height: 100%; box-sizing:border-box;
+    /*垂直开始，水平开始，垂直结束，水平结束*/
+}
+
+
+&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;div class=&quot;box a&quot;&gt;1&lt;/div&gt;
+    &lt;div class=&quot;box b&quot;&gt;2&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>父元素定好行列数和每列的宽度，子元素来选取自己所在的合并单元</p>
+<h3 id="五种方式的区别"><a href="#五种方式的区别" class="headerlink" title="五种方式的区别"></a>五种方式的区别</h3><p>浮动布局：</p>
+<p>1.脱离文档流，使用要注意清除浮动，可能出现高度塌陷问题。主要内容模块无法最先加载，影响用户体验</p>
+<p>2.设置很方便，兼容性也比较好。注意应该先浮动在放自适应的模块</p>
+<p>绝对定位：</p>
+<p>1.脱离文档流的，意味着下面的所有子元素也会脱离文档流，有效性和可使用性是比较差</p>
+<p>2.很快捷，设置很方便</p>
+<p>flexbox：</p>
+<p>1.比较完美的一个。目前移动端的布局也都是用flexbox。 </p>
+<p>2.不能兼容IE8及以下浏览器</p>
+<p>表格布局：</p>
+<p>1.兼容性很好，在flex布局不兼容的时候，可以尝试表格布局。</p>
+<p>2.当其中一个单元格高度超出的时候，两侧的单元格也是会跟着一起变高的</p>
+<p>3.Table会影响其内部的某些布局属性的生效(比如<td>里的元素的height:100%)</td></p>
+<p>网格（Grid）布局：</p>
+<p>1.二维布局上比flex上面有优势。</p>
+<p>2.兼容性在IE10以上</p>
+<h3 id="衍生"><a href="#衍生" class="headerlink" title="衍生"></a>衍生</h3><p>1.高度未知的情况</p>
+<p>浮动：就剩下了中间部分全屏，左右两侧的消失；</p>
+<p>定位：左右两侧消失，剩下中间部分两侧的空白还在，</p>
+<p>table，flex和grid都没问题</p>
+<p>2.块内内容超出会的情况</p>
+<p>浮动,定位,flex,grid:有文字的部分文字溢出。</p>
+<p>table:正常</p>
+<p>3.如果是上下高度已知，中间自适应呢？</p>
+<p>浮动没有，其他的都可以实现</p>
+<p>table:</p>
+<pre><code>&lt;style&gt;
+    table{
+        width: 100%;
+        height: 100%;
+    }
+&lt;/style&gt;
+&lt;table&gt;
+    &lt;tbody&gt;
+       &lt;tr height=&quot;30px&quot; style=&quot;background-color: red;&quot;&gt;
+           &lt;th&gt;1&lt;/th&gt;
+       &lt;/tr&gt;
+       &lt;tr style=&quot;background-color: yellow;&quot;&gt;
+           &lt;th&gt;2&lt;/th&gt;
+       &lt;/tr&gt;
+       &lt;tr height=&quot;30px&quot; style=&quot;background-color: blue;&quot;&gt;
+           &lt;th&gt;3&lt;/th&gt;
+       &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre><p>flex:</p>
+<pre><code>&lt;div class=&quot;up-center-down flex&quot;&gt;
+    &lt;style&gt;
+        .flex{
+            display: flex;
+            flex-direction:column;
+        }
+        .up,.down{
+            height: 30px;
+        }
+        .center{
+            flex: 1;
+        }
+    &lt;/style&gt;
+    &lt;div class=&quot;up&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;down&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>grid:</p>
+<pre><code>&lt;div class=&quot;up-center-down grid&quot;&gt;
+    &lt;style&gt;
+        .grid{
+            display: grid;
+            grid-auto-rows: 30px auto 30px;
+        }
+    &lt;/style&gt;
+    &lt;div class=&quot;up&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;down&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>定位：</p>
+<pre><code>&lt;div class=&quot;up-center-down absolute&quot;&gt;
+    &lt;style&gt;
+       .absolute .up{
+           position: absolute;
+           top: 0;
+           height: 30px;
+       }
+       .absolute .down{
+           position: absolute;
+           bottom: 0;
+           height: 30px;
+       }
+       .absolute .center{
+           position: absolute;
+           top: 30px;
+           bottom: 30px;
+       }
+    &lt;/style&gt;
+    &lt;div class=&quot;up&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;down&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>3.如果是上下左右混合布局呢？</p>
+<pre><code>&lt;style&gt;
+    table{
+        width: 100%;
+        height: 100%;
+    }
+&lt;/style&gt;
+&lt;table&gt;
+    &lt;tbody&gt;
+       &lt;tr height=&quot;30px&quot; style=&quot;background-color: red;&quot;&gt;
+           &lt;th colspan=&quot;3&quot;&gt;1&lt;/th&gt;
+       &lt;/tr&gt;
+       &lt;tr&gt;
+           &lt;th width=&quot;30&quot; style=&quot;background-color: pink;&quot;&gt;2&lt;/th&gt;
+           &lt;th style=&quot;background-color: yellow;&quot;&gt;2&lt;/th&gt;
+           &lt;th width=&quot;30&quot; style=&quot;background-color: green;&quot;&gt;2&lt;/th&gt;
+       &lt;/tr&gt;
+       &lt;tr height=&quot;30px&quot; style=&quot;background-color: blue;&quot;&gt;
+           &lt;th colspan=&quot;3&quot;&gt;3&lt;/th&gt;
+       &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+&lt;div class=&quot;up-center-down grid&quot;&gt;
+    &lt;style&gt;
+        .grid{
+            display: grid;
+            grid-template-rows: 30px auto 30px;
+        }
+        .center{
+            display: grid;
+            grid-template-columns: 130px auto 130px;
+        }
+        .center1{
+            background-color: pink;
+        }
+        .center2{
+            background-color: green;
+        }
+        .center3{
+            background-color: peru;
+        }
+    &lt;/style&gt;
+    &lt;div class=&quot;up&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;center&quot;&gt;
+        &lt;div class=&quot;center1&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;center2&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;center3&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;down&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;div class=&quot;up-center-down grid&quot;&gt;
+    &lt;style&gt;
+        .grid{
+            display: grid;
+            grid-template-columns: 90px auto 90px;
+            grid-template-rows: 130px auto 130px;
+        }
+        .a1{
+            grid-area: 1 / 1 / 2 / 4; background: orange; height: 100%; box-sizing:border-box;
+        }
+        .b2{
+            grid-area: 2 / 1 / 3 / 2; background: blue; height: 100%; box-sizing:border-box;
+        }
+
+        .c3{
+            grid-area: 2 / 2 / 3 / 3; background: pink; height: 100%; box-sizing:border-box;
+        }
+        .d4{
+            grid-area: 2 / 3 / 3 / 4; background: palegreen; height: 100%; box-sizing:border-box;
+        }
+
+        .e5{
+            grid-area: 3 / 1 / 4 / 4; background: red; height: 100%; box-sizing:border-box;
+        }
+
+    &lt;/style&gt;
+     &lt;div class=&quot;box a1&quot;&gt;&lt;/div&gt;
+     &lt;div class=&quot;box b2&quot;&gt;&lt;/div&gt;
+     &lt;div class=&quot;box c3&quot;&gt;&lt;/div&gt;
+     &lt;div class=&quot;box d4&quot;&gt;&lt;/div&gt;
+     &lt;div class=&quot;box e5&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><pre><code>题目：谈谈你对CSS盒模型的认识
+—&gt; 基本概念：标准模型+IE模型
+—&gt; 标准模型和IE模型的区别
+—&gt; CSS如何设置这两种模型
+—&gt; JS如何获取和设置盒模型对应的宽高
+—&gt; 实例题（根据盒模型解释边距重叠）（拔高题）
+—&gt; BFC（边距重叠解决方案）
+</code></pre><h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><p>HTML元素可以看作盒子，margin，border，padding，和content<br><img src="http://www.runoob.com/images/box-model.gif" alt=""></p>
+<p>根据刘浏览器分为：标准模型+IE模型</p>
+<h3 id="标准模型和IE模型的区别"><a href="#标准模型和IE模型的区别" class="headerlink" title="标准模型和IE模型的区别"></a>标准模型和IE模型的区别</h3><p>标准模型（W3C标准 ）：</p>
+<pre><code>块的总宽度= width + margin(左右) + padding(左右) + border(左右)
+</code></pre><p>IE模型：</p>
+<pre><code>块的总宽度= width + margin(左右)（即width已经包含了padding和border值）
+</code></pre><p>区别：</p>
+<pre><code>IE的获取高度时自动包含padding+border
+
+
+标准的获取高度不算padding和border
+</code></pre><h3 id="CSS如何设置这两种模型"><a href="#CSS如何设置这两种模型" class="headerlink" title="CSS如何设置这两种模型"></a>CSS如何设置这两种模型</h3><pre><code>box-sizing： content-box(标准) || border-box（IE） 
+</code></pre><h3 id="JS如何获取和设置盒模型对应的宽高"><a href="#JS如何获取和设置盒模型对应的宽高" class="headerlink" title="JS如何获取和设置盒模型对应的宽高"></a>JS如何获取和设置盒模型对应的宽高</h3><pre><code> .content-box,.border-box{
+        height: 100px;
+        padding: 10px;
+        border: 20px solid #000;
+        margin: 30px;
+ }
+.content-box{
+    box-sizing: content-box;
+}
+.border-box{
+    box-sizing: border-box;
+}
+</code></pre><p>   原生：</p>
+<pre><code>dom.style.width/height:只能获得内联的style,也就是写在HTML中的style属性，而不是css属性。可以设置，但获取比较难，标签上没设置或者没js改变基本就获取不到
+
+dom.currentStyle.width/height:仅IE，获得的是渲染之后的页面元素的属性
+
+window.getComputedStyle(dom).width/height：兼容性好,IE9以上
+就是css里的高，获取，不能用来设置
+
+dom.getBoundingClientRect().width/height：计算一个元素的绝对位置，计算一个元素在视窗中的绝对位置，以及宽高.  content+padding+border
+兼容性：
+e5以上都能支持，但是又一点点地方需要修正一下，
+IE67的left、top会少2px,并且没有width、height属性。
+
+dom.offsetHeight content+padding+border
+
+
+
+function getStyle(element, att){
+
+    //特性侦测
+
+    if(window.getComputedStyle){
+
+        //优先使用W3C规范
+
+        return window.getComputedStyle(element)[att];
+
+    }else{
+
+        //针对IE9以下兼容
+
+        return element.currentStyle[att];
+
+    }
+
+}
+</code></pre><p>   jq:</p>
+<pre><code>height()  只算content的高
+
+outerHeight()  content+padding+border
+
+outerHeight(true)   content+padding+border+margin
+</code></pre><h3 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h3><p> BFC的原理（就是渲染规则）</p>
+<pre><code>1，BFC元素的垂直方向会发生重叠；
+2，BFC的区域不会与浮动元素的box重叠；
+3，BFC在页面上是一个独立的容器，外面的元素和里面的元素不会相互影响；
+4， 计算BFC高度时，浮动元素也会参与计算
+</code></pre><p>BFC：Block Formatting Context，块级格式化范围，一种元素如何对其内容进行定位，以及与其他元素的关系和相互作用规则，一个环境中的元素不会影响到其它环境中的布局</p>
+<pre><code>比如浮动元素会形成BFC，浮动元素内部子元素的主要受该浮动元素影响，
+两个浮动元素之间是互不影响的
+</code></pre><p>BFC的因素:<br>    float（除了none）<br>    overflow（除了visible）、<br>    display（table-cell/table-caption/inline-block）<br>    position（除了static/relative） </p>
+<p>注意：不要滥用BFC，要知道BFC不是全能，创建BFC的初衷只是为了让元素本身（包括它的子元素）能够正确的计算自己的宽高</p>
+<p>BFC在布局中的应用</p>
+<pre><code>1.防止margin重叠
+
+2.浮动相关问题，高度塌陷问题，等
+
+3.多栏布局的一种方式
+</code></pre><p>IFC 内联格式化上下文</p>
+<p>IFC的line box（线框）高度由其包含行内元素中最高的实际高度计算而来（不受到竖直方向的padding/margin影响)</p>
+<p>inline-block可产生，但是没有块级元素，中间如果有就产生两个</p>
+<p>作用：</p>
+<pre><code>水平居中：当一个块要在环境中水平居中时，设置其为inline-block则会在外层产生IFC，通过text-align则可以使其水平居中。
+
+垂直居中：创建一个IFC，用其中一个元素撑开父元素的高度，然后设置其vertical-align:middle，其他行内元素则可以在此父元素下垂直居中。
+</code></pre><h3 id="实例题（根据盒模型解释边距重叠）（拔高题）-BFC（边距重叠解决方案）"><a href="#实例题（根据盒模型解释边距重叠）（拔高题）-BFC（边距重叠解决方案）" class="headerlink" title="实例题（根据盒模型解释边距重叠）（拔高题）+ BFC（边距重叠解决方案）"></a>实例题（根据盒模型解释边距重叠）（拔高题）+ BFC（边距重叠解决方案）</h3><p>问题：两个或多个块级盒子的垂直相邻边界会重合：</p>
+<pre><code>注意：水平边距永远不会重合。
+
+1.全部都为正值，结果的边界宽度是相邻边界宽度中最大的值。
+
+2.如果出现负边界，则在最大的正边界中减去绝对值最大的负边界。
+
+3.如果没有正边界，则从零中减去绝对值最大的负边界
+</code></pre><p>实例1：</p>
+<pre><code>&lt;article class=&quot;content-box&quot;&gt;&lt;/article&gt;
+&lt;article class=&quot;border-box&quot;&gt;&lt;/article&gt;
+
+
+ .content-box,.border-box{
+        height: 100px;
+        box-sizing: border-box;
+ }
+.content-box{
+    margin-bottom: 30px;
+    background-color: red;
+}
+.border-box{
+    margin-top: 10px;
+    background-color: blue;
+}
+</code></pre><p>都为正值，两者的间隔为30px    大-小</p>
+<p>实例2：</p>
+<pre><code> .content-box,.border-box{
+        height: 100px;
+        box-sizing: border-box;
+ }
+.content-box{
+    margin-bottom: 30px;
+    background-color: red;
+}
+.border-box{
+    margin-top: -10px;
+    background-color: blue;
+}
+</code></pre><p>一正一负，间隔为20px     正+负</p>
+<p>实例3：</p>
+<pre><code> .content-box,.border-box{
+        height: 100px;
+        box-sizing: border-box;
+ }
+.content-box{
+    margin-bottom: -30px;
+    background-color: red;
+}
+.border-box{
+    margin-top: -28px;
+    background-color: blue;
+}
+</code></pre><p>两负，间隔为-30px，     最小的那个</p>
+<p>浮动的元素和绝对定位的元素是脱离文档流，其他标准流的盒子会无视这个元素。同样是脱离文档流的元素会让让出位置环绕在四周。</p>
+<p>区别：</p>
+<pre><code>float-其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置
+，环绕在周围。在脱标前的标准流下面位子 
+
+absolute :position-脱离文档流的元素，其他盒子与其他盒子内的文本都会无视它。
+</code></pre><p>防止外边距重叠解决方案：</p>
+<p>思路：</p>
+<pre><code>给元素创建一个父元素，创建一个BFC，就可以解决垂直方向边距重叠。
+
+元素侵占浮动元素的剩余空间，则在这个元素上面创建BFC，就可以解决，使得BFC不与float重叠。
+
+父级元素创建BFC，可以解决由于浮动元素导致父级元素高度为0的情况。创建方法可以是：
+父级也float，或者父级overflow:hidden/auto
+
+
+
+
+
+1.外层元素padding代替     //父子关系
+
+2.内层元素透明边框 border:1px solid transparent;  
+
+3.内层元素绝对定位 position:absolute:     BFC
+
+4.外层元素 overflow:hidden;       BFC
+
+5.内层元素 加float:left;或display:inline-block;   BFC
+
+6.内层元素padding:1px;
+</code></pre><p>实例：</p>
+<p>1.兄弟元素</p>
+<pre><code>&lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+
+.box1,.box2{
+    width: 100px;
+    height: 100px;
+}
+.box1{
+    background-color: blue;
+    margin-bottom: 50px;
+}
+.box2{
+    background-color:red;
+    margin-top: 60px;
+}
+</code></pre><p>方案1：position:absolute</p>
+<pre><code>.box2{
+     background-color:red;
+     margin-top: 60px;
+     position: absolute;
+ }
+</code></pre><p>方案2：overflow:hidden; 要加载父元素上面，子元素无效</p>
+<pre><code>.hidden{
+    overflow: hidden;
+}
+
+&lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;hidden&quot;&gt;
+    &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+ --------------------------------------------
+&lt;div class=&quot;hidden&quot;&gt;
+    &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+</code></pre><p>方案3：inline-block</p>
+<pre><code>.inline-block{
+    display:inline-block;
+}
+
+&lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;box2 inline-block&quot;&gt;&lt;/div&gt;
+----------------------------------------------
+&lt;div class=&quot;box1 inline-block&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;box2 &quot;&gt;&lt;/div&gt;
+</code></pre><p>方案 4：浮动   注意这里浮动元素要放在后面，否则浮动元素没高度</p>
+<pre><code>&lt;div class=&quot;box1 &quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;box2 left&quot;&gt;&lt;/div&gt;
+</code></pre><p>2.父子元素  父子的margin-top  要外边距重叠</p>
+<pre><code>.fa{
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    margin-top: 20px;
+}
+.son{
+    margin-top: 40px;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+}
+
+  &lt;div class=&quot;fa&quot;&gt;
+      &lt;div class=&quot;son&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+</code></pre><p>方案1：外层元素padding代替</p>
+<pre><code>.fa{
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    padding-top: 20px;
+}
+</code></pre><p>方案2：内层元素透position:absolute</p>
+<pre><code>.son{
+    margin-top: 40px;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+}
+</code></pre><p>方案3：外层元素透overflow:hidden;</p>
+<p>方案4.内层元素 加float:left;或display:inline-block;</p>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>   因为浮动以后脱离标准流，出现高度不能挣开的问题，所以要清除浮动</p>
+<pre><code>解决方案：clear:both
+
+1.空签法   //不符合语义化
+
+2.使用:after 伪元素   //最常用
+
+    .clearfix:after{ 
+        content: &apos;&apos;;
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+    .clearfix{ /*兼容 IE*/
+        zoom: 1;
+    }
+
+3.给父元素定高  //部分高度未知
+
+4.父元素利用overflow:hidden;   //overflew可能有其他用
+
+5.父元素浮动   //父亲没高度
+
+6.父元素处于绝对定位  //父亲没高度
+</code></pre><h1 id="DOM事件"><a href="#DOM事件" class="headerlink" title="DOM事件"></a>DOM事件</h1><pre><code>—&gt;基本概念：DOM事件的级别
+—&gt; DOM事件模型
+—&gt; DOM事件流
+—&gt; 描述DOM事件捕获的具体
+—&gt; Event对象的常见应用
+—&gt; 自定义事件
+</code></pre><h2 id="DOM事件的级别"><a href="#DOM事件的级别" class="headerlink" title="DOM事件的级别"></a>DOM事件的级别</h2><p>DOM级别是W3C标准的标准，0,1,2,3是不同时候推荐的标准。</p>
+<p>没有DOM1是因为1级DOM标准中并没有定义事件相关的内容。</p>
+<pre><code>DOM0, element.onclick = function(){}
+
+DOM2, element.addEventListener(’click’, ()=&gt;{}, false)
+
+DOM3, element.addEventListener(‘keyup’, ()=&gt;{}, false)  //多加了一些事件
+例如焦点，鼠标，滚轮，键盘
+</code></pre><p>添加监听事件：</p>
+<pre><code>element.addEventListener(event, function, useCapture)
+
+兼容性：IE9+
+
+event:事件
+
+useCapture：事件是捕获或冒泡阶段执哪个阶段执行
+true - 捕获
+false- 默认。冒泡
+</code></pre><h2 id="DOM事件流"><a href="#DOM事件流" class="headerlink" title="DOM事件流"></a>DOM事件流</h2><p>当一个HTML元素产生一个事件时，该事件会在元素节点与根结点之间的路径传播，路径所经过的结点都会收到该事件，这个传播过程可称为DOM事件流</p>
+<pre><code>（1）捕获阶段：事件从Document节点自上而下向目标节点传播的阶段；
+
+（2）目标阶段：真正的目标节点正在处理事件的阶段；
+
+（3）冒泡阶段：事件从目标节点自上而下向Document节点传播的阶段。
+</code></pre><p>现代的浏览器对事件的处理方式为先捕获后冒泡</p>
+<pre><code>1). 事件处理其实有3个阶段：事件捕获阶段、事件目标阶段、事件冒泡阶段
+
+2). 先从根节点向下执行捕获回调函数，一直到实际触发事件的元素的父元素位置，捕获过程结束；因为很重要所以说两次是父元素。
+
+3). 然后事件传播到实际触发事件的DOM元素上，为事件目标阶段，在事件目标阶段，无论addEventListener函数第3个参数指定的时true还是false，绑定的回调函数都会被执行
+
+4). 然后冒泡阶段开始，执行触发事件的DOM节点上的回调函数，然后继续向上执行冒泡阶段的回调函数，一直到根节点
+
+5). 事件的执行顺序按事件回调函数的添加顺序执行
+</code></pre><h2 id="描述DOM事件捕获的具体"><a href="#描述DOM事件捕获的具体" class="headerlink" title="描述DOM事件捕获的具体"></a>描述DOM事件捕获的具体</h2><pre><code>window --&gt; document —&gt;html —&gt; body —&gt; …… —&gt; target
+
+如何获取html标签，
+document.body ==&gt; 获取body
+document.documentElement ==&gt; 获取html
+document ==&gt; 获取document
+window ==&gt; 获取window
+</code></pre><p>实例：</p>
+<pre><code>son.addEventListener(&apos;click&apos;, function (e) {
+    console.log(&quot;son false&quot;);
+},false);
+
+fa.addEventListener(&quot;click&quot;,function (e) {
+    console.log(&quot;fa false&quot;);
+},false);
+
+document.body.addEventListener(&quot;click&quot;,function () {
+    console.log(&quot;body false&quot;);
+},false);
+
+document.documentElement.addEventListener(&quot;click&quot;,function () {
+    console.log(&quot;html false&quot;);
+},false);
+document.addEventListener(&quot;click&quot;,function () {
+    console.log(&quot;document false&quot;);
+},false);
+window.addEventListener(&quot;click&quot;,function () {
+    console.log(&quot;window false&quot;);
+},false);
+son.addEventListener(&apos;click&apos;, function (e) {
+    console.log(&quot;son true&quot;);
+},true);
+
+fa.addEventListener(&quot;click&quot;,function (e) {
+    console.log(&quot;fa true&quot;);
+},true);
+
+document.body.addEventListener(&quot;click&quot;,function () {
+    console.log(&quot;body true&quot;);
+},true);
+
+document.documentElement.addEventListener(&quot;click&quot;,function () {
+    console.log(&quot;html true&quot;);
+},true);
+document.addEventListener(&quot;click&quot;,function () {
+    console.log(&quot;document true&quot;);
+},true);
+window.addEventListener(&quot;click&quot;,function () {
+    console.log(&quot;window true&quot;);
+},true);
+</code></pre><p>  结果：</p>
+<pre><code>window true
+document true
+html true
+body true
+fa true
+son false
+son true
+fa false
+body false
+html false
+document false
+window false
+</code></pre><p>注意这里目标元素的顺序是反的，原因是  </p>
+<pre><code>目标元素在捕获阶段不会接收到事件，进入了目标阶段，这个地方没有冒泡和捕获之分，
+所以两个监听器是按照事件的先后绑定的顺序触发
+</code></pre><h2 id="Event对象的常见应用"><a href="#Event对象的常见应用" class="headerlink" title="Event对象的常见应用"></a>Event对象的常见应用</h2><pre><code>event.preventDefault()  //阻止元素发生默认的行为
+
+event.stopPropagation()  //阻止冒泡
+
+event.stopImmediatePropagation() //执行第一个事件处理程序，并阻止剩下的事件处理程序被执行：
+
+event.currentTarget  //获得其监听器触发了事件的那个元素
+
+event.target    //获得触发事件的元素
+</code></pre><p>后两者的区别：</p>
+<pre><code>target:触发事件的某个具体对象，只会出现在事件流的目标阶段
+
+currentTarget:绑定事件的对象，恒等于this，可能出现在事件流的任意一个阶段中
+
+
+父子嵌套的关系中，父元素绑定了事件，单击了子元素，
+这时候currentTarget指向的是父元素，因为他是绑定事件的对象，
+而target指向了子元素，因为他是触发事件的那个具体对象
+</code></pre><h2 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h2><p>customEvent() 和 Event()</p>
+<p>区别：customEvent可以属性里携带自定义数据的功能(event.detail的值为tcstory)；</p>
+<pre><code>var btn = document.querySelector(&apos;.son&apos;);
+var ev = new Event(&apos;test&apos;, {
+    bubbles: &apos;true&apos;,
+    cancelable: &apos;true&apos;
+});
+btn.addEventListener(&apos;test&apos;, function (event) {
+    console.log(event.bubbles);
+    console.log(event.cancelable);
+    console.log(event.detail);
+}, false);
+btn.dispatchEvent(ev);
+</code></pre><h1 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h1><pre><code>HTTP协议的主要特点
+HTTP报文的组成部分
+HTTP方法（校招重点）
+POST和GET的区别
+HTTP状态码（校招重点）
+什么是持久化连接
+什么是管线化
+</code></pre><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><pre><code>URL=Uniform Resource Locator 唯一资源定位符
+格式：协议类型://IP地址：端口号/资源路径/资源名称
+
+c. http=Hypertext transfer Protocol 超文本传输协议
+作用：用于解决浏览器和服务器之前的沟通问题
+
+a.服务器IP地址=生活地址  
+
+b.服务器端口号=楼层，门牌号
+
+d.资源路径：服务器在哪个文件找需要访问的文件
+
+
+HTML=hypertext markup language超文本标记语言
+作用：专门用来描述文本的语义的，告诉浏览器哪些是标题哪些是段落。
+
+
+
+协议：就是交流双方事先约定好的规则
+
+HTTP: 超文本传输协议（HyperText Transfer Protocol)
+用于从WWW服务器传输超文本到本地浏览器的传送协议
+
+HTTPS: 超文本传输协议的安全版(Hyper Text Transfer Protocol Secure)
+
+HTTP+加密+认证+完整性保护=HTTPS
+http+ssl=https，需要证书和提供安全连接
+端口80,443
+</code></pre><h2 id="HTTP协议的主要特点"><a href="#HTTP协议的主要特点" class="headerlink" title="HTTP协议的主要特点"></a>HTTP协议的主要特点</h2><p>特点：</p>
+<pre><code>简单快速，灵活，无连接，无状态（后两个一定要说）
+
+简单快速：客户向服务器请求服务时，只需传送请求方法和路径，每个资源都是固定的，统一资源符。（URL）
+
+灵活：通过一个http协议就可以完成不同数据类型的传输，只需要更改头文件中的数据类型
+
+无连接：连接一次就断掉，不会保持连接。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。 
+原因：服务器需要处理同时面向全世界数十万、上百万客户端的网页访问，因此请求时建连接、请求完释放连接，以尽快将资源释放出来服务其他客户端
+
+
+无状态：一次连接之后，服务端是无法记住客户端的状态的（通过session等手段才能实现）
+缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。
+另一方面，在服务器不需要先前信息时它的应答就较快。
+</code></pre><h2 id="HTTP报文的组成部分"><a href="#HTTP报文的组成部分" class="headerlink" title="HTTP报文的组成部分"></a>HTTP报文的组成部分</h2><p><img src="https://i.imgur.com/34uImfD.jpg" alt=""></p>
+<pre><code>请求报文：请求行，请求头，空行，请求体
+
+请求行：请求方法，请求地址，http协议及版本
+（example： GET /home/xxx HTTP/1.1）
+
+请求头：key-value值，告诉服务端请求的内容是什么
+</code></pre><p><img src="https://i.imgur.com/XyBGQEc.jpg" alt=""></p>
+<pre><code>相应报文：状态行，响应头，空行，响应体
+
+状态行：http协议及版本   状态码及状态描述
+（example：HTTP/1.1 200 OK）
+</code></pre><h2 id="HTTP方法（校招重点）"><a href="#HTTP方法（校招重点）" class="headerlink" title="HTTP方法（校招重点）"></a>HTTP方法（校招重点）</h2><pre><code>GET —&gt; 获取资源
+POST —&gt; 传输资源
+PUT —&gt; 更新资源
+DELETE —&gt; 删除资源
+HEAD —&gt; 获取报文首部
+</code></pre><h2 id="POST和GET的区别"><a href="#POST和GET的区别" class="headerlink" title="POST和GET的区别"></a>POST和GET的区别</h2><pre><code>1.GET在浏览器中回退是无害的，而POST会再次提交请求
+2.GET请求可以被浏览器主动缓存，POST不会，需要手动设置
+3.GET请求在URL中传输的参数长度是有限制的，而POST请求没有限制
+4.对参数的数据类型，GET只接受ASCII字符，而POST没有限制
+5.GET请求的参数会被完整的保留在浏览器历史记录里，而POST中的参数不会被保留
+6.GET产生的URL地址可以被收藏，而POST不可以
+7.GET请求只能进行url编码，而POST支持多种编码方式
+8.GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息
+9.GET参数通过URL传递，POST放在Request body中
+</code></pre><h2 id="HTTP状态码（校招重点）"><a href="#HTTP状态码（校招重点）" class="headerlink" title="HTTP状态码（校招重点）"></a>HTTP状态码（校招重点）</h2><pre><code>1xx：指示信息
+2xx：成功
+3xx：重定向
+4xx：客户端错误
+5xx：服务端错误
+
+
+200：请求已成功，请求所希望的响应头或数据体将随此响应返回。
+
+206：服务器已经成功处理了部分 GET 请求。类似于 FlashGet 或者迅雷这类的 HTTP 下载工具都是使用此类响应实现断点续传或者将一个大文档分解为多个下载段同时下载。
+
+301：被请求的资源已永久移动到新位置，并且将来任何对此资源的引用都应该使用本响应返回的若干个 URI 之一。
+
+302：请求的资源现在临时从不同的 URI 响应请求。
+
+304：如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。
+
+400：1、语义有误，当前请求无法被服务器理解。除非进行修改，否则客户端不应该重复提交这个请求。 　　2、请求参数有误。
+
+401：当前请求需要用户验证。
+
+403：服务器已经理解请求，但是拒绝执行它
+
+404：请求失败，请求所希望得到的资源未被在服务器上发现
+
+500：服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理
+
+503：由于临时的服务器维护或者过载，服务器当前无法处理请求
+</code></pre><h2 id="什么是持久化连接"><a href="#什么是持久化连接" class="headerlink" title="什么是持久化连接"></a>什么是持久化连接</h2><pre><code>HTTP的无连接特点，每个请求/应答客户和服务器都要新建一个连接，完成之后立即断开连接。这次即为：“请求-应答”模式（非keep-alive模式）；
+
+Keep-Alive功能使客户端到服 务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive功能避免了建立或者重新建立连接。这便是持久化连接（keep-alive模式）
+
+持久连接只有在1.1版本才支持。
+</code></pre><p>优点：Keep-Alive模式肯定更高效，性能更高。因为避免了建立/释放连接的开销</p>
+<h2 id="什么是管线化"><a href="#什么是管线化" class="headerlink" title="什么是管线化"></a>什么是管线化</h2><pre><code>持久连接的情况下，请求和连接是对应的，即：
+请求1--&gt;响应1--&gt;请求2--&gt;响应2
+
+管线化是指，将请求和响应都进行了打包进行发送：
+请求1，2，3—&gt;响应1，2，3
+</code></pre><p>从上可知：http的请求响应是一对一的</p>
+<p>道化链接：发送多个http请求, 然后返回对个http响应. 严格按照顺序将他们对应起来</p>
+<pre><code>管线化机制是通过持久连接完成的，至少1.1版本
+
+只有GET和HEAD请求可以进行管线化，POST有所限制
+
+初次建立不应启动管线化，因为服务端不一定支持1.1
+
+管线化不会影响到来的顺序
+
+1.1要求服务器支持管线化，但并不要求服务端一定能进行管线化处理，只需要不失败即可
+
+开启管线化很可能不会带来大幅度的性能提升，而且很多服务器端和代理程序对管线化的支持并不好，因此现代浏览器，如Chrome和Firefox是默认关闭管线化的。
+</code></pre><h1 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h1><pre><code>创建对象有几种方法
+—&gt; 原型，构造函数，对象实例，原型链
+—&gt; instanceof的原理
+—&gt; new运算符
+</code></pre><h2 id="创建对象有几种方法"><a href="#创建对象有几种方法" class="headerlink" title="创建对象有几种方法"></a>创建对象有几种方法</h2><p>格式工厂</p>
+<pre><code>function fn(){
+    var obj=new Object();
+    obj.name=””;
+    obj.age=””;
+    obj.say=function(){};
+    return obj;
+}
+var boy=fn();
+
+
+优点：使用这种方法能够不断重复的创建对象。 
+缺点：无法识别对象类型，每个对象都有自己的say 函数，不能共享同一个函数，造成内存的浪费。
+</code></pre><p>构造函数<br>    function fn(){<br>        this.name=””;<br>        this.age=””;<br>        this.say=function(){}<br>    }<br>    var tom=new fn();<br>    tom.name</p>
+<pre><code>优点：使用这种方法能够重复的创建对象，并且能够识别对象的类型。 
+缺点：每个对象都有自己的say 函数，不能共享同一个函数，造成内存的浪费
+</code></pre><p>原型</p>
+<pre><code>function fn(){}
+fn.prototype.name=””;
+fn.prototype.age=””;
+fn.prototype.say=function(){};
+var tom=new fn();
+tom.name
+
+缺点：prototype是使用的指针，并没有重新开辟新的内存空间，所有的实例都指向一个内容，其中一个改变了，其他的都改变了。
+如果是值类型的能正常显示，引用类型的就会报错
+
+优点：能够共享一个函数。 
+缺点：构造函数没有参数，不能通过构造函数初始化属性值；属性是对象时被多个实例共享容易产生问题。
+</code></pre><p>字面量形式：</p>
+<pre><code>var 01 = {name: ‘o1’};
+var 011 = new Object({name: ‘o11’});
+
+
+缺点：使用这种方法能够不能重复的创建对象，并且能够识别对象的类型。 
+</code></pre><p>注意  <code>fn.prototype={}</code>因为<code>{}</code>本身被当做对象，这样写会替换fn.prototype,constructor被修改</p>
+<p>Object.create():</p>
+<pre><code>var P = {name: ‘o3&apos;}
+var o3 = Object.create(P);
+
+
+缺点：使用这种方法能够不能重复的创建对象，并且能够识别对象的类型。
+</code></pre><p>上两者的区别：</p>
+<pre><code>function Parent1() {
+    this.name=&quot;Parent1&quot;;
+    this.num=[1,2,3,4,5];
+    this.say=function () {
+        console.log(this.name);
+    }
+}
+
+console.log(new Parent1);
+console.log(Object.create(Parent1));
+</code></pre><p><img src="https://i.imgur.com/EJ3xMjS.png" alt=""></p>
+<p>总结：使用Object.create()是将对象继承到<strong>proto</strong>属性上</p>
+<h2 id="原型，构造函数，对象实例，原型链"><a href="#原型，构造函数，对象实例，原型链" class="headerlink" title="原型，构造函数，对象实例，原型链"></a>原型，构造函数，对象实例，原型链</h2><p><img src="http://b364.photo.store.qq.com/psb?/V11gSCnK0POvWR/FbpxB9*odj*no1ioDUvEkJyEA3bThfFDFYjSRKsFLrM!/b/dGwBAAAAAAAA&amp;bo=lgOAAgAAAAADBzU!&amp;rf=viewer_4" alt=""></p>
+<p><img src="https://i.imgur.com/V84g4x7.png" alt=""></p>
+<p>一个实例：</p>
+<pre><code>function fn() {
+    this.say=function () {
+        console.log(this.name);
+    }
+}
+fn.prototype.name=&quot;tom&quot;;
+
+f1=new fn();
+
+f1.say();
+
+
+构造函数：fn
+
+原型:fn.prototype
+
+对象实例:f1
+</code></pre><p>构造函数：不需要显式地创建对象、直接将属性和方法赋给this对象、没有return语句。构造函数始终以大写字母开头命名，以区分其他函数。</p>
+<p>原型：每个函数都会有prototype（原型）属性。这个属性是一个指针，指向一个特定类型的所有实例共享的属性和方法对象。</p>
+<p>对象实例：根据构造函数实例出来的对象。</p>
+<p>原型链：因为每个对象和原型都有原型，对象的原型指向原型对象，而父的原型又指向父的父，这种原型层层连接起来的就构成了原型链。</p>
+<p><img src="https://i.imgur.com/Y6LartF.png" alt=""></p>
+<p>继承的实现，属性搜索机制：</p>
+<pre><code>当查找一个对象的属性时，先找这个对象的构造函数对象中找，如果找到直接返回
+
+如果没找到就去找这个对象的__proto__去找，如果找到直接返回
+
+还没找到，继续从这个对象的__proto__的__proto__直到__proto__为null；
+
+如果仍然没有找到指定的属性，就会返回 undefined。
+</code></pre><p>总结：</p>
+<p>内置的关系图</p>
+<p>第一代  </p>
+<pre><code>Obeject
+</code></pre><p>第二代：</p>
+<pre><code>Fuction，Array，Date，Number，error
+</code></pre><p>第三代（实例）：</p>
+<p>   obj=new Object();</p>
+<p>   arr=new Array()；</p>
+<p>   ….</p>
+<p>自创对象关系</p>
+<p>第一代</p>
+<pre><code>Obeject
+</code></pre><p>第二代</p>
+<pre><code>fn
+</code></pre><p>第三代</p>
+<pre><code>var f1=new fn; 
+</code></pre><p>原型链的关系图：</p>
+<p><img src="https://i.imgur.com/vjedKqV.png" alt=""></p>
+<h2 id="instanceof的原理"><a href="#instanceof的原理" class="headerlink" title="instanceof的原理"></a>instanceof的原理</h2><p>instanceof 运算符用来检测 实例是否存在于原型的原型链上,确定原型和实例的关系</p>
+<pre><code>孙 instanceof   父/祖父   //true
+
+
+function fn() {
+    this.say=function () {
+        console.log(this.name);
+    }
+}
+fn.prototype.name=&quot;tom&quot;;
+
+f1=new fn();
+
+//console.log(f1.__proto__===fn.prototype);
+var arr=new Function();
+console.log(f1 instanceof fn);
+</code></pre><h2 id="new运算符"><a href="#new运算符" class="headerlink" title="new运算符"></a>new运算符</h2><p>本质:与继承的区别</p>
+<pre><code>function _new(OBJ) {
+    var obj={};
+    obj.__proto__=OBJ.prototype;  //copy原型的属性和方法
+    OBJ.call(obj);                //copy构造的属性和方法
+    return obj;
+}
+
+
+
+function _new(OBJ) {
+    var o = Object.create(OBJ.prototype);
+    var k = OBJ.call(o);
+    if(typeof k === &apos;object&apos; ){
+        return k;
+    } else {
+        return o;
+    }
+}
+
+var person=_new(Person);
+console.log(person);
+</code></pre><p><strong>构造函数与其他函数的唯一区别，就在于调用它们的方式不同</strong></p>
+<p><strong>任何函数，只要通过 new 操作符来调用，那它就可以作为构造函数；而任何函数，如果不通过 new 操作符来调用，那它跟普通函数也不会有什么两样</strong></p>
+<pre><code>缺点：
+就是每个方法都要在每个实例上重新创建一遍
+</code></pre><h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><pre><code>变量=基本类型+引用类型
+
+内存=堆（存放引用类型）+栈（存放简单的数据+指针）
+</code></pre><p>栈的优势就是存取速度比堆要快，仅次于直接位于CPU中的寄存器，但缺点是，存在栈中的数据大小与生存期必须是确定的，缺乏灵活性。</p>
+<p>堆的优势是可以动态地分配内存大小，生存期也不必事先告诉编译器，垃圾收集器会自动地收走这些不再使用的数据，但是缺点是由于在运行时动态分配内存，所以存取速度较慢。</p>
+<pre><code>undefined、numll、boolean、number、string
+直接改变内存的值
+</code></pre><p><img src="http://www.2cto.com/uploadfile/Collfiles/20150623/20150623100326164.png" alt=""></p>
+<pre><code>每一个的值是相互独立的
+
+var num1 = 5;
+var num2 = num1;
+num2=15；
+console.log(num1);//15
+console.log(num2);//5
+
+
+
+
+json，functio，object，null
+改变的是指针
+每一个值不是独立的，因为是改变的是指针，修改修改一个改变全部
+
+var obj1 = new Object();
+obj1.name=&quot;tom&quot;;
+var obj2 = obj1;
+obj2.name = &quot;jack&quot;;
+obj2.age=18;
+console.log(obj1.name);  //jack
+console.log(obj2.name);  //jack
+console.log(obj1.age);   //18
+</code></pre><p>栈：标记清除   </p>
+<pre><code>变量进入环境（例如，在函数中声明一个变量）时，就将这个变量标记为“进入环境”。
+当变量离开环境时，则将其标记为“离开环境”。
+</code></pre><p>堆：引用计数</p>
+<pre><code>当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1。
+如果同一个值又被赋给另一个变量，则该值的引用次数加 1。
+相反，如果包含对这个值引用的变量又取得了另外一个值，则这个值的引用次数减 1。
+当这个值的引用次数变成 0 时，则说明没有办法再访问这个值了，
+</code></pre><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>原型链是实现继承的主要方法</p>
+<p>基本思想：利用原型让一个引用类型继承另一个引用类型的属性和方法。</p>
+<h2 id="类与实例：怎么生成一个类，类的声明，怎么生成一个实例"><a href="#类与实例：怎么生成一个类，类的声明，怎么生成一个实例" class="headerlink" title="类与实例：怎么生成一个类，类的声明，怎么生成一个实例"></a>类与实例：怎么生成一个类，类的声明，怎么生成一个实例</h2><pre><code>function Animal (name) {
+    this.name = name
+}
+
+//ES6
+class Animal2{
+    //构造方法   定义属性
+    constructor(name){
+        this.name = name
+    }
+}
+var a=new Animal(&quot;name1&quot;);
+var b=new Animal2(&quot;name2&quot;);
+
+console.log(a.name);
+console.log(b.name);
+</code></pre><h2 id="类于继承：如何实现继承，继承的几种方式"><a href="#类于继承：如何实现继承，继承的几种方式" class="headerlink" title="类于继承：如何实现继承，继承的几种方式"></a>类于继承：如何实现继承，继承的几种方式</h2><h3 id="关键"><a href="#关键" class="headerlink" title="关键"></a>关键</h3><p>  目标：继承祖先的方法+自己的属性和父亲的独立不影响</p>
+<pre><code>Child1.prototype = new Parent1();   //原型链,继承原型函数
+缺点：原型属性会被所有实例共享（基本类型不会影响）,所有实例的__proto__是同一个，所以相互之间会有影响
+
+
+Parent1.call(this);      //call，apply    继承构造函数
+缺点：父亲原型上面的属性没有被继承，没能实现原型链
+</code></pre><h3 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h3><pre><code>function Parent2() {
+    this.name = &apos;parent2&apos;;
+}
+function Child2() {
+    this.type = &apos;child2&apos;;
+}
+Child2.prototype = new Parent2();
+var f1=new Child2();
+
+console.log(f1);
+</code></pre><p>同时要注意，因为son的原型被father代替了，所以son原本原型中的方法，会被抹去，因此son单独的方法应该写在继承的后面。</p>
+<p>错误：</p>
+<pre><code>son.prototype.a=function(){
+    alert(233);
+};
+son.prototype = new father();    //这样方法a就没有了
+</code></pre><p>正确：</p>
+<pre><code>son.prototype = new father();
+son.prototype.a=function(){   //被覆盖了以后再
+    alert(233);
+};
+</code></pre><p>缺点：<br><strong>引用类型值</strong>的原型属性会被所有实例共享（基本类型不会影响）,所有实例的<strong>proto</strong>是同一个，所以相互之间会有影响。父类中增加新的属性，那么所有的实例都会同时改变。某个实例的属性值（来自父类的）发生了变化，其他实例对应属性也变化。</p>
+<pre><code>function Parent1() {
+    this.color=[1,2,3];
+}
+function Child1() {
+}
+Child1.prototype = new Parent1();
+var f1=new Child1();
+f1.color.push(4);
+console.log(f1.color);  //[1,2,3,4]
+var f2=new Child1();
+console.log(f2.color); //[1,2,3,4]
+
+
+Parent1和f2的color均被影响
+</code></pre><h3 id="借用构造函数（call-apply）"><a href="#借用构造函数（call-apply）" class="headerlink" title="借用构造函数（call,apply）"></a>借用构造函数（call,apply）</h3><p>供爷法则，借东西的人在前面</p>
+<pre><code>function 贷款人{
+    银行.call(this);   //将银行的this指向贷款人
+}
+
+银行.钱.call(贷款人,参数1,参数2)；
+银行.钱.apply(贷款人,[参数1,参数2])；
+</code></pre><p>继承：</p>
+<pre><code>function Parent2(){
+    this.name = &apos;parent1&apos;;
+}
+function child2(){
+    this.type = &apos;child1&apos;;
+    Parent2.call(this); //这句话是执行父级的构造函数，也可以用apply，改变函数运行的上下文
+}
+var f1=new child2();
+
+console.log(f1);
+</code></pre><p>缺点（问题）：Parent的prototype上面的属性或者方法是不能被Chlid继承的，只实现了部分继承。</p>
+<h3 id="组合继承1"><a href="#组合继承1" class="headerlink" title="组合继承1"></a>组合继承1</h3><pre><code>function Parent3() {
+    this.name = &apos;parent3&apos;;
+    this.play = [1,2,3,4];
+}
+function Child3(){
+    Parent3.call(this);
+    this.type = &apos;child3&apos;;
+}
+Child3.prototype = new Parent3();   
+var s3 = new Child3();               
+var s4 = new Child3();                
+
+console.log(s3);
+console.log(s4);
+
+
+new的本质：
+
+    var obj={};                   //创建空对象, {}就是一个Obeject的实例
+    obj.__proto__=OBJ.prototype;  //copy原型的属性和方法，实例所以用__proto__
+    OBJ.call(obj);                //copy构造的属性和方法
+    return obj;                   //返回对象
+
+
+这里Child3.prototype = new Parent3()，
+所以new Child3一次，父亲的构造函数，就执行一次
+</code></pre><p>缺点：父级的构造函数执行了两次，而并没有必要</p>
+<h3 id="组合继承2"><a href="#组合继承2" class="headerlink" title="组合继承2"></a>组合继承2</h3><pre><code>function Parent4() {
+    this.name = &apos;parent4&apos;;
+    this.play = [1,2,3,4];
+}
+function Child4(){
+        Parent4.call(this);
+        this.type = &apos;child4&apos;;
+    }
+Child4.prototype = Parent4.prototype;
+var s5 = new Child4();
+console.log(s5.constructor);   //Parent4
+console.log(s5 instanceof Parent4);  //true
+</code></pre><p>问题:</p>
+<p>1.怎么区分一个对象是由子类实例化的，还是父类实例化的（直接实例化）</p>
+<p>2.constructor有问题，这里指向的是Parent4，表明s5是Parent4的实例有问题</p>
+<h3 id="最终方式"><a href="#最终方式" class="headerlink" title="最终方式"></a>最终方式</h3><pre><code>function Parent5() {
+    this.name = &apos;parent5&apos;;
+    this.play = [1,2,3,4];
+}
+
+function Child5(){
+    Parent5.call(this);
+    this.name = &apos;Child5&apos;;
+}
+Child5.prototype = Object.create(Parent5.prototype);
+Child5.prototype.constructor = Child5;
+var s7 = new Child5();
+console.log(s7.constructor);
+console.log(s7 instanceof Parent5);
+
+
+
+
+
+不用Child5.prototype = Parent5.prototype;的原因：
+</code></pre><p><img src="https://i.imgur.com/kAEcDWU.png" alt=""></p>
+<pre><code>Parent5.prototype是一个{}（Object）而不是Parent5
+
+使用Object.create()是将对象继承到__proto__属性上
+</code></pre><h1 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h1><pre><code>—&gt; 什么是同源策略及限制
+—&gt; 前后端如何通信
+—&gt; 如何创建Ajax
+—&gt; 跨域通信的几种方式
+</code></pre><h2 id="什么是同源策略及限制"><a href="#什么是同源策略及限制" class="headerlink" title="什么是同源策略及限制"></a>什么是同源策略及限制</h2><p>源：协议，域名，端口</p>
+<p>限制：不是一个源的文档没有权利去操作另一个源的文档，包括Cookie, LocalStorage, IndexDB,DOM无法获取，Ajax无法发送</p>
+<p>同源策略限制不同的源的文档之间进行交互。</p>
+<h2 id="前后端如何通信"><a href="#前后端如何通信" class="headerlink" title="前后端如何通信"></a>前后端如何通信</h2><ul>
+<li>Ajax：同源限制</li>
+<li>WebSocket：不受限制</li>
+<li>CORS：支持同源，也支持非同源（新的通信协议标准）</li>
+</ul>
+<h2 id="如何创建Ajax：有以下几个要点"><a href="#如何创建Ajax：有以下几个要点" class="headerlink" title="如何创建Ajax：有以下几个要点"></a>如何创建Ajax：有以下几个要点</h2><p>原理：在用于和服务器之间加了一个ajax引擎，是用户操作和服务器响应异步化，将一些数据验证和处理交给ajax引擎处理 </p>
+<ol>
+<li>创建一个异步调用对象，并且实例化。<br>（这里需要注意一下兼容的问题IE6以上的浏览器不一样）</li>
+<li>准备向服务器发送异步请求，指定他的http请求方式和URL<br>（这里方式有很多种：get post head put，我常用的就get和post）</li>
+<li>发送http请求<br>（get传送数据通过加载url后面，post是通过send，post要多一个设置头信息告诉后端数据是什么格式）</li>
+<li>设置服务器返回后的回调函数</li>
+<li>使用js或者模板实现局部的刷新</li>
+</ol>
+<pre><code>//异步调用对象，并且实例化
+var xhr=null;
+if(window.XMLHttpRequest){   //标准浏览器
+    xhr=new  XMLHttpRequest();
+}else{                       //早期的IE浏览器
+    xhr=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+}
+
+
+//准备向服务器发送异步请求 和   发送异步请求
+if (type === &apos;GET&apos;) {
+    xhr.open(type, url, true);
+    //method,url,async
+    // method：请求的类型；GET 或 POST    url：文件在服务器上的位置   async：true（异步）或 false（同步）
+    //url=url?+dataStr
+    xhr.send();
+} if
+(type === &apos;POST&apos;) {
+    xhr.open(type, url, true);
+    xhr.setRequestHeader(&apos;content-type&apos;, &apos;application/x-www-form-urlencoded&apos;);
+    xhr.send(dataStr);  //传送数据
+}
+
+
+
+//设置服务器返回后的回调函数
+xhr.onreadystatechange=function(){   //事件  当状态值改变的时候发生事件
+    if(xhr.readyState==4){
+        if(xhr.status==200 || xhr.status === 304){
+            var data=xhr.responseText;
+        }else{
+            alert(&apos;出错了&apos;);   //弹出服务器错误的类型；
+        }
+    }
+}
+</code></pre><h2 id="跨域通信的几种方式"><a href="#跨域通信的几种方式" class="headerlink" title="跨域通信的几种方式"></a>跨域通信的几种方式</h2><ul>
+<li>JSONP</li>
+<li>Hash(hash改变，页面是不刷新的，？后是search，改变时会刷新页面)</li>
+<li>postMessage（新技术，h5的标准）</li>
+<li>WebSocket</li>
+<li>CORS（可以理解为支持跨域通信的变种Ajax。当你在浏览器中发送一个ajax跨域请求时，浏览器会在http头中加入一个origin。如果只是一个普通的ajax，则会被浏览器拦截）</li>
+</ul>
+<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><p>利用script标签的可以不同源加载实现的。</p>
+<p>简单来说：jsonp请求一个url，然后把服务器返回的数据进行处理。</p>
+<ol>
+<li>在window全局注册一个函数</li>
+<li>给服务端传递这个函数的名字，同时可以有参数</li>
+<li>服务端返回这个函数，内部填充有数据，就可以拿到数据</li>
+<li>删除全局注册的那个函数</li>
+</ol>
+<p>ajax的核心是通过XmlHttpRequest获取非本页内容</p>
+<p>jsonp的核心则是动态添加<script>标签来调用服务器提供的js脚本。</p>
+<h3 id="Hash的原理："><a href="#Hash的原理：" class="headerlink" title="Hash的原理："></a>Hash的原理：</h3><p>页面A中通过iframe或frame嵌入了B窗口。目标是A给B发消息。</p>
+<ol>
+<li>拿到B的url地址</li>
+<li>改变其hash值</li>
+<li>在B中接收，onhashchange</li>
+</ol>
+<h3 id="webSocket-so-k-t"><a href="#webSocket-so-k-t" class="headerlink" title="webSocket   so k t"></a>webSocket   so k t</h3><ul>
+<li>前后端非实时数据交互使用Ajax</li>
+<li>实时数据交互使用WebSocket</li>
+</ul>
+<p>HTTP不支持持久连接的，keep-alive在http1.1才支持。即使是1.1也是一个 Request 一个 Response ，并且response也是被动的，不能主动发起。</p>
+<p>常用实例：ajax轮询，让浏览器隔个几秒就发送一次请求，询问服务器是否有新信息。服务端不能主动联系客户端，只能有客户端发起。</p>
+<p>Websocket的特点：</p>
+<ol>
+<li>一个持久化的协议，</li>
+<li>服务器完成协议升级后（HTTP-&gt;Websocket），服务端就可以主动推送信息给客户端。</li>
+<li>一次请求，就可以做到源源不断的信息回复，而不是一对一的回复</li>
+</ol>
+<p> WebSocket最大的优点在于服务器和浏览器可以在给定的时间范围内的任意时刻，相互推送信息。在建立连接之后，服务器可以主动传送数据给浏览器。此外，服务器与浏览器之间交换的表头信息很小。WebSocket并不限于以Ajax（或XHR）方式通信，因为Ajax技术需要客户端发起请求，而WebSocket服务器和客户端可以相互推送信息。</p>
+<pre><code>var wsServer = &apos;ws://localhost:8888/Demo&apos;; //服务器地址
+var websocket = new WebSocket(wsServer); //创建WebSocket对象
+websocket.send(&quot;hello&quot;);//向服务器发送消息
+websocket.onopen = function (evt) {
+    //已经建立连接
+};
+websocket.onclose = function (evt) {
+    //已经关闭连接
+};
+websocket.onmessage = function (evt) {
+    //收到服务器消息，使用evt.data提取
+};
+websocket.onerror = function (evt) {
+    //产生异常
+};
+</code></pre><h3 id="CORS-ko-er-si"><a href="#CORS-ko-er-si" class="headerlink" title="CORS     ko er si"></a>CORS     ko er si</h3><p>CORS是一个W3C标准，全称是”跨域资源共享”（Cross-origin resource sharing）</p>
+<p>兼容性：浏览器都支持该功能，IE浏览器不能低于IE10</p>
+<p>CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息。</p>
+<p>分类：简单请求（simple request）和非简单请求（not-so-simple request）。</p>
+<p>JSONP只支持GET请求，CORS支持所有类型的HTTP请求。JSONP的优势在于支持老式浏览器，以及可以向不支持CORS的网站请求数据。</p>
+<p>fetch兼容性：谷歌+chrome</p>
+<pre><code>var myHeaders = new Headers({
+    &apos;Access-Control-Allow-Origin&apos;: &apos;*&apos;,
+    &apos;Content-Type&apos;: &apos;text/plain&apos;
+});
+fetch(url,{
+    method: &apos;GET&apos;,
+    headers: myHeaders,
+    mode: &apos;cors&apos;
+}).then(function (res) {
+
+}).catch(function (err) {
+
+});
+</code></pre><p>method - 使用的HTTP动词，GET, POST, PUT, DELETE, HEAD</p>
+<p>url - 请求地址，URL of the request</p>
+<p>headers - 关联的Header对象</p>
+<p>referrer - referrer</p>
+<p>mode - 请求的模式，主要用于跨域设置，cors, no-cors, same-origin</p>
+<p>credentials - 是否发送Cookie omit, same-origin</p>
+<p>redirect - 收到重定向请求之后的操作，follow, error, manual</p>
+<p>integrity - 完整性校验</p>
+<p>cache - 缓存模式(default, reload, no-cache)</p>
+<h1 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h1><h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>跨域脚本攻击：Cross-site scripting<br>攻击原理：不需要登陆认证，是向页面注入脚本，写入一些标签。<br>防御措施：目的是让插入的这些东西无法执行</p>
+<h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2><p>基本概念和缩写：跨站请求伪造，cross-site request forgery</p>
+<p>攻击原理:<br>用户 ——1登陆——&gt; 网站A<br>用户 &lt;—— 2下发cookie—— 网站A<br>用户 —— 3访问——&gt; 网站B<br>用户 &lt;——4引诱点击—— 网站B<br>用户 ——5访问——&gt; 网站A（A就会通过cookie判断，觉得是合法用户）</p>
+<h1 id="喜欢去的论坛"><a href="#喜欢去的论坛" class="headerlink" title="喜欢去的论坛"></a>喜欢去的论坛</h1><p> csdn+segmentfault   </p>
+<ul>
+<li>看解析</li>
+<li>对插件的使用</li>
+</ul>
+<pre><code>GitHub：看插件框架的中文文档    weui  weui.js
+
+
+
+，操作符 取最后的值。
+比如 var a=(1,2);最后a的值是2  
+</code></pre></script></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/17/jquery的再次研究/" rel="next" title="jquery的再次研究">
+                <i class="fa fa-chevron-left"></i> jquery的再次研究
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/02/jq源代码/" rel="prev" title="jq源代码">
+                jq源代码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#记不住"><span class="nav-number">1.1.</span> <span class="nav-text">记不住</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css-html"><span class="nav-number">2.</span> <span class="nav-text">css,html</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面两侧固定宽度，中间自适应"><span class="nav-number">2.1.</span> <span class="nav-text">页面两侧固定宽度，中间自适应</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动方法"><span class="nav-number">2.1.1.</span> <span class="nav-text">浮动方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位方式"><span class="nav-number">2.1.2.</span> <span class="nav-text">定位方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex布局"><span class="nav-number">2.1.3.</span> <span class="nav-text">flex布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#table方式"><span class="nav-number">2.1.4.</span> <span class="nav-text">table方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网格（Grid）布局方式"><span class="nav-number">2.1.5.</span> <span class="nav-text">网格（Grid）布局方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五种方式的区别"><span class="nav-number">2.1.6.</span> <span class="nav-text">五种方式的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#衍生"><span class="nav-number">2.1.7.</span> <span class="nav-text">衍生</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型"><span class="nav-number">2.2.</span> <span class="nav-text">盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础概念"><span class="nav-number">2.2.1.</span> <span class="nav-text">基础概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#标准模型和IE模型的区别"><span class="nav-number">2.2.2.</span> <span class="nav-text">标准模型和IE模型的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS如何设置这两种模型"><span class="nav-number">2.2.3.</span> <span class="nav-text">CSS如何设置这两种模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS如何获取和设置盒模型对应的宽高"><span class="nav-number">2.2.4.</span> <span class="nav-text">JS如何获取和设置盒模型对应的宽高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC"><span class="nav-number">2.2.5.</span> <span class="nav-text">BFC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例题（根据盒模型解释边距重叠）（拔高题）-BFC（边距重叠解决方案）"><span class="nav-number">2.2.6.</span> <span class="nav-text">实例题（根据盒模型解释边距重叠）（拔高题）+ BFC（边距重叠解决方案）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除浮动"><span class="nav-number">2.2.7.</span> <span class="nav-text">清除浮动</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM事件"><span class="nav-number">3.</span> <span class="nav-text">DOM事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM事件的级别"><span class="nav-number">3.1.</span> <span class="nav-text">DOM事件的级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM事件流"><span class="nav-number">3.2.</span> <span class="nav-text">DOM事件流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#描述DOM事件捕获的具体"><span class="nav-number">3.3.</span> <span class="nav-text">描述DOM事件捕获的具体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event对象的常见应用"><span class="nav-number">3.4.</span> <span class="nav-text">Event对象的常见应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义事件"><span class="nav-number">3.5.</span> <span class="nav-text">自定义事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP协议"><span class="nav-number">4.</span> <span class="nav-text">HTTP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">4.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP协议的主要特点"><span class="nav-number">4.2.</span> <span class="nav-text">HTTP协议的主要特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP报文的组成部分"><span class="nav-number">4.3.</span> <span class="nav-text">HTTP报文的组成部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP方法（校招重点）"><span class="nav-number">4.4.</span> <span class="nav-text">HTTP方法（校招重点）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST和GET的区别"><span class="nav-number">4.5.</span> <span class="nav-text">POST和GET的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP状态码（校招重点）"><span class="nav-number">4.6.</span> <span class="nav-text">HTTP状态码（校招重点）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是持久化连接"><span class="nav-number">4.7.</span> <span class="nav-text">什么是持久化连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是管线化"><span class="nav-number">4.8.</span> <span class="nav-text">什么是管线化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型链"><span class="nav-number">5.</span> <span class="nav-text">原型链</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象有几种方法"><span class="nav-number">5.1.</span> <span class="nav-text">创建对象有几种方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型，构造函数，对象实例，原型链"><span class="nav-number">5.2.</span> <span class="nav-text">原型，构造函数，对象实例，原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof的原理"><span class="nav-number">5.3.</span> <span class="nav-text">instanceof的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new运算符"><span class="nav-number">5.4.</span> <span class="nav-text">new运算符</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">6.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内存"><span class="nav-number">6.1.</span> <span class="nav-text">内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">6.2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类与实例：怎么生成一个类，类的声明，怎么生成一个实例"><span class="nav-number">6.3.</span> <span class="nav-text">类与实例：怎么生成一个类，类的声明，怎么生成一个实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类于继承：如何实现继承，继承的几种方式"><span class="nav-number">6.4.</span> <span class="nav-text">类于继承：如何实现继承，继承的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关键"><span class="nav-number">6.4.1.</span> <span class="nav-text">关键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链继承"><span class="nav-number">6.4.2.</span> <span class="nav-text">原型链继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#借用构造函数（call-apply）"><span class="nav-number">6.4.3.</span> <span class="nav-text">借用构造函数（call,apply）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合继承1"><span class="nav-number">6.4.4.</span> <span class="nav-text">组合继承1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合继承2"><span class="nav-number">6.4.5.</span> <span class="nav-text">组合继承2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最终方式"><span class="nav-number">6.4.6.</span> <span class="nav-text">最终方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ajax"><span class="nav-number">7.</span> <span class="nav-text">ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是同源策略及限制"><span class="nav-number">7.1.</span> <span class="nav-text">什么是同源策略及限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前后端如何通信"><span class="nav-number">7.2.</span> <span class="nav-text">前后端如何通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何创建Ajax：有以下几个要点"><span class="nav-number">7.3.</span> <span class="nav-text">如何创建Ajax：有以下几个要点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域通信的几种方式"><span class="nav-number">7.4.</span> <span class="nav-text">跨域通信的几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP"><span class="nav-number">7.4.1.</span> <span class="nav-text">JSONP</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

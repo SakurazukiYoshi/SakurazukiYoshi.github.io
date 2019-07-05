@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="樱月义" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="yahoo性能优化80%-90%的终端响应时间是花费在下载页面中的图片，样式表，脚本，flash等；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="性能优化">
+<meta property="og:url" content="http://yoursite.com/2017/11/28/性能优化/index.html">
+<meta property="og:site_name" content="樱月义的博客">
+<meta property="og:description" content="yahoo性能优化80%-90%的终端响应时间是花费在下载页面中的图片，样式表，脚本，flash等；">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://segmentfault.com/img/bV0Uyv?w=470&h=166">
+<meta property="og:image" content="https://segmentfault.com/img/bV1TKz?w=879&h=723">
+<meta property="og:updated_time" content="2019-07-05T08:14:45.268Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="性能优化">
+<meta name="twitter:description" content="yahoo性能优化80%-90%的终端响应时间是花费在下载页面中的图片，样式表，脚本，flash等；">
+<meta name="twitter:image" content="https://segmentfault.com/img/bV0Uyv?w=470&h=166">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/28/性能优化/"/>
+
+
+
+
+
+  <title>性能优化 | 樱月义的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">樱月义的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不破楼兰终不还</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/性能优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="樱月义">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="樱月义的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">性能优化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T14:04:20+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/性能/" itemprop="url" rel="index">
+                    <span itemprop="name">性能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="yahoo性能优化"><a href="#yahoo性能优化" class="headerlink" title="yahoo性能优化"></a>yahoo性能优化</h1><p>80%-90%的终端响应时间是花费在下载页面中的图片，样式表，脚本，flash等；</p>
+<a id="more"></a><!--more-->
+<h1 id="浏览器渲染方面的优化"><a href="#浏览器渲染方面的优化" class="headerlink" title="浏览器渲染方面的优化"></a>浏览器渲染方面的优化</h1><h2 id="减少http请求"><a href="#减少http请求" class="headerlink" title="减少http请求"></a>减少http请求</h2><p>改善首次访问网站的响应时间</p>
+<ul>
+<li>雪碧图</li>
+<li>合并压缩JS和CSS,但是要考虑合并后的文件体积</li>
+<li>css替代图片</li>
+<li>对于一些常用又不时刻变化的数据可以对其进行缓存</li>
+</ul>
+<p>优化图像 </p>
+<pre><code>优化CSS Spirite 
+不要在HTML中缩放图像 
+favicon.ico要小而且可缓存
+图片的外层最好预先设置高度,避免重排
+</code></pre><h2 id="避免空的src和href"><a href="#避免空的src和href" class="headerlink" title="避免空的src和href"></a>避免空的src和href</h2><p>留意具有这两个属性的标签如link，script，img，iframe等； </p>
+<h2 id="尽可能对images和table设定宽高值"><a href="#尽可能对images和table设定宽高值" class="headerlink" title="尽可能对images和table设定宽高值"></a>尽可能对images和table设定宽高值</h2><p>对图片和table是设定宽高，是考虑到如果浏览器能立刻知道图片或者tables的宽高，它就能够直接呈现页面而不需要通过计算元素大小后重绘，而且即便是图片损毁而没有展现，也不会进而破坏了页面本来的布局。 </p>
+<h2 id="css：将样式置顶-js：将脚本置底"><a href="#css：将样式置顶-js：将脚本置底" class="headerlink" title="css：将样式置顶  js：将脚本置底"></a>css：将样式置顶  js：将脚本置底</h2><p>实现页面有秩序地加载，从浏览器的渲染机制上开始分析</p>
+<h2 id="避免样式表达式"><a href="#避免样式表达式" class="headerlink" title="避免样式表达式"></a>避免样式表达式</h2><p>减少DOM访问，尽量不要定义全局变量，定义一些共用方法，使用gulp压缩代码</p>
+<h2 id="延迟加载"><a href="#延迟加载" class="headerlink" title="延迟加载"></a>延迟加载</h2><p>确定页面运行正常后，再加载脚本来实现如拖放和动画，或者是隐藏部分的内容以及折叠内容等。 </p>
+<h2 id="减少DOM元素个数"><a href="#减少DOM元素个数" class="headerlink" title="减少DOM元素个数"></a>减少DOM元素个数</h2><p>使用更适合或者在语意是更贴切的标签，要考虑大量DOM元素中循环的性能开销。 </p>
+<h2 id="尽量减少iframe的个数"><a href="#尽量减少iframe的个数" class="headerlink" title="尽量减少iframe的个数"></a>尽量减少iframe的个数</h2><h2 id="DOM-操作优化"><a href="#DOM-操作优化" class="headerlink" title="DOM 操作优化"></a>DOM 操作优化</h2><p>减少重排</p>
+<ul>
+<li><p>一次性appendChild</p>
+</li>
+<li><p>当然还可以利用 display 来减少reflow次数 ，元素由不显示（display:none;）到显示（display:block;）会重绘一次。</p>
+</li>
+<li>通过css预先定义元素的隐藏和显示，通过对父级的className进行操纵，将会把reflow的次数减少到1次</li>
+</ul>
+<h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h2 id="添加Expires头"><a href="#添加Expires头" class="headerlink" title="添加Expires头"></a>添加Expires头</h2><p>后端操作</p>
+<p>　通过使用Expires头，浏览器可以在用户首次访问网站后，将页面的资源缓存下来。可以为Expires指定过期时间，在指定时间后，缓存将失效</p>
+<pre><code>&lt;meta http-equiv=&quot;expires&quot; content=&quot;31 Dec 2008&quot;&gt;
+</code></pre><h2 id="将CSS和JS放到外部文件中"><a href="#将CSS和JS放到外部文件中" class="headerlink" title="将CSS和JS放到外部文件中"></a>将CSS和JS放到外部文件中</h2><p>我们需要权衡内置代码带来的HTTP请求减少与通过使用外部文件进行缓存带来的好处的折中点。 </p>
+<h1 id="资源下载方面"><a href="#资源下载方面" class="headerlink" title="资源下载方面"></a>资源下载方面</h1><h2 id="使用CDN"><a href="#使用CDN" class="headerlink" title="使用CDN"></a>使用CDN</h2><p>CDN的全称是Content Delivery Network，即内容分发网络。</p>
+<p>基本原理：</p>
+<ul>
+<li>广泛采用各种缓存服务器，将这些缓存服务器分布到用户访问相对集中的地区或网络中</li>
+<li>在用户访问网站时，利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上，由缓存服务器直接响应用户请求。</li>
+<li>解决因分布、带宽、服务器性能带来的访问延迟问题，适用于站点加速、点播、直播等场景</li>
+</ul>
+<h2 id="启用Gzip"><a href="#启用Gzip" class="headerlink" title="启用Gzip"></a>启用Gzip</h2><p><img src="https://segmentfault.com/img/bV0Uyv?w=470&amp;h=166" alt=""></p>
+<p>但是不是每个浏览器都支持gzip的，利用meta标签来判断是否支持</p>
+<ul>
+<li>用户端http请求头声明浏览器支持的压缩方式，服务端配置启用压缩，压缩的文件类型，压缩方式。</li>
+<li>当客户端请求到服务端的时候，服务器解析请求头，</li>
+<li>如果客户端支持gzip压缩，响应时对请求的资源进行压缩并返回给客户端，浏览器按照自己的方式解析，</li>
+<li>在http响应头，我们可以看到content-encoding:gzip，这是指服务端使用了gzip的压缩方式。</li>
+</ul>
+<p>启用gzip</p>
+<p>node端</p>
+<pre><code>var compression = require(&apos;compression&apos;)
+var app = express();
+
+//尽量在其他中间件前使用compression
+app.use(compression());
+
+//请求进行过滤的话
+app.use(compression({filter: shouldCompress}))
+
+function shouldCompress (req, res) {
+  if (req.headers[&apos;x-no-compression&apos;]) {
+    // 这里就过滤掉了请求头包含&apos;x-no-compression&apos;
+    return false
+  }
+
+  return compression.filter(req, res)
+}
+</code></pre><p>webpack 插件</p>
+<pre><code>const CompressionWebpackPlugin = require(&apos;compression-webpack-plugin&apos;);
+plugins.push(
+    new CompressionWebpackPlugin({
+        asset: &apos;[path].gz[query]&apos;,// 目标文件名
+        algorithm: &apos;gzip&apos;,// 使用gzip压缩
+        test: new RegExp(
+            &apos;\\.(js|css)$&apos; // 压缩 js 与 css
+        ),
+        threshold: 10240,// 资源文件大于10240B=10kB时会被压缩
+        minRatio: 0.8 // 最小压缩比达到0.8时才会被压缩
+    })
+);
+</code></pre><h1 id="减少DNS查找次数"><a href="#减少DNS查找次数" class="headerlink" title="减少DNS查找次数"></a>减少DNS查找次数</h1><p>输入一个url地址时，需要获取到这个url的域名，DNS查找解析域名的过程</p>
+<ol>
+<li>浏览器缓存，浏览器会缓存DNS记录一段时间。</li>
+<li>系统缓存</li>
+<li>路由器缓存</li>
+<li>如果还是没有，那么就去检查ISP有没有吧（网络服务提供商）</li>
+<li>递归搜索</li>
+</ol>
+<h1 id="使用GET来完成AJAX请求"><a href="#使用GET来完成AJAX请求" class="headerlink" title="使用GET来完成AJAX请求"></a>使用GET来完成AJAX请求</h1><p>浏览器中的POST方法是一个“两步走”的过程：首先发送文件头，然后才发送数据。在url小于2K时使用GET获取数据时更加有意义。</p>
+<h1 id="减少Cookie的大小"><a href="#减少Cookie的大小" class="headerlink" title="减少Cookie的大小"></a>减少Cookie的大小</h1><ul>
+<li><p>去除不必要的coockie</p>
+</li>
+<li><p>使coockie体积尽量小以减少对用户响应的影响</p>
+</li>
+<li><p>注意在适应级别的域名上设置coockie以便使子域名不受影响</p>
+</li>
+<li><p>设置合理的过期时间。较早地Expire时间和不要过早去清除coockie，都会改善用户的响应时间。 </p>
+</li>
+</ul>
+<h1 id="用link标签代替-import"><a href="#用link标签代替-import" class="headerlink" title="用link标签代替@import"></a>用link标签代替@import</h1><p>在IE中，页面底部@import和使用link标签作用是一样的，因此最好不要使用它。 </p>
+<h1 id="meta-标签的使用"><a href="#meta-标签的使用" class="headerlink" title="meta 标签的使用"></a>meta 标签的使用</h1><h2 id="seo-优化"><a href="#seo-优化" class="headerlink" title="seo 优化"></a>seo 优化</h2><pre><code>&lt;!-- 页面标题&lt;title&gt;标签(head 头部必须) --&gt;
+&lt;title&gt;your title&lt;/title&gt;
+&lt;!-- 页面关键词 keywords --&gt;
+&lt;meta name=&quot;keywords&quot; content=&quot;your keywords&quot;&gt;
+&lt;!-- 页面描述内容 description --&gt;
+&lt;meta name=&quot;description&quot; content=&quot;your description&quot;&gt;
+&lt;!-- 定义网页作者 author --&gt;
+&lt;meta name=&quot;author&quot; content=&quot;author,email address&quot;&gt;
+&lt;!-- 定义网页搜索引擎索引方式，robotterms 是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。 --&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;&gt;
+</code></pre><h2 id="ie"><a href="#ie" class="headerlink" title="ie"></a>ie</h2><pre><code>&lt;!-- 优先使用最新的ie版本 --&gt;
+&lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;ie=edge&quot;&gt;
+&lt;!-- 是否开启cleartype显示效果 --&gt;
+&lt;meta http-equiv=&quot;cleartype&quot; content=&quot;on&quot;&gt;
+&lt;meta name=&quot;skype_toolbar&quot; content=&quot;skype_toolbar_parser_compatible&quot;&gt;
+
+
+&lt;!-- Pinned Site --&gt;
+&lt;!-- IE 10 / Windows 8 --&gt;
+&lt;meta name=&quot;msapplication-TileImage&quot; content=&quot;pinned-tile-144.png&quot;&gt;
+&lt;meta name=&quot;msapplication-TileColor&quot; content=&quot;#009900&quot;&gt;
+&lt;!-- IE 11 / Windows 9.1 --&gt;
+&lt;meta name=&quot;msapplication-config&quot; content=&quot;ieconfig.xml&quot;&gt;
+</code></pre><h2 id="移动端"><a href="#移动端" class="headerlink" title="移动端"></a>移动端</h2><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, user-scalable=no&quot; /&gt;
+&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
+&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot; /&gt;
+&lt;meta name=&quot;format-detection&quot;content=&quot;telephone=no, email=no&quot; /&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, user-scalable=no&quot; /&gt;
+&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;&lt;!-- 删除苹果默认的工具栏和菜单栏 --&gt;
+&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot; /&gt;&lt;!-- 设置苹果工具栏颜色 --&gt;
+&lt;meta name=&quot;format-detection&quot; content=&quot;telphone=no, email=no&quot; /&gt;&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;
+&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;
+&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;
+&lt;!-- 避免IE使用兼容模式 --&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;
+&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;
+&lt;!-- 微软的老式浏览器 --&gt;
+&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;
+&lt;!-- uc强制竖屏 --&gt;
+&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;
+&lt;!-- QQ强制竖屏 --&gt;
+&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;
+&lt;!-- UC强制全屏 --&gt;
+&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;
+&lt;!-- QQ强制全屏 --&gt;
+&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;
+&lt;!-- UC应用模式 --&gt;
+&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;
+&lt;!-- QQ应用模式 --&gt;
+&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;
+&lt;!-- windows phone 点击无高光 --&gt;
+&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;
+&lt;!-- 适应移动端end --&gt;
+</code></pre><h1 id="移动端的优化"><a href="#移动端的优化" class="headerlink" title="移动端的优化"></a>移动端的优化</h1><p>1.首屏滚动加载，保证首页刷新快，js和css的文件位置坐了相对调整，必须的css和js都内联，加速首页渲染。不是必须的预加载，图片懒加载，用iconfnot代替图片</p>
+<p>dropload</p>
+<p>2.meta dns prefetch设置DNS预解析，避免请求在解析DNS</p>
+<p>3.js的优化</p>
+<ul>
+<li>尽量使用id选择器</li>
+<li>需要重复使用的DOM对象，要优先变量缓存</li>
+<li>事件绑定委托</li>
+<li>touchstart代替click，touchmove、scroll，避免连续触发16ms触发一次，避免页面后卡顿，优化用户体验</li>
+<li>Es6的模板代替以前的template</li>
+<li>固定页面大小，避免缩放导致页面重排重绘</li>
+</ul>
+<p>使用后端数据渲染</p>
+<ul>
+<li>加快页面内容的渲染展示，避免空白页面的出现</li>
+<li>同时可以解决移动端页面SEO的问题</li>
+</ul>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+
+<p>4.css优化<br>-使用CSS3动画，开启GPU加速<br>-flex-box代替float，  使用float的元素布局计算比较耗性能</p>
+<p>5.图片自适应</p>
+<p>picturefill+<picture>标签html<br>允许web开发人员根据不同的屏幕大小、视口大小、屏幕分辨率等情况提供不同的图片给用户。</picture></p>
+<ol start="2">
+<li>首屏加载和按需加载，非首屏内容滚屏加载，保证首屏内容最小化</li>
+</ol>
+<p>移动端网络速度相对较慢,需要保证首屏加载资源最小化,最好不超过1M</p>
+<ol start="3">
+<li>首屏必备的CSS和JavaScript，避免页面HTML载入完成到页面内容展示出现空白</li>
+</ol>
+<ol start="4">
+<li>meta dns prefetch设置DNS预解析</li>
+</ol>
+<p>让浏览器提前解析获取静态资源的主机IP，避免等到请求时才发起DNS解析请求。</p>
+<pre><code>&lt;meta http-equiv=&quot;x-dns-prefetch-control&quot; content=&quot;on&quot;&gt; 
+&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//cdn.domain.com&quot;&gt; 
+</code></pre><ol start="5">
+<li>资源预加载，首屏完成加载后尽快进行加载，保证在用户需要浏览时已经加载完成</li>
+</ol>
+<p>6.图片懒加载</p>
+<ol start="7">
+<li>使用iconfont代替图片图标</li>
+</ol>
+<ul>
+<li>积较小缩放时</li>
+<li>不会失真</li>
+<li>修改图片大小尺寸和呈现颜色</li>
+</ul>
+<p>图片不应在10KB以上</p>
+<p>8.js</p>
+<ul>
+<li>尽量使用id选择器</li>
+<li><p>需要重复使用的DOM对象，要优先设置缓存变量，避免每次使用时都要从整个DOM树中重新查找。</p>
+<pre><code>// 推荐 
+
+let $mod = $(&apos;#mod&apos;); 
+
+$mod.find(&apos;.active&apos;).remove(&apos;active&apos;); 
+
+$mod.find(&apos;.not-active&apos;).addClass(&apos;active&apos;); 
+</code></pre></li>
+</ul>
+<pre><code>// 不推荐 
+
+$(&apos;#mod .active&apos;).remove(&apos;active&apos;); 
+
+$(&apos;#mod .not-active&apos;).addClass(&apos;active&apos;); 
+</code></pre><p>9.页面元素尽量使用事件代理，避免直接事件绑定</p>
+<pre><code>避免出现内存泄露及需要动态添加元素的事件绑定问题
+</code></pre><p>10.使用touchstart代替click,提高用户体验</p>
+<pre><code>touchstart事件和click事件触发时间之间存在300毫秒的延时
+</code></pre><p>11.避免touchmove、scroll连续事件处理</p>
+<p>需要对touchmove、scroll这类可能连续触发回调的事件设置事件节流，例如设置每隔16ms（60帧的帧间隔为16.7ms，因此可以合理地设置为16ms）才进行一次事件处理，避免频繁的事件调用导致移动端页面卡顿。</p>
+<pre><code>// 推荐 
+
+$(&apos;.scroller&apos;).on(&apos;touchmove&apos;, &apos;.btn&apos;, function(e){ 
+
+    let self = this; 
+
+    setTimeout(function(){ 
+
+        console.log(self); 
+
+    }, 16); 
+
+}); 
+</code></pre><p>12.尽量使用ECMAScript 6+的特性来编程</p>
+<p>13 避免缩放导致页面重排重绘</p>
+<!-- 设置viewport不缩放 --> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
+<p>14使用CSS3动画，开启GPU加速</p>
+<p>15flex-box代替float，  使用float的元素布局计算比较耗性能</p>
+<p>16使用后端数据渲染</p>
+<ul>
+<li>加快页面内容的渲染展示，避免空白页面的出现</li>
+<li>同时可以解决移动端页面SEO的问题</li>
+</ul>
+<h1 id="js的代码优化"><a href="#js的代码优化" class="headerlink" title="js的代码优化"></a>js的代码优化</h1><h2 id="用事件委托"><a href="#用事件委托" class="headerlink" title="用事件委托"></a>用事件委托</h2><p>优点：</p>
+<pre><code>减少事件注册，节省内存。比如，
+- 在table上代理所有td的click事件。
+- 在ul上代理所有li的click事件。
+简化了dom节点更新时，相应事件的更新。比如
+- 不用在新添加的li上绑定click事件。
+- 当删除某个li时，不用移解绑上面的click事件。
+</code></pre><p>缺点：</p>
+<pre><code>- 事件委托基于冒泡，对于不冒泡的事件不支持。
+- 层级过多，冒泡过程中，可能会被某层阻止掉。
+- 理论上委托会导致浏览器频繁调用处理函数，虽然很可能不需要处理。所以建议就近委托，比如在table上代理td，而不是在document上代理td。
+- 把所有事件都用代理就可能会出现事件误判。比如，在document中代理了所有button的click事件，另外的人在引用改js时，可能不知道，造成单击button触发了两个click事件。
+</code></pre><h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p> array 使用foreach<br> json  使用Object.keys(json).foreach</p>
+<pre><code>var json={
+    a:1,
+    b:2,
+    c:[1,2,3,4,5]
+};
+Object.keys(json).forEach(function (val,i) {
+    console.log(json[val]);
+});
+</code></pre><h2 id="避免全局查找，常用的全局对象用局部变量代替"><a href="#避免全局查找，常用的全局对象用局部变量代替" class="headerlink" title="避免全局查找，常用的全局对象用局部变量代替"></a>避免全局查找，常用的全局对象用局部变量代替</h2><pre><code>function search() {
+        // 使用当前页面地址和主机域名
+        alert(window.location.href + window.location.host);
+}
+
+// 比较好的方法：先用一个简单变量保存起来
+function search() {
+       var location = window.location;
+       alert(location.href + location.host);
+}
+</code></pre><h2 id="遍历数组，缓存数组长度，避免多次查询-（可以用foreach避免）"><a href="#遍历数组，缓存数组长度，避免多次查询-（可以用foreach避免）" class="headerlink" title="遍历数组，缓存数组长度，避免多次查询 （可以用foreach避免）"></a>遍历数组，缓存数组长度，避免多次查询 （可以用foreach避免）</h2><h2 id="使用Boolean过滤数组中的所有假值"><a href="#使用Boolean过滤数组中的所有假值" class="headerlink" title="使用Boolean过滤数组中的所有假值"></a>使用Boolean过滤数组中的所有假值</h2><pre><code>兼容性IE9
+
+//const compact = arr =&gt; arr.filter(Boolean);
+var compact = function compact(arr) {
+    return arr.filter(Boolean);
+};
+console.log(compact([0, 1, false, 2, &apos;&apos;, 3, &apos;a&apos;, &apos;e&apos; * 23, NaN, &apos;s&apos;, 34]));
+
+
+
+arr.filter(function(currentValue,index,arr){  //循环遍历
+    //console.log(currentValue);
+    //console.log(index);
+    //console.log(arr);
+    console.log(this);
+},json)
+
+
+currentValue    必须。当前元素的值
+index    可选。当前元素的索引值
+arr    可选。当前元素属于的数组对象
+json  遍历中的this
+</code></pre><h2 id="保留小数点后几位小数"><a href="#保留小数点后几位小数" class="headerlink" title="保留小数点后几位小数"></a>保留小数点后几位小数</h2><pre><code>var round = function round(n) {
+    //arguments[0]和n  小数    arguments[1]  保留到多少位
+    // 传入了多个参数 &amp;&amp;  第二个参数的不为undefined？第二个参数：0
+    var decimals = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : 0;
+    console.log(Math.round(n + &quot;e2&quot;));
+    //n+&apos;e2&apos;  科学计数法   四舍五入（n*10二次方）   在 n*10的负二次方
+    return Number(Math.round(n + &quot;e&quot; + decimals) + &quot;e-&quot; + decimals);
+};
+round(1.345, 2)
+</code></pre><h1 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h1><h2 id="js是单线程"><a href="#js是单线程" class="headerlink" title="js是单线程"></a>js是单线程</h2><p>为什么？</p>
+<p>如果是多线程，多个线程对同一个DOM操作，浏览器会以哪个线程的操作为组</p>
+<p>产生问题：</p>
+<p>这样会出现问题，必须一个任务完成了才会执行下一个任务。当时当一个任务执行时间很长，那么后面的任务就得一直堵塞着。用户体验特别差。</p>
+<h2 id="任务队列"><a href="#任务队列" class="headerlink" title="任务队列"></a>任务队列</h2><p>为了防止js堵塞，通过实践循环（event loop）来实现异步的。</p>
+<p>任务将会分为： 同步任务+异步任务。</p>
+<p>异步任务，会存放在任务队列的数据结构中。</p>
+<p>js的运行机制：</p>
+<p>(1)所有同步任务都在主线程上执行，形成一个执行栈。</p>
+<p>(2)主线程之外，还有一个“任务队列”,只要异步任务有了运行结果，就在“任务队列”之中放置一个事件。</p>
+<p>(3)一旦“执行栈”中的所有同步任务执行完毕了，系统就会读取“任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。</p>
+<p>(4)主线程不断重复上面的三步。（事件循环）</p>
+<p>同步任务，从上往下运行 -&gt; 遇到异步任务，放到任务队列</p>
+<p>-&gt;同步任务执行完成，执行任务队列，同样先执行异步任务中的同步任务，<br>异步放进队列-&gt;不断循环</p>
+<pre><code>console.log(1);
+
+setTimeout(function(){
+    setTimeout(function () {
+        console.log(4);
+    });
+    console.log(2)
+},0);
+console.log(3)
+</code></pre><p>结果为： 1  3   2  4</p>
+<p>setTimeout里的函数并没有立即执行,而是延迟了一段时间,满足一定条件后,才去执行的。这叫异步</p>
+<pre><code>setTimeout(function(){
+    console.log(&apos;定时器开始啦&apos;)
+});
+
+new Promise(function(resolve){
+    console.log(&apos;马上执行for循环啦&apos;);
+    for(var i = 0; i &lt; 10000; i++){
+        i == 99 &amp;&amp; resolve();
+    }
+}).then(function(){
+    console.log(&apos;执行then函数啦&apos;)
+});
+
+console.log(&apos;代码执行结束&apos;);  
+</code></pre><p>最初的认为：</p>
+<pre><code>代码执行结束
+马上执行for循环啦
+执行then函数啦
+定时器开始啦
+</code></pre><p>正确顺序是：</p>
+<pre><code>马上执行for循环啦
+代码执行结束
+执行then函数啦
+定时器开始啦
+</code></pre><p>这里出错的问题在于：</p>
+<p>认为new Promise整个函数是异步任务，实际上是同步任务，而then才是异步任务</p>
+<p>正确的流程是：</p>
+<pre><code>setTimeout 是异步任务,被放到event table
+
+new Promise 是同步任务,被放到主进程里,直接执行打印 console.log(&apos;马上执行for循环啦&apos;)
+
+.then里的函数是 异步任务,被放到event table
+
+ console.log(&apos;代码执行结束&apos;)是同步代码,被放到主进程里,直接执行
+</code></pre><p>这里需要注意异步任务并不是按前后顺序来执行的，这里要分为</p>
+<p>宏任务+微任务</p>
+<pre><code>macro-task(宏任务)：包括整体代码script，setTimeout，setInterval
+micro-task(微任务)：Promise，process.nextTick
+</code></pre><p><img src="https://segmentfault.com/img/bV1TKz?w=879&amp;h=723" alt=""></p>
+<ul>
+<li><p>执行一个宏任务,过程中如果遇到微任务,就将其放到微任务的【事件队列】里</p>
+</li>
+<li><p>当前宏任务执行完成后,会查看微任务的【事件队列】,并将里面全部的微任务依次执行完</p>
+</li>
+</ul>
+<pre><code>首先执行script下的宏任务,遇到setTimeout,将其放到宏任务的【队列】里
+
+遇到 new Promise直接执行,打印&quot;马上执行for循环啦&quot;
+
+遇到then方法,是微任务,将其放到微任务的【队列里】
+
+打印 &quot;代码执行结束&quot;
+
+本轮宏任务执行完毕,查看本轮的微任务,发现有一个then方法里的函数, 打印&quot;执行then函数啦&quot;
+
+到此,本轮的event loop 全部完成。
+
+
+下一轮的循环里,先执行一个宏任务,发现宏任务的【队列】里有一个 setTimeout里的函数,执行打印&quot;定时器开始啦&quot;
+</code></pre><p>setTimeout延时的时间：</p>
+<pre><code>setTimeout(function(){
+   console.log(&apos;执行了&apos;)
+},3000)    
+</code></pre><p>这里会认为是3s以后再执行代码。</p>
+<p>实际上是：</p>
+<p>3s后setTimeout里的函数被推到事件队列里，等队列里的其他主线程任务执行完毕以后才执行</p>
+<p>条件： </p>
+<ul>
+<li>3s</li>
+<li>主线程空闲，主线程的内容执行完毕以后</li>
+</ul>
+<p>部分浏览器的会在setTimeout之后执行promise的回调。因为promises 来自于ECMAScript 的标准而不是HTML标准</p>
+<p>最后再梳理一遍：</p>
+<ul>
+<li>先执行宏任务，主线程的宏任务执行结束以后</li>
+<li>判断有没有可以执行的微任务，</li>
+<li>执行所有的微任务</li>
+<li>再开始新的宏任务</li>
+</ul>
+<p>而宏任务一般是：包括整体代码script，setTimeout，setInterval。</p>
+<p>微任务：Promise，process.nextTick。</p>
+<pre><code>setTimeout(function(){
+    console.log(&apos;1&apos;)
+},0);
+
+
+new Promise(function(resolve,reject){
+    console.log(&apos;2&apos;);
+    resolve();
+}).then(function(){
+    console.log(&apos;3&apos;)
+})
+
+console.log(&apos;4&apos;);
+
+//2 4  3 1
+</code></pre><ul>
+<li><p>settimeout是宏任务，被放到了宏任务的eventqueue里面</p>
+</li>
+<li><p>console.log(‘2’);</p>
+</li>
+<li><p>检测到Promise的then函数把他放入了微任务序列。</p>
+</li>
+<li><p>console.log(‘4’);</p>
+</li>
+<li><p>主线进程的所有代码执行结束，查看有没有微任务，先从微任务queue里拿回掉函数，console.log(‘3’)</p>
+</li>
+<li><p>然后微任务queue空了后再从宏任务的queue拿函数，console.log(‘1’)</p>
+</li>
+</ul>
+<p>同步任务和异步任务：</p>
+<ul>
+<li>同步和异步任务分别进入不同的执行”场所”，同步的进入主线程，异步的进入Event Table并注册函数。</li>
+<li>当指定的事情完成时，Event Table会将这个函数移入Event Queue。</li>
+<li>主线程内的任务执行完毕为空，会去Event Queue读取对应的函数，进入主线程执行。</li>
+<li>上述过程会不断重复，也就是常说的Event Loop(事件循环)。</li>
+</ul>
+<pre><code>let data = [];
+$.ajax({
+    url:www.javascript.com,
+    data:data,
+    success:() =&gt; {
+        console.log(&apos;发送成功!&apos;);
+    }
+})
+console.log(&apos;代码执行结束&apos;);
+</code></pre><ol>
+<li>ajax进入Event Table（事件表），注册回调函数success。</li>
+<li>执行console.log(‘代码执行结束’)。</li>
+<li>ajax事件完成，回调函数success进入Event Queue（事件队列）。</li>
+<li>主线程从Event Queue读取回调函数success并执行。</li>
+</ol>
+<pre><code>console.log(&apos;1&apos;);
+
+setTimeout(function() {
+    console.log(&apos;2&apos;);
+    process.nextTick(function() {
+        console.log(&apos;3&apos;);
+    })
+    new Promise(function(resolve) {
+        console.log(&apos;4&apos;);
+        resolve();
+    }).then(function() {
+        console.log(&apos;5&apos;)
+    })
+})
+process.nextTick(function() {
+    console.log(&apos;6&apos;);
+})
+new Promise(function(resolve) {
+    console.log(&apos;7&apos;);
+    resolve();
+}).then(function() {
+    console.log(&apos;8&apos;)
+})
+
+setTimeout(function() {
+    console.log(&apos;9&apos;);
+    process.nextTick(function() {
+        console.log(&apos;10&apos;);
+    })
+    new Promise(function(resolve) {
+        console.log(&apos;11&apos;);
+        resolve();
+    }).then(function() {
+        console.log(&apos;12&apos;)
+    })
+})
+</code></pre><p>   // 1 7 6 8 2  4     3  5   9    11   10  12</p>
+<p>这里注意setTimeout1和setTimeout2是两个宏任务，所以执行内部的微任务的时候应该是执行完了setTimeout1的再去setTimeout2的，并不是两个是并行的</p>
+<p>js的执行机制就是事件循环(Event Loop)</p>
+<h1 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h1><p>setTimeout，setInterval，ajax，promise</p>
+<h1 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h1><h2 id="为什么会提出promise"><a href="#为什么会提出promise" class="headerlink" title="为什么会提出promise"></a>为什么会提出promise</h2><p>JavaScript中异步编程的问题，传统的异步编程最大的特点就是地狱般的回调嵌套，一旦嵌套次数过多，就很容易使我们的代码难以理解和维护。</p>
+<p>Promise则可以让我们通过链式调用的方法去解决回调嵌套的问题，使我们的代码更容易理解和维护。</p>
+<p>针对于回调地狱。</p>
+<h2 id="本质分析"><a href="#本质分析" class="headerlink" title="本质分析"></a>本质分析</h2><p>Promise的本质没有改变，异步函数的语法，只是改变了异步函数的写法，将回调地狱的写法，从代码中各种跳，到链式结构整合在一起。让思路更加顺畅。</p>
+<p>异步的成功和失败执行的时间，依旧还是由开发自己定。</p>
+<h2 id="缺点分析"><a href="#缺点分析" class="headerlink" title="缺点分析"></a>缺点分析</h2><pre><code>var p1=new Promise(function (resolve,reject) {
+    setTimeout(function () {
+        var a=&apos;请求账号信息&apos;;
+        //console.log(&apos;登录成功&apos;);
+        //resolve(a);
+        reject(&apos;登录失败&apos;);
+        throw &quot;登录失败&quot;;
+    },2000);
+}).then(function (data) {
+    console.log(data);
+    return new Promise(function (resolve,reject) {
+        setTimeout(function () {
+            var a=&apos;获取菜单信息&apos;;
+            resolve(a)
+        },2000);
+    })
+},function (err) {
+    console.log(err);
+}).then(function (data) {
+    console.log(&apos;得到账号信息&apos;,data);
+    return new Promise(function (resolve,reject) {
+        setTimeout(function () {
+            var a=&apos;请求菜单对应的页面信息&apos;;
+            resolve(a)
+        },2000);
+    })
+},function (err) {
+    console.log(err);
+}).then(function (data) {
+    console.log(data);
+    return new Promise(function (resolve,reject) {
+        setTimeout(function () {
+            var a=&apos;获取菜单对应的页面信息&apos;;
+            resolve(a)
+        },2000);
+    })
+},function (err) {
+    console.log(err);
+}).then(function (data) {
+    console.log(data,&apos;生成对应页面&apos;);
+}).catch(function (err) {
+    console.log(err);
+}) 
+</code></pre><p>正常的操作步骤，在登录失败以后变不再继续执行下去，然而这里依旧会执行下去，中途没有停止。</p>
+<p>1.无法取消Promise，一旦新建它就会执行，无法中途取消</p>
+<p>then的执行顺序:</p>
+<p>promise链，是因为then返回一个新的promise对象，一直都是一个promise对象在执行:</p>
+<ul>
+<li><p>如果then()没有的参数的话，会继承上一个promise的状态，resolved和reject</p>
+</li>
+<li><p>如果有参数，不管你第一个成功还是失败都会默认返回的promise是成功</p>
+</li>
+<li><p>如果手动返回一个new promise的话，有手动传入的状态来决定后续的是成功还是失败</p>
+</li>
+</ul>
+<h2 id="promise的分析"><a href="#promise的分析" class="headerlink" title="promise的分析"></a>promise的分析</h2><ul>
+<li><p>Promise是一个构造函数，所以我们使用了new操作符来创建promise。</p>
+</li>
+<li><p>构造函数Promise的参数是一个函数（暂时叫它func），这个函数（func）有两个参数resolve和reject，它们分别是两个函数，这两个函数的作用就是将promise的状态从pending（等待）转换为resolved（已解决）或者从pending（等待）转换为rejected（已失败）。</p>
+</li>
+<li><p>创建后的promise有一些方法，then和catch。</p>
+</li>
+<li><p>Promise函数体的内部包裹着一个异步的请求或者操作或者函数；然后我们可以在这个异步的操作完成的时候使用resolve函数将我们获得的结果传递出去，或者使用reject函数将错误的消息传递出去。</p>
+</li>
+<li><p>Promise中有个状态，来记录是异步函数完成，还是异步函数失败。</p>
+</li>
+</ul>
+<h1 id="call、apply、bind"><a href="#call、apply、bind" class="headerlink" title="call、apply、bind"></a>call、apply、bind</h1><pre><code>function fn(a,b,c,d){
+　　console.log(a,b,c,d);
+}
+//call
+fn.call(null,1,2,3);
+//apply
+fn.apply(null,[1,2,3]);
+//bind
+var f = fn.bind(null,1,2,3);
+f(4);
+</code></pre><p>call就是挨个传值，apply传一个数组，<br>bind也是挨个传值，但和call和apply还有一些不同，使用call和apply会直接执行这个函数，而bind并不直接执行，而是将绑定好的this重新返回一个新函数，什么时候调用由你自己决定</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/28/路由/" rel="next" title="路由">
+                <i class="fa fa-chevron-left"></i> 路由
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/17/jquery的再次研究/" rel="prev" title="jquery的再次研究">
+                jquery的再次研究 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="樱月义" />
+            
+              <p class="site-author-name" itemprop="name">樱月义</p>
+              <p class="site-description motion-element" itemprop="description">这是一个记录小知识的地方</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/SakurazukiYoshi" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#yahoo性能优化"><span class="nav-number">1.</span> <span class="nav-text">yahoo性能优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器渲染方面的优化"><span class="nav-number">2.</span> <span class="nav-text">浏览器渲染方面的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#减少http请求"><span class="nav-number">2.1.</span> <span class="nav-text">减少http请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免空的src和href"><span class="nav-number">2.2.</span> <span class="nav-text">避免空的src和href</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尽可能对images和table设定宽高值"><span class="nav-number">2.3.</span> <span class="nav-text">尽可能对images和table设定宽高值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css：将样式置顶-js：将脚本置底"><span class="nav-number">2.4.</span> <span class="nav-text">css：将样式置顶  js：将脚本置底</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免样式表达式"><span class="nav-number">2.5.</span> <span class="nav-text">避免样式表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延迟加载"><span class="nav-number">2.6.</span> <span class="nav-text">延迟加载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少DOM元素个数"><span class="nav-number">2.7.</span> <span class="nav-text">减少DOM元素个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尽量减少iframe的个数"><span class="nav-number">2.8.</span> <span class="nav-text">尽量减少iframe的个数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-操作优化"><span class="nav-number">2.9.</span> <span class="nav-text">DOM 操作优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存"><span class="nav-number">3.</span> <span class="nav-text">缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加Expires头"><span class="nav-number">3.1.</span> <span class="nav-text">添加Expires头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将CSS和JS放到外部文件中"><span class="nav-number">3.2.</span> <span class="nav-text">将CSS和JS放到外部文件中</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#资源下载方面"><span class="nav-number">4.</span> <span class="nav-text">资源下载方面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用CDN"><span class="nav-number">4.1.</span> <span class="nav-text">使用CDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启用Gzip"><span class="nav-number">4.2.</span> <span class="nav-text">启用Gzip</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#减少DNS查找次数"><span class="nav-number">5.</span> <span class="nav-text">减少DNS查找次数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用GET来完成AJAX请求"><span class="nav-number">6.</span> <span class="nav-text">使用GET来完成AJAX请求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#减少Cookie的大小"><span class="nav-number">7.</span> <span class="nav-text">减少Cookie的大小</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用link标签代替-import"><span class="nav-number">8.</span> <span class="nav-text">用link标签代替@import</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#meta-标签的使用"><span class="nav-number">9.</span> <span class="nav-text">meta 标签的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#seo-优化"><span class="nav-number">9.1.</span> <span class="nav-text">seo 优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ie"><span class="nav-number">9.2.</span> <span class="nav-text">ie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端"><span class="nav-number">9.3.</span> <span class="nav-text">移动端</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#移动端的优化"><span class="nav-number">10.</span> <span class="nav-text">移动端的优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#js的代码优化"><span class="nav-number">11.</span> <span class="nav-text">js的代码优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用事件委托"><span class="nav-number">11.1.</span> <span class="nav-text">用事件委托</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历"><span class="nav-number">11.2.</span> <span class="nav-text">遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免全局查找，常用的全局对象用局部变量代替"><span class="nav-number">11.3.</span> <span class="nav-text">避免全局查找，常用的全局对象用局部变量代替</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历数组，缓存数组长度，避免多次查询-（可以用foreach避免）"><span class="nav-number">11.4.</span> <span class="nav-text">遍历数组，缓存数组长度，避免多次查询 （可以用foreach避免）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Boolean过滤数组中的所有假值"><span class="nav-number">11.5.</span> <span class="nav-text">使用Boolean过滤数组中的所有假值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保留小数点后几位小数"><span class="nav-number">11.6.</span> <span class="nav-text">保留小数点后几位小数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行机制"><span class="nav-number">12.</span> <span class="nav-text">运行机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#js是单线程"><span class="nav-number">12.1.</span> <span class="nav-text">js是单线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务队列"><span class="nav-number">12.2.</span> <span class="nav-text">任务队列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异步任务"><span class="nav-number">13.</span> <span class="nav-text">异步任务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#promise"><span class="nav-number">14.</span> <span class="nav-text">promise</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么会提出promise"><span class="nav-number">14.1.</span> <span class="nav-text">为什么会提出promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本质分析"><span class="nav-number">14.2.</span> <span class="nav-text">本质分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点分析"><span class="nav-number">14.3.</span> <span class="nav-text">缺点分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#promise的分析"><span class="nav-number">14.4.</span> <span class="nav-text">promise的分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#call、apply、bind"><span class="nav-number">15.</span> <span class="nav-text">call、apply、bind</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">樱月义</span>
+
+  
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
